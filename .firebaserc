@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "molly-budget"
+    "stage": "molly-budget-stage",
+    "production": "molly-budget"
   }
 }
