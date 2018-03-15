@@ -8,9 +8,9 @@ describe('App', () => {
         const auth = jest.fn(() => ({
             onAuthStateChanged: jest.fn()
         }));
-        document.firebaseProvider = { auth: auth };
+        const firebase = { auth: auth };
 
-        const app = shallow(<App />);
+        const app = shallow(<App firebase={firebase}/>);
         expect(app.text()).toBe('Authenticating...');
     });
 
@@ -19,9 +19,9 @@ describe('App', () => {
         const auth = jest.fn(() => ({
             onAuthStateChanged: onAuthStateChanged
         }));
-        document.firebaseProvider = { auth: auth };
+        const firebase = { auth: auth };
 
-        const app = shallow(<App />);
+        const app = shallow(<App firebase={firebase} />);
         auth().onAuthStateChanged.mock.calls[0][0]({displayName: 'Larry Bird'});
         
         app.update();

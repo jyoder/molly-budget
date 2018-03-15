@@ -1,6 +1,11 @@
 import React from 'react';
-import FirebaseProvider from 'network/FirebaseProvider';
+
 import FirebaseAuthenticator from 'network/FirebaseAuthenticator';
+import FirebaseProvider from 'network/FirebaseProvider';
+import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
+
+import Environment from 'environment/Environment';
+
 
 export default class App extends React.Component {
     constructor(props) {
@@ -10,8 +15,7 @@ export default class App extends React.Component {
     }
 
     componentWillMount() {
-        const firebase = document.firebaseProvider || FirebaseProvider.create().getFirebase();
-        FirebaseAuthenticator.create(firebase).authenticate((user) => {
+        FirebaseAuthenticator.create(this._firebase()).authenticate((user) => {
             this.setState({ user: user });
         });
     }
@@ -22,5 +26,19 @@ export default class App extends React.Component {
         } else {
             return(<h1>Authenticating...</h1>);
         }
+    }
+
+    _firebase() {
+        if(this.props.firebase) {
+            return this.props.firebase;
+        } else {
+            return this._firebaseProvider().getFirebase();
+        }
+    }
+
+    _firebaseProvider() {
+        return FirebaseProvider.create(
+            new FirebaseConfigProvider(Environment.instance())
+        );
     }
 }
