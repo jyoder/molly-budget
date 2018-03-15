@@ -1,43 +1,31 @@
 import FirebaseProvider from 'network/FirebaseProvider';
+import Environment from 'environment/Environment';
 
 describe('create', () => {
-    it('returns a new FirebaseProvider', () => {
-        expect(FirebaseProvider.create()).toBeInstanceOf(FirebaseProvider);
+    it('returns an instance of FirebaseProvider', () => {
+        const configProvider = {};
+        expect(FirebaseProvider.create(configProvider))
+            .toBeInstanceOf(FirebaseProvider);
     });
 });
 
 describe('getFirebase', () => {
-    it('returns a firebase instance', () => {
-        const firebase = { initializeApp: jest.fn() }
-        const firebaseProvider = new FirebaseProvider(firebase);
-        expect(firebaseProvider.getFirebase()).toBe(firebase);
-    });
+    it('returns a correctly configured firebase instance', () => {
+        const firebase = { initializeApp: jest.fn() };
+        const configProvider = { getConfig: jest.fn(() => ({ config: 'hi' })) };
 
-    it('initializes the firebase instance on first invocation', () => {
-        const firebase = { initializeApp: jest.fn() }
-        const firebaseProvider = new FirebaseProvider(firebase);
-        
-        firebaseProvider.getFirebase();
-        expect(firebase.initializeApp).toHaveBeenCalledWith(_config());
+        const firebaseProvider = new FirebaseProvider(firebase, configProvider);
+        expect(firebaseProvider.getFirebase()).toBe(firebase);
+        expect(firebase.initializeApp).toHaveBeenCalledWith({ config: 'hi' });
     });
 
     it('does not initialize the firebase instance on subsequent invocations', () => {
-        const firebase = { initializeApp: jest.fn() }
-        const firebaseProvider = new FirebaseProvider(firebase);
+        const firebase = { initializeApp: jest.fn() };
+        const configProvider = { getConfig: jest.fn(() => ({ config: 'hi' })) };
+        const firebaseProvider = new FirebaseProvider(firebase, configProvider);
         
         firebaseProvider.getFirebase();
         firebaseProvider.getFirebase();
         expect(firebase.initializeApp).toHaveBeenCalledTimes(1);
     });
 });
-
-function _config() {
-    return {
-        apiKey: "AIzaSyCx_fy73W9aopr9CZZYthjMUY6U1MX4-MU",
-        authDomain: "molly-budget.firebaseapp.com",
-        databaseURL: "https://molly-budget.firebaseio.com",
-        projectId: "molly-budget",
-        storageBucket: "molly-budget.appspot.com",
-        messagingSenderId: "46057669757"
-    };
-}
