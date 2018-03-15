@@ -19,11 +19,8 @@ jobs:
 
       - run:
           name: Build
-          command: yarn build
+          command: scripts/build.sh
 
       - deploy:
           name: Deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --non-interactive
-            fi
+          command: scripts/deploy.sh
