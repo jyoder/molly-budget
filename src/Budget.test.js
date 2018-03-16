@@ -10,7 +10,6 @@ describe('create', () => {
         const budget = Budget.create(10.00);
         Date = savedDate;
 
-
         expect(budget.current()).toBeCloseTo(50.00);
     });
 });
