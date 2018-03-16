@@ -1,0 +1,9 @@
+.AppLayout {
+    text-align: center;
+}
+
+.AppLayout-header {
+    padding: 1em;
+    color: var(--lightColor);
+    background-color: var(--darkColor);
+}
