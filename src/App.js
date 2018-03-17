@@ -7,8 +7,8 @@ import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import Environment from 'environment/Environment';
 
 import AppLayout from 'AppLayout';
+import AppRoutes from 'AppRoutes';
 import AuthenticationIndicator from 'AuthenticationIndicator';
-import BudgetSummary from 'BudgetSummary';
 import Budget from 'Budget';
 
 export default class App extends React.Component {
@@ -48,7 +48,7 @@ export default class App extends React.Component {
 
     _content() {
         if(this.state.user) {
-            return(<BudgetSummary user={this.state.user} budget={this._budget()}/>);
+            return(<AppRoutes user={this.state.user} budget={this._budget()} />);
         } else {
             return(<AuthenticationIndicator />);
         }
