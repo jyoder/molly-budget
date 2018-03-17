@@ -1,5 +1,5 @@
-import BudgetSummary from 'BudgetSummary';
-import Budget from 'Budget';
+import BudgetSummary from 'summary/BudgetSummary';
+import Budget from 'summary/Budget';
 
 import { Button } from 'reactstrap';
 

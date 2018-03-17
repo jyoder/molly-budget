@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 
 import formatCurrency from 'format/CurrencyFormat';
 
-import 'BudgetSummary.css';
+import 'summary/BudgetSummary.css';
 
 export default class BudgetSummary extends React.Component {
     render() {

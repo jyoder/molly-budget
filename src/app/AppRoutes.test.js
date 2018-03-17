@@ -1,8 +1,8 @@
 import AppRoutes from 'app/AppRoutes';
 
-import BudgetSummary from 'BudgetSummary';
+import BudgetSummary from 'summary/BudgetSummary';
+import Budget from 'summary/Budget';
 import Transactions from 'Transactions';
-import Budget from 'Budget';
 
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';

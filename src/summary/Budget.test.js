@@ -1,4 +1,4 @@
-import Budget from 'Budget';
+import Budget from 'summary/Budget';
 
 describe('create', () => {
     it('returns a budget configured with the current date', () => {
