@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'AppLayout.css';
+import 'app/AppLayout.css';
 
 export default class AppLayout extends React.Component {
     render() {

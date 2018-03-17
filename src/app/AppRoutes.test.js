@@ -1,7 +1,7 @@
-import AppRoutes from 'AppRoutes';
+import AppRoutes from 'app/AppRoutes';
+
 import BudgetSummary from 'BudgetSummary';
 import Transactions from 'Transactions';
-
 import Budget from 'Budget';
 
 import React from 'react';

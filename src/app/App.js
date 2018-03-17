@@ -6,8 +6,8 @@ import FirebaseProvider from 'network/FirebaseProvider';
 import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import Environment from 'environment/Environment';
 
-import AppLayout from 'AppLayout';
-import AppRoutes from 'AppRoutes';
+import AppLayout from 'app/AppLayout';
+import AppRoutes from 'app/AppRoutes';
 import AuthenticationIndicator from 'AuthenticationIndicator';
 import Budget from 'Budget';
 

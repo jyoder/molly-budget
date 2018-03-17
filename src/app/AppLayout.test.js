@@ -1,4 +1,4 @@
-import AppLayout from 'AppLayout';
+import AppLayout from 'app/AppLayout';
 
 import React from 'react';
 import { shallow } from 'enzyme';
