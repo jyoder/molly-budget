@@ -1,11 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import FirebaseAuthenticator from 'network/FirebaseAuthenticator';
 import FirebaseProvider from 'network/FirebaseProvider';
 import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
-
 import Environment from 'environment/Environment';
 
+import AppLayout from 'AppLayout';
+import AuthenticationIndicator from 'AuthenticationIndicator';
+import BudgetSummary from 'BudgetSummary';
+import Budget from 'Budget';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -21,11 +25,11 @@ export default class App extends React.Component {
     }
 
     render() {
-        if(this.state.user) {
-            return(<h1>Hello {this.state.user.displayName}!</h1>);
-        } else {
-            return(<h1>Authenticating...</h1>);
-        }
+        return(
+            <AppLayout>
+                {this._content()}
+            </AppLayout>
+        );
     }
 
     _firebase() {
@@ -41,4 +45,20 @@ export default class App extends React.Component {
             new FirebaseConfigProvider(Environment.instance())
         );
     }
+
+    _content() {
+        if(this.state.user) {
+            return(<BudgetSummary user={this.state.user} budget={this._budget()}/>);
+        } else {
+            return(<AuthenticationIndicator />);
+        }
+    }
+
+    _budget() {
+        return Budget.create(40.00);
+    }
 }
+
+App.propTypes = {
+    firebase: PropTypes.object
+};

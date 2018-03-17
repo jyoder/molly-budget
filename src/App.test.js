@@ -1,20 +1,22 @@
 import App from 'App';
+import AuthenticationIndicator from 'AuthenticationIndicator';
+import BudgetSummary from 'BudgetSummary';
 
 import React from 'react';
 import { shallow } from 'enzyme';
 
 describe('App', () => {
-    it('renders authenticating if the user has not yet authenticated', () => {
+    it('renders AuthenticationIndicator while the user has not yet authenticated', () => {
         const auth = jest.fn(() => ({
             onAuthStateChanged: jest.fn()
         }));
         const firebase = { auth: auth };
 
         const app = shallow(<App firebase={firebase}/>);
-        expect(app.text()).toBe('Authenticating...');
+        expect(app.find(AuthenticationIndicator).length).toBe(1);
     });
 
-    it('renders a greeting to the user if he or she has authenticated', () => {
+    it('renders BudgetApp when the user has authenticated', () => {
         const onAuthStateChanged = jest.fn();
         const auth = jest.fn(() => ({
             onAuthStateChanged: onAuthStateChanged
@@ -22,9 +24,9 @@ describe('App', () => {
         const firebase = { auth: auth };
 
         const app = shallow(<App firebase={firebase} />);
-        auth().onAuthStateChanged.mock.calls[0][0]({displayName: 'Larry Bird'});
+        auth().onAuthStateChanged.mock.calls[0][0]({});
         
         app.update();
-        expect(app.text()).toBe('Hello Larry Bird!');
+        expect(app.find(BudgetSummary).length).toBe(1);
     });
 });
