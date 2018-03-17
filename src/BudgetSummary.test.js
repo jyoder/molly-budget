@@ -23,7 +23,7 @@ describe('BudgetSummary', () => {
         const history = { push: jest.fn() };
         const budgetSummary = shallow(<BudgetSummary user={user} budget={budget} history={history}/>);
 
-        expect(budgetSummary.find('.BudgetSummary-addTransaction').length).toBe(1);
+        expect(budgetSummary.find('.BudgetSummary-addTransaction')).toHaveLength(1);
     });
 
     it('navigates to the transactions page when the add transaction button is clicked', () => {

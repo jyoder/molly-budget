@@ -11,6 +11,6 @@ describe('AppLayout', () => {
             </AppLayout>
         );
 
-        expect(appLayout.find('.greeting').length).toBe(1);
+        expect(appLayout.find('.greeting')).toHaveLength(1);
     });
 });

@@ -13,7 +13,7 @@ describe('App', () => {
         const firebase = { auth: auth };
 
         const app = shallow(<App firebase={firebase}/>);
-        expect(app.find(AuthenticationIndicator).length).toBe(1);
+        expect(app.find(AuthenticationIndicator)).toHaveLength(1);
     });
 
     it('renders AppRoutes when the user has authenticated', () => {
@@ -27,6 +27,6 @@ describe('App', () => {
         auth().onAuthStateChanged.mock.calls[0][0]({});
         
         app.update();
-        expect(app.find(AppRoutes).length).toBe(1);
+        expect(app.find(AppRoutes)).toHaveLength(1);
     });
 });
