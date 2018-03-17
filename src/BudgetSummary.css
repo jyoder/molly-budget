@@ -1,5 +1,3 @@
-@import '~Theme.css';
-
-.BudgetSummary {
-    padding: 4em;
+.BudgetSummary-summary {
+    margin: 3em;
 }
