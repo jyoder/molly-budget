@@ -1,4 +1,4 @@
-import BudgetSummary from 'summary/BudgetSummary';
+import BudgetSummary from 'summary/BudgetSummaryPage';
 import Budget from 'summary/Budget';
 
 import { Button } from 'reactstrap';

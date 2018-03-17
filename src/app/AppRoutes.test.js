@@ -1,6 +1,6 @@
 import AppRoutes from 'app/AppRoutes';
 
-import BudgetSummary from 'summary/BudgetSummary';
+import BudgetSummary from 'summary/BudgetSummaryPage';
 import Budget from 'summary/Budget';
 import Transactions from 'transaction/TransactionsPage';
 

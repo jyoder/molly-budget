@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import BudgetSummary from 'summary/BudgetSummary';
+import BudgetSummary from 'summary/BudgetSummaryPage';
 import Transactions from 'transaction/TransactionsPage';
 
 export default class AppRoutes extends React.Component {
