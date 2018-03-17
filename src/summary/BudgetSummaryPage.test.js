@@ -1,10 +1,10 @@
-import BudgetSummary from 'summary/BudgetSummaryPage';
-import Budget from 'summary/Budget';
-
-import { Button } from 'reactstrap';
-
 import React from 'react';
 import { shallow } from 'enzyme';
+
+import BudgetSummary from 'summary/BudgetSummaryPage';
+import Budget from 'summary/Budget';
+import { Button } from 'reactstrap';
+
 
 describe('BudgetSummary', () => {
     it('renders the current user\'s display name and current budget', () => {

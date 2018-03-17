@@ -1,7 +1,8 @@
-import Transactions from 'transaction/TransactionsPage';
-
 import React from 'react';
 import { shallow } from 'enzyme';
+
+import Transactions from 'transaction/TransactionsPage';
+
 
 describe('Transactions', () => {
     it('renders a dummy message', () => {

@@ -1,5 +1,6 @@
 import Budget from 'summary/Budget';
 
+
 describe('create', () => {
     it('returns a budget configured with the current date', () => {
         const savedDate = Date;

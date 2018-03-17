@@ -1,7 +1,7 @@
 import FirebaseAuthenticator from 'network/FirebaseAuthenticator';
-
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+
 
 describe('authenticate', () => {
     it('awaits an authentication state change from firebase', () => {

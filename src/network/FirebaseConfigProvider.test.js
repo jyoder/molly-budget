@@ -1,6 +1,7 @@
 import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import Environment from 'environment/Environment';
 
+
 describe('getConfig', () => {
     it('returns the stage config for the stage environment', () => {
         const environment = new Environment('stage');

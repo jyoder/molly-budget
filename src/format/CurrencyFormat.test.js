@@ -1,5 +1,6 @@
 import formatCurrency from 'format/CurrencyFormat';
 
+
 describe('formatCurrency', () => {
     it('returns a formatted version of the number with two decimal places', () => {
         expect(formatCurrency(11)).toBe('11.00');

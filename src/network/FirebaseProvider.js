@@ -1,6 +1,7 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
+
 export default class FirebaseProvider {
     static create(configProvider) {
         return new FirebaseProvider(firebase, configProvider);
