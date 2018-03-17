@@ -8,7 +8,7 @@ import Environment from 'environment/Environment';
 
 import AppLayout from 'app/AppLayout';
 import AppRoutes from 'app/AppRoutes';
-import AuthenticationIndicator from 'AuthenticationIndicator';
+import AuthenticationIndicator from 'authentication/AuthenticationIndicator';
 import Budget from 'summary/Budget';
 
 export default class App extends React.Component {

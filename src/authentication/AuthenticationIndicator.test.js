@@ -1,4 +1,4 @@
-import AuthenticationIndicator from 'AuthenticationIndicator';
+import AuthenticationIndicator from 'authentication/AuthenticationIndicator';
 
 import React from 'react';
 import { shallow } from 'enzyme';

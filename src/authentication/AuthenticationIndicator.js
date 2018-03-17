@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'AuthenticationIndicator.css';
+import 'authentication/AuthenticationIndicator.css';
 
 export default class AuthenticationIndicator extends React.Component {
     render() {

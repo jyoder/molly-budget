@@ -1,6 +1,6 @@
 import App from 'app/App';
 import AppRoutes from 'app/AppRoutes';
-import AuthenticationIndicator from 'AuthenticationIndicator';
+import AuthenticationIndicator from 'authentication/AuthenticationIndicator';
 
 import React from 'react';
 import { shallow } from 'enzyme';
