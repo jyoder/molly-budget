@@ -1,9 +1,12 @@
+@import '~Theme.css';
+
 .AppLayout {
     text-align: center;
 }
 
 .AppLayout-header {
     padding: 1em;
+    margin-bottom: 3em;
     color: var(--lightColor);
     background-color: var(--darkColor);
 }
