@@ -2,7 +2,7 @@ import AppRoutes from 'app/AppRoutes';
 
 import BudgetSummary from 'summary/BudgetSummary';
 import Budget from 'summary/Budget';
-import Transactions from 'transaction/Transactions';
+import Transactions from 'transaction/TransactionsPage';
 
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';

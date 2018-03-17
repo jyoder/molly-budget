@@ -1,4 +1,4 @@
-import Transactions from 'transaction/Transactions';
+import Transactions from 'transaction/TransactionsPage';
 
 import React from 'react';
 import { shallow } from 'enzyme';

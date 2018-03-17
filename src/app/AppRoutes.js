@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import BudgetSummary from 'summary/BudgetSummary';
-import Transactions from 'transaction/Transactions';
+import Transactions from 'transaction/TransactionsPage';
 
 export default class AppRoutes extends React.Component {
     render() {
