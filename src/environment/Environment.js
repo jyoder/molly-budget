@@ -1,5 +1,6 @@
 import environmentName from 'environment/EnvironmentName';
 
+
 const STAGE = 'stage';
 const PRODUCTION = 'production';
 

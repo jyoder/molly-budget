@@ -1,6 +1,7 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
+
 export default class FirebaseAuthenticator {
     static create(firebase) {
         return new FirebaseAuthenticator(firebase.auth());

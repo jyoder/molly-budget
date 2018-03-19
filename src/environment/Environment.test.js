@@ -1,5 +1,6 @@
 import Environment from 'environment/Environment';
 
+
 describe('instance', () => {
     it('returns an instance of the environment class', () => {
         expect(Environment.instance()).toBeInstanceOf(Environment);

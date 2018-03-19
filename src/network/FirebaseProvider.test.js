@@ -1,6 +1,7 @@
 import FirebaseProvider from 'network/FirebaseProvider';
 import Environment from 'environment/Environment';
 
+
 describe('create', () => {
     it('returns an instance of FirebaseProvider', () => {
         const configProvider = {};
