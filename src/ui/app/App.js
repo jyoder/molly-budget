@@ -5,11 +5,12 @@ import FirebaseAuthenticator from 'network/FirebaseAuthenticator';
 import FirebaseProvider from 'network/FirebaseProvider';
 import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import Environment from 'environment/Environment';
+import Budget from 'state/Budget';
 
-import AppLayout from 'app/AppLayout';
-import AppRoutes from 'app/AppRoutes';
-import AuthenticationIndicator from 'authentication/AuthenticationIndicator';
-import Budget from 'summary/Budget';
+import AppLayout from 'ui/app/AppLayout';
+import AppRoutes from 'ui/app/AppRoutes';
+import AuthenticationIndicator from 'ui/auth/AuthenticationIndicator';
+
 
 export default class App extends React.Component {
     constructor(props) {

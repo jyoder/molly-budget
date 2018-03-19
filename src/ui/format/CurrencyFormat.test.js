@@ -1,4 +1,4 @@
-import formatCurrency from 'format/CurrencyFormat';
+import formatCurrency from 'ui/format/CurrencyFormat';
 
 
 describe('formatCurrency', () => {

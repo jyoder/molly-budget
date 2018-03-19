@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import formatCurrency from 'format/CurrencyFormat';
 import { Button } from 'reactstrap';
 
-import 'summary/BudgetSummaryPage.css';
+import formatCurrency from 'ui/format/CurrencyFormat';
+
+import 'ui/summary/BudgetSummaryPage.css';
 
 
 export default class BudgetSummary extends React.Component {

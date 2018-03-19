@@ -1,4 +1,4 @@
-import Budget from 'summary/Budget';
+import Budget from 'state/Budget';
 
 
 describe('create', () => {

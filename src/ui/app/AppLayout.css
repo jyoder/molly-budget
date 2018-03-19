@@ -1,4 +1,5 @@
-@import '~app/AppTheme.css';
+@import '~ui/app/AppTheme.css';
+
 
 .AppLayout {
     text-align: center;

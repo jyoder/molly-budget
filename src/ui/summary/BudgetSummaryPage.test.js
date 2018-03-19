@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import BudgetSummary from 'summary/BudgetSummaryPage';
-import Budget from 'summary/Budget';
+import BudgetSummary from 'ui/summary/BudgetSummaryPage';
+import Budget from 'state/Budget';
 import { Button } from 'reactstrap';
 
 

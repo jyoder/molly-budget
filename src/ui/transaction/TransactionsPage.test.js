@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Transactions from 'transaction/TransactionsPage';
+import Transactions from 'ui/transaction/TransactionsPage';
 
 
 describe('Transactions', () => {

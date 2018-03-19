@@ -1,12 +1,12 @@
-import AppRoutes from 'app/AppRoutes';
-
-import BudgetSummary from 'summary/BudgetSummaryPage';
-import Budget from 'summary/Budget';
-import Transactions from 'transaction/TransactionsPage';
-
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
+
+import AppRoutes from 'ui/app/AppRoutes';
+import BudgetSummary from 'ui/summary/BudgetSummaryPage';
+import Transactions from 'ui/transaction/TransactionsPage';
+import Budget from 'state/Budget';
+
 
 describe('AppRoutes', () => {
     it('renders BudgetSummary when the user navigates to /', () => {

@@ -1,7 +1,8 @@
-import AppLayout from 'app/AppLayout';
-
 import React from 'react';
 import { shallow } from 'enzyme';
+
+import AppLayout from 'ui/app/AppLayout';
+
 
 describe('AppLayout', () => {
     it('renders child elements', () => {
