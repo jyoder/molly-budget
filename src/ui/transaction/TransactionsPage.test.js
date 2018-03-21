@@ -8,11 +8,11 @@ import SubmitTransactionButton from 'ui/transaction/SubmitTransactionButton';
 
 describe('TransactionsPage', () => {
     it('renders a CurrencyInput', () => {
-        const transactionsStore = {};
+        const transactionStore = {};
         const history = {};
         
         const transactionsPage = shallow(<TransactionsPage
-            transactionsStore={transactionsStore}
+            transactionStore={transactionStore}
             history={history}
         />);
 
@@ -20,11 +20,11 @@ describe('TransactionsPage', () => {
     });
 
     it('renders a SubmitTransactionButton', () => {
-        const transactionsStore = {};
+        const transactionStore = {};
         const history = {};
         
         const transactionsPage = shallow(<TransactionsPage
-            transactionsStore={transactionsStore}
+            transactionStore={transactionStore}
             history={history}
         />);
 
