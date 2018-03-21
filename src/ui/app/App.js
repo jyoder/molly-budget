@@ -1,30 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import FirebaseAuthenticator from 'network/FirebaseAuthenticator';
-import FirebaseProvider from 'network/FirebaseProvider';
-import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
-import Environment from 'environment/Environment';
-import Budget from 'state/Budget';
+import { observer } from 'mobx-react';
 
 import AppLayout from 'ui/app/AppLayout';
 import AppRoutes from 'ui/app/AppRoutes';
 import AuthenticationIndicator from 'ui/auth/AuthenticationIndicator';
+import Budget from 'state/Budget';
 
 
-export default class App extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { user: null };
-    }
-
-    componentWillMount() {
-        FirebaseAuthenticator.create(this._firebase()).authenticate((user) => {
-            this.setState({ user: user });
-        });
-    }
-
+class App extends React.Component {
     render() {
         return(
             <AppLayout>
@@ -33,33 +17,24 @@ export default class App extends React.Component {
         );
     }
 
-    _firebase() {
-        if(this.props.firebase) {
-            return this.props.firebase;
-        } else {
-            return this._firebaseProvider().getFirebase();
-        }
-    }
-
-    _firebaseProvider() {
-        return FirebaseProvider.create(
-            new FirebaseConfigProvider(Environment.instance())
-        );
-    }
-
     _content() {
-        if(this.state.user) {
-            return(<AppRoutes user={this.state.user} budget={this._budget()} />);
+        if(this.props.appStore.initialized) {
+            return(<AppRoutes appStore={this.props.appStore} budget={this._budget()} />);
         } else {
             return(<AuthenticationIndicator />);
         }
     }
 
     _budget() {
-        return Budget.create(40.00);
+        return Budget.create(
+            40.00,
+            this.props.appStore.transactionStore().transactions()
+        );
     }
 }
 
 App.propTypes = {
-    firebase: PropTypes.object
+    appStore: PropTypes.object.isRequired
 };
+
+export default observer(App);
