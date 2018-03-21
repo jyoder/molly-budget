@@ -9,7 +9,7 @@ export default class AuthenticationIndicator extends React.Component {
         return(
             <div className="AuthenticationIndicator">
                 <h1 className="AuthenticationIndicator-heading lead">
-                    Logging In
+                    Loading
                 </h1>
                 <BeatLoader color="#000222"/>
             </div>
