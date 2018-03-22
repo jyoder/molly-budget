@@ -20,6 +20,7 @@ class CurrencyInput extends React.Component {
                         placeholder="Enter transaction amount"
                         bsSize="lg"
                         autoFocus
+                        onKeyDown={(event) => this._onKeyDown(event)}
                         onChange={(event) => this._onChange(event)}
                     />
                 </InputGroup>             
@@ -27,6 +28,11 @@ class CurrencyInput extends React.Component {
         );
     }
 
+    _onKeyDown(event) {
+        const target = event.target;
+        setTimeout(() => { this.props.currencyAmountStore.setAmount(target.value) }, 0);
+    }
+    
     _onChange(event) {
         this.props.currencyAmountStore.setAmount(event.target.value);
     }
