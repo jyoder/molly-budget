@@ -1,8 +1,10 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 
 import 'ui/app/AppLayout.css';
 
-export default class AppLayout extends React.Component {
+
+class AppLayout extends React.Component {
     render() {
         return(
             <div className="AppLayout">
@@ -15,3 +17,5 @@ export default class AppLayout extends React.Component {
         );
     }
 }
+
+export default observer(AppLayout);
