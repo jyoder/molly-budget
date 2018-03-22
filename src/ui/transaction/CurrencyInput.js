@@ -16,7 +16,8 @@ class CurrencyInput extends React.Component {
                     </InputGroupAddon>
 
                     <Input
-                        type="tel"
+                        type="number"
+                        step="0.1"
                         placeholder="Enter transaction amount"
                         bsSize="lg"
                         autoFocus
