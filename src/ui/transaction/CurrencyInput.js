@@ -16,11 +16,11 @@ class CurrencyInput extends React.Component {
                     </InputGroupAddon>
 
                     <Input
-                        type="number"
-                        step="0.1"
-                        onChange={(event) => this._onChange(event)}
+                        type="tel"
                         placeholder="Enter transaction amount"
                         bsSize="lg"
+                        autoFocus
+                        onChange={(event) => this._onChange(event)}
                     />
                 </InputGroup>             
             </div>
