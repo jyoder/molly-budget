@@ -6,8 +6,7 @@ import 'firebase/auth';
 describe('authenticate', () => {
     it('awaits an authentication state change from firebase', () => {
         const firebaseAuth = { onAuthStateChanged: jest.fn() };
-        const googleAuthProvider = {};
-        const authenticator = new FirebaseAuthenticator(firebaseAuth, googleAuthProvider);
+        const authenticator = new FirebaseAuthenticator(firebaseAuth);
         
         authenticator.authenticate(() => {});
         expect(firebaseAuth.onAuthStateChanged).toHaveBeenCalledTimes(1);
@@ -15,8 +14,7 @@ describe('authenticate', () => {
 
     it('invokes the given callback when the user is authenticated', () => {
         const firebaseAuth = { onAuthStateChanged: jest.fn() };
-        const googleAuthProvider = {};
-        const authenticator = new FirebaseAuthenticator(firebaseAuth, googleAuthProvider);
+        const authenticator = new FirebaseAuthenticator(firebaseAuth);
         const onAuthenticated = jest.fn();
 
         authenticator.authenticate(onAuthenticated);
@@ -32,8 +30,7 @@ describe('authenticate', () => {
             onAuthStateChanged: jest.fn(),
             signInWithRedirect: jest.fn(() => catchClause)
         };
-        const googleAuthProvider = {};
-        const authenticator = new FirebaseAuthenticator(firebaseAuth, googleAuthProvider);
+        const authenticator = new FirebaseAuthenticator(firebaseAuth);
         const onAuthenticated = jest.fn();
 
         authenticator.authenticate(onAuthenticated);
