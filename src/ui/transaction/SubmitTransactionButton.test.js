@@ -61,4 +61,26 @@ describe('SubmitTransactionButton', () => {
 
         expect(history.push).toHaveBeenCalledWith('/');
     });
+
+    it('does not add a new transaction or redirect when there is no amount', () => {
+        const currencyAmountStore = {
+            amount: jest.fn(() => null)
+        };
+        const transactionStore = {
+            addTransaction: jest.fn()
+        };
+        const history = {
+            push: jest.fn()
+        };
+
+        const submitTransactionButton = shallow(<SubmitTransactionButton
+            currencyAmountStore={currencyAmountStore}
+            transactionStore={transactionStore}
+            history={history}
+        />);
+
+        submitTransactionButton.find(Button).simulate('click');
+        expect(transactionStore.addTransaction).not.toHaveBeenCalled();
+        expect(history.push).not.toHaveBeenCalledWith('/');
+    });
 });
