@@ -43,7 +43,7 @@ describe('addTransaction', () => {
     it('adds a new transaction to the firebase database', () => {
         const transactionsRef = _transactionsRef();
         const transactionStore = new TransactionStore(transactionsRef, []);
-        const occurredAt = new Date(2018, 2, 1);
+        const occurredAt = new Date('2018-03-01T08:00:00.000Z');
         
         transactionStore.addTransaction(123.00, occurredAt, 'Disneyland');
         expect(transactionsRef.push().set).toHaveBeenCalledWith({

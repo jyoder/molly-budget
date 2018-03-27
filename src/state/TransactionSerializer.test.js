@@ -3,7 +3,7 @@ import Transaction from 'state/Transaction';
 
 describe('toJson', () => {
     it('serializes the given transaction to JSON', () => {
-        const occurredAt = new Date('2018-03-05T03:24:12');
+        const occurredAt = new Date('2018-03-05T11:24:12.000Z');
         const transaction = new Transaction('id1', 12.35, occurredAt, 'Narnia');
         expect(TransactionSerializer.toJson(transaction)).toEqual({
             id: 'id1',
@@ -16,7 +16,7 @@ describe('toJson', () => {
 
 describe('fromJson', () => {
     it('deserializes the given JSON to a transaction', () => {
-        const occurredAt = new Date('2018-03-05T03:24:12');
+        const occurredAt = new Date('2018-03-05T11:24:12.000Z');
         const transaction = new Transaction('id1', 12.35, occurredAt, 'Narnia');
         expect(TransactionSerializer.fromJson({
             id: 'id1',
@@ -29,7 +29,7 @@ describe('fromJson', () => {
 
 describe('fromJsonList', () => {
     it('deserializes the given list of JSONs to a list of transactions', () => {
-        const occurredAt = new Date('2018-03-05T03:24:12');
+        const occurredAt = new Date('2018-03-05T11:24:12.000Z');
         const transactions = [
             new Transaction('id1', 12.35, occurredAt, 'Narnia'),
             new Transaction('id2', 11.34, occurredAt, 'Disneyland')
