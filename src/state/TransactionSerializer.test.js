@@ -1,6 +1,7 @@
 import TransactionSerializer from 'state/TransactionSerializer';
 import Transaction from 'state/Transaction';
 
+
 describe('toJson', () => {
     it('serializes the given transaction to JSON', () => {
         const occurredAt = new Date('2018-03-05T11:24:12.000Z');
