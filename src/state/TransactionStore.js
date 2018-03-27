@@ -31,9 +31,9 @@ class TransactionStore {
         return this._transactions.slice();
     }
 
-    addTransaction(amount, occurredOn, category) {
+    addTransaction(amount, occurredAt, category) {
         const ref = this._transactionsRef.push();
-        const transaction = new Transaction(ref.key, amount, occurredOn, category);
+        const transaction = new Transaction(ref.key, amount, occurredAt, category);
         ref.set(TransactionSerializer.toJson(transaction));
     }
 

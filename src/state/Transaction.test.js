@@ -15,11 +15,11 @@ describe('amount', () => {
     });
 });
 
-describe('occurredOn', () => {
-    it('returns the date the transaction occurred on', () => {
-        const occurredOn = new Date(2018, 2, 5);
-        const transaction = new Transaction('id', 12.3, occurredOn, 'Disneyland');
-        expect(transaction.occurredOn()).toBe(occurredOn);
+describe('occurredAt', () => {
+    it('returns the date and time the transaction occurred at', () => {
+        const occurredAt = new Date(2018, 2, 5);
+        const transaction = new Transaction('id', 12.3, occurredAt, 'Disneyland');
+        expect(transaction.occurredAt()).toBe(occurredAt);
     });
 });
 
