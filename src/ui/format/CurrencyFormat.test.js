@@ -24,6 +24,14 @@ describe('parseCurrency', () => {
         expect(parseCurrency('123')).toBeCloseTo(123.00);
     });
 
+    it('requires a digit after the decimal point', () => {
+        expect(parseCurrency('1.')).toBeNull();
+    });
+
+    it('does not allow multiple decimal points', () => {
+        expect(parseCurrency('1.1.')).toBeNull();
+    });
+
     it('handles negative numbers', () => {
         expect(parseCurrency('-123.00')).toBeCloseTo(-123.00);
     });

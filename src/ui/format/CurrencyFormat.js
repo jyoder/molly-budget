@@ -3,7 +3,7 @@ export function formatCurrency(number) {
 }
 
 export function parseCurrency(string) {
-    if(/^-?\d+(\.\d*)?$/.test(string)) {
+    if(/^-?\d+(\.\d+)?$/.test(string)) {
         return Number.parseFloat(string);
     } else {
         return null;
