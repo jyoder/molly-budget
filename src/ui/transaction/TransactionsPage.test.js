@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import TransactionsPage from 'ui/transaction/TransactionsPage';
 import CurrencyInput from 'ui/transaction/CurrencyInput';
-import SubmitTransactionButton from 'ui/transaction/SubmitTransactionButton';
+import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
 
 
 describe('TransactionsPage', () => {
@@ -19,7 +19,7 @@ describe('TransactionsPage', () => {
         expect(transactionsPage.find(CurrencyInput)).toHaveLength(1);
     });
 
-    it('renders a SubmitTransactionButton', () => {
+    it('renders a SubmitTransactionMenu', () => {
         const transactionStore = {};
         const history = {};
         
@@ -28,6 +28,6 @@ describe('TransactionsPage', () => {
             history={history}
         />);
 
-        expect(transactionsPage.find(SubmitTransactionButton)).toHaveLength(1);
+        expect(transactionsPage.find(SubmitTransactionMenu)).toHaveLength(1);
     });
 });

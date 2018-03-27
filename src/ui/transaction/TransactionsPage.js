@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import CurrencyInput from 'ui/transaction/CurrencyInput';
 import CurrencyAmountStore from 'ui/transaction/CurrencyAmountStore';
-import SubmitTransactionButton from 'ui/transaction/SubmitTransactionButton';
+import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
 
 
 class TransactionsPage extends React.Component {
@@ -22,7 +22,7 @@ class TransactionsPage extends React.Component {
                 
                 <br />
                 
-                <SubmitTransactionButton
+                <SubmitTransactionMenu
                     currencyAmountStore={this._currencyAmountStore}
                     transactionStore={this.props.transactionStore}
                     history={this.props.history}

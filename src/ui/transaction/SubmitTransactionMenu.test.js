@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Button } from 'reactstrap';
-import SubmitTransactionButton from 'ui/transaction/SubmitTransactionButton';
+import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
 
-describe('SubmitTransactionButton', () => {
+describe('SubmitTransactionMenu', () => {
     it('renders as disabled when no amount is available in the amount store', () => {
         const currencyAmountStore = {
             amount: jest.fn(() => null)
@@ -11,13 +11,13 @@ describe('SubmitTransactionButton', () => {
         const transactionStore = {};
         const history = {};
 
-        const submitTransactionButton = shallow(<SubmitTransactionButton
+        const submitTransactionMenu = shallow(<SubmitTransactionMenu
             currencyAmountStore={currencyAmountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        expect(submitTransactionButton.find(Button).props().disabled).toBeTruthy();
+        expect(submitTransactionMenu.find(Button).props().disabled).toBeTruthy();
     });
 
     it('renders as enabled when an amount is available in the amount store', () => {
@@ -27,13 +27,13 @@ describe('SubmitTransactionButton', () => {
         const transactionStore = {};
         const history = {};
 
-        const submitTransactionButton = shallow(<SubmitTransactionButton
+        const submitTransactionMenu = shallow(<SubmitTransactionMenu
             currencyAmountStore={currencyAmountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        expect(submitTransactionButton.find(Button).props().disabled).toBeFalsy();
+        expect(submitTransactionMenu.find(Button).props().disabled).toBeFalsy();
     });
 
     it('adds a new transaction and redirects to / upon clicking the button', () => {
@@ -47,13 +47,13 @@ describe('SubmitTransactionButton', () => {
             push: jest.fn()
         };
 
-        const submitTransactionButton = shallow(<SubmitTransactionButton
+        const submitTransactionMenu = shallow(<SubmitTransactionMenu
             currencyAmountStore={currencyAmountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        submitTransactionButton.find(Button).simulate('click');
+        submitTransactionMenu.find(Button).simulate('click');
         expect(transactionStore.addTransaction).toHaveBeenCalledTimes(1);
         expect(transactionStore.addTransaction.mock.calls[0][0]).toBeCloseTo(123.00);
         expect(transactionStore.addTransaction.mock.calls[0][1]).toBeInstanceOf(Date);
@@ -73,13 +73,13 @@ describe('SubmitTransactionButton', () => {
             push: jest.fn()
         };
 
-        const submitTransactionButton = shallow(<SubmitTransactionButton
+        const submitTransactionMenu = shallow(<SubmitTransactionMenu
             currencyAmountStore={currencyAmountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        submitTransactionButton.find(Button).simulate('click');
+        submitTransactionMenu.find(Button).simulate('click');
         expect(transactionStore.addTransaction).not.toHaveBeenCalled();
         expect(history.push).not.toHaveBeenCalledWith('/');
     });
