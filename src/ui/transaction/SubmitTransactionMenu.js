@@ -13,7 +13,6 @@ class SubmitTransactionMenu extends React.Component {
                 <Button
                     className="SubmitTransactionMenu-Categories-General"
                     size="lg"
-                    outline
                     disabled={this._disabled()}
                     onClick={() => this._onClick('General')}>
                     General
@@ -22,7 +21,6 @@ class SubmitTransactionMenu extends React.Component {
                 <Button
                     className="SubmitTransactionMenu-Categories-Outing"
                     size="lg"
-                    outline
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Outing')}>
                     Outing
@@ -31,7 +29,6 @@ class SubmitTransactionMenu extends React.Component {
                 <Button
                     className="SubmitTransactionMenu-Categories-Car"
                     size="lg"
-                    outline
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Car')}>
                     Car
@@ -40,7 +37,6 @@ class SubmitTransactionMenu extends React.Component {
                 <Button
                     className="SubmitTransactionMenu-Categories-Groceries"
                     size="lg"
-                    outline
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Groceries')}>
                     Groceries

@@ -19,7 +19,6 @@ class BudgetSummaryPage extends React.Component {
                 <Button
                     className='BudgetSummaryPage-addTransaction'
                     size='lg'
-                    outline
                     onClick={() => this._onAddTransactionClicked()}>
                     Add Transaction
                 </Button>
