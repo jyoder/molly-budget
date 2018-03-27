@@ -8,10 +8,7 @@ class CurrencyAmountStore {
     }
 
     setAmount(amount) {
-        const float = parseCurrency(`${amount}`);
-        if(float) {
-            this._amount = float;
-        }
+        this._amount = parseCurrency(`${amount}`);
     }
 
     amount() {

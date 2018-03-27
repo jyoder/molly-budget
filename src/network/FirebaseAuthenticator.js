@@ -25,7 +25,7 @@ export default class FirebaseAuthenticator {
         this._firebaseAuth.signInWithRedirect(
             new firebase.auth.GoogleAuthProvider()
         ).catch((error) => {
-            console.log(error);
+            console.error(error);
         });
     }
 }

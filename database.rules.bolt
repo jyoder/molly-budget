@@ -1,0 +1,39 @@
+type Transaction {
+    id: String,
+    amount: Number,
+    category: Category
+}
+
+type Category extends String {
+    validate() {
+        return this === 'General';
+    }
+}
+
+
+path / {
+    read() { false }
+    write() { false }
+}
+
+path /accounts/{userId}/transactions {
+    read() { isCurrentUser(userId) }
+}
+
+path /accounts/{userId}/transactions/{transactionId} is Transaction {
+    read() { isCurrentUser(userId) }
+    write() { isCurrentUser(userId) && createOnly(this) }
+}
+
+
+isCurrentUser(userId) {
+    return isSignedIn() && auth.uid === userId;
+}
+
+isSignedIn() {
+    return auth !== null;
+}
+
+createOnly(value) {
+    return prior(value) === null && value !== null;
+}
