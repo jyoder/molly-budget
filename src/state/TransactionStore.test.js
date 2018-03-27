@@ -49,7 +49,7 @@ describe('addTransaction', () => {
         expect(transactionsRef.push().set).toHaveBeenCalledWith({
             id: 'someKey',
             amount: 123.00,
-            occurredOn: occurredOn,
+            occurredOn: '2018-03-01T08:00:00.000Z',
             category: 'Disneyland'
         });
     });
