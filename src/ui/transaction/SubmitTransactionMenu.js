@@ -1,15 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-import { Button } from 'reactstrap';
+import { Button, ButtonGroup } from 'reactstrap';
+
+import 'ui/transaction/SubmitTransactionMenu.css';
 
 
 class SubmitTransactionMenu extends React.Component {
     render() {
         return(
-            <Button size="lg" disabled={this._disabled()} onClick={() => this._onClick()}>
-                Submit Transaction
-            </Button>
+            <ButtonGroup className="SubmitTransactionMenu-Categories" vertical={true}>
+                <Button
+                    className="SubmitTransactionMenu-Categories-General"
+                    size="lg"
+                    disabled={this._disabled()}
+                    onClick={() => this._onClick('General')}>
+                    General
+                </Button>
+                
+                <Button
+                    className="SubmitTransactionMenu-Categories-Outing"
+                    size="lg"
+                    disabled={this._disabled()}
+                    onClick={() => this._onClick('Outing')}>
+                    Outing
+                </Button>
+
+                <Button
+                    className="SubmitTransactionMenu-Categories-Car"
+                    size="lg"
+                    disabled={this._disabled()}
+                    onClick={() => this._onClick('Car')}>
+                    Car
+                </Button>
+
+                <Button
+                    className="SubmitTransactionMenu-Categories-Groceries"
+                    size="lg"
+                    disabled={this._disabled()}
+                    onClick={() => this._onClick('Groceries')}>
+                    Groceries
+                </Button>
+            </ButtonGroup>
         );
     }
 
@@ -17,10 +49,10 @@ class SubmitTransactionMenu extends React.Component {
         return this.props.currencyAmountStore.amount() === null;
     }
 
-    _onClick() {
+    _onClick(category) {
         const amount = this.props.currencyAmountStore.amount();
         if(amount) {
-            this.props.transactionStore.addTransaction(amount, new Date(), 'General');
+            this.props.transactionStore.addTransaction(amount, new Date(), category);
             this.props.history.push('/');
         }
     }
