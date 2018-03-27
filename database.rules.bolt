@@ -1,6 +1,7 @@
 type Transaction {
     id: String,
     amount: Number,
+    occurredAt: String,
     category: Category
 }
 
