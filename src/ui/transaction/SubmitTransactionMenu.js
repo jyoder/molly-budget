@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { Button, ButtonGroup } from 'reactstrap';
+import FontAwesome from 'react-fontawesome';
 
 import 'ui/transaction/SubmitTransactionMenu.css';
 
@@ -15,7 +16,7 @@ class SubmitTransactionMenu extends React.Component {
                     size="lg"
                     disabled={this._disabled()}
                     onClick={() => this._onClick('General')}>
-                    General
+                    <FontAwesome name="dollar" /> General
                 </Button>
                 
                 <Button
@@ -23,7 +24,7 @@ class SubmitTransactionMenu extends React.Component {
                     size="lg"
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Outing')}>
-                    Outing
+                    <FontAwesome name="coffee" /> Outing
                 </Button>
 
                 <Button
@@ -31,7 +32,7 @@ class SubmitTransactionMenu extends React.Component {
                     size="lg"
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Car')}>
-                    Car
+                    <FontAwesome name="car" /> Car
                 </Button>
 
                 <Button
@@ -39,7 +40,7 @@ class SubmitTransactionMenu extends React.Component {
                     size="lg"
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Groceries')}>
-                    Groceries
+                    <FontAwesome name="shopping-cart" /> Groceries
                 </Button>
             </ButtonGroup>
         );
