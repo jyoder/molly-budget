@@ -11,3 +11,8 @@
     color: var(--lightColor);
     background-color: var(--darkColor);
 }
+
+.AppLayout-content {
+    display: inline-block;
+    width: 20em;
+};

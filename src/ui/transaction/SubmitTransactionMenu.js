@@ -4,13 +4,11 @@ import { observer } from 'mobx-react';
 import { Button, ButtonGroup } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 
-import 'ui/transaction/SubmitTransactionMenu.css';
-
 
 class SubmitTransactionMenu extends React.Component {
     render() {
         return(
-            <ButtonGroup className="SubmitTransactionMenu-Categories" vertical={true}>
+            <ButtonGroup className="SubmitTransactionMenu-Categories btn-block" vertical={true}>
                 <Button
                     className="SubmitTransactionMenu-Categories-General"
                     size="lg"
