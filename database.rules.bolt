@@ -6,7 +6,11 @@ type Transaction {
 
 type Category extends String {
     validate() {
-        return this === 'General';
+        return
+            this === 'General' || 
+            this === 'Outing' ||
+            this === 'Car' ||
+            this === 'Groceries';
     }
 }
 
