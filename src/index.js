@@ -20,11 +20,10 @@ function _createAppStore() {
     const appStore = new AppStore();
     const firebase = _firebase();
     FirebaseAuthenticator.create(firebase).authenticate((user) => {
-        appStore.setTransactionStore(
-            TransactionStore.create(firebase.database(), user.uid)
-        );
-        // Delay initialization a bit to give us a chance to fetch initial data
-        setTimeout(() => { appStore.setUser(user) }, 500);
+        appStore.setUser(user);
+        TransactionStore.create(firebase.database(), user.uid, (transactionStore) => {
+            appStore.setTransactionStore(transactionStore);
+        });
     });
     return appStore;
 }
