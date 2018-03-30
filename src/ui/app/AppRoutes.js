@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
 import TransactionsPage from 'ui/transaction/TransactionsPage';
+import CategorySelectionPage from 'ui/transaction/CategorySelectionPage';
 
 
 class AppRoutes extends React.Component {
@@ -23,6 +24,15 @@ class AppRoutes extends React.Component {
                     
                         <Route path="/transactions" render={({ history }) => (
                             <TransactionsPage
+                                amountStore={this.props.appStore.amountStore()}
+                                transactionStore={this.props.appStore.transactionStore()}
+                                history={history}
+                            />)}
+                        />
+
+                        <Route path="/categories" render={({ history }) => (
+                            <CategorySelectionPage
+                                amountStore={this.props.appStore.amountStore()}
                                 transactionStore={this.props.appStore.transactionStore()}
                                 history={history}
                             />)}
