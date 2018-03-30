@@ -8,6 +8,7 @@ import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import Environment from 'environment/Environment';
 import AppStore from 'state/AppStore';
 import TransactionStore from 'state/TransactionStore';
+import ValueStore from 'state/ValueStore';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'index.css';
@@ -21,6 +22,7 @@ function _createAppStore() {
     const firebase = _firebase();
     FirebaseAuthenticator.create(firebase).authenticate((user) => {
         appStore.setUser(user);
+        appStore.setAmountStore(new ValueStore());
         TransactionStore.create(firebase.database(), user.uid, (transactionStore) => {
             appStore.setTransactionStore(transactionStore);
         });
