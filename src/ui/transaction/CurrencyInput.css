@@ -1,9 +1,0 @@
-.CurrencyInput input::-webkit-outer-spin-button,
-.CurrencyInput input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.CurrencyInput {
-    margin-bottom: 3em;
-}
