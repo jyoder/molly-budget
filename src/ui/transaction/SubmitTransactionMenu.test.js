@@ -5,14 +5,14 @@ import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
 
 describe('SubmitTransactionMenu', () => {
     it('renders buttons for general, outing, car, and groceries', () => {
-        const currencyAmountStore = {
-            amount: jest.fn(() => null)
+        const amountStore = {
+            value: jest.fn(() => null)
         };
         const transactionStore = {};
         const history = {};
 
         const submitTransactionMenu = shallow(<SubmitTransactionMenu
-            currencyAmountStore={currencyAmountStore}
+            amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
@@ -24,14 +24,14 @@ describe('SubmitTransactionMenu', () => {
     });
 
     it('renders as disabled when no amount is available in the amount store', () => {
-        const currencyAmountStore = {
-            amount: jest.fn(() => null)
+        const amountStore = {
+            value: jest.fn(() => null)
         };
         const transactionStore = {};
         const history = {};
 
         const submitTransactionMenu = shallow(<SubmitTransactionMenu
-            currencyAmountStore={currencyAmountStore}
+            amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
@@ -47,14 +47,14 @@ describe('SubmitTransactionMenu', () => {
     });
 
     it('renders as enabled when an amount is available in the amount store', () => {
-        const currencyAmountStore = {
-            amount: jest.fn(() => 123.00)
+        const amountStore = {
+            value: jest.fn(() => 123.00)
         };
         const transactionStore = {};
         const history = {};
 
         const submitTransactionMenu = shallow(<SubmitTransactionMenu
-            currencyAmountStore={currencyAmountStore}
+            amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
@@ -69,9 +69,10 @@ describe('SubmitTransactionMenu', () => {
             .props().disabled).toBeFalsy();
     });
 
-    it('adds a new general transaction and redirects to / upon clicking the general button', () => {
-        const currencyAmountStore = {
-            amount: jest.fn(() => 123.00)
+    it('adds a new general transaction, resets the amount, and redirects to / upon clicking the general button', () => {
+        const amountStore = {
+            value: jest.fn(() => 123.00),
+            setValue: jest.fn()
         };
         const transactionStore = {
             addTransaction: jest.fn()
@@ -81,7 +82,7 @@ describe('SubmitTransactionMenu', () => {
         };
 
         const submitTransactionMenu = shallow(<SubmitTransactionMenu
-            currencyAmountStore={currencyAmountStore}
+            amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
@@ -93,11 +94,13 @@ describe('SubmitTransactionMenu', () => {
         expect(transactionStore.addTransaction.mock.calls[0][2]).toBe('General');
 
         expect(history.push).toHaveBeenCalledWith('/');
+        expect(amountStore.setValue).toHaveBeenCalledWith(0);
     });
 
-    it('adds a new outing transaction and redirects to / upon clicking the outing button', () => {
-        const currencyAmountStore = {
-            amount: jest.fn(() => 123.00)
+    it('adds a new outing transaction, resets the amount, and redirects to / upon clicking the outing button', () => {
+        const amountStore = {
+            value: jest.fn(() => 123.00),
+            setValue: jest.fn()
         };
         const transactionStore = {
             addTransaction: jest.fn()
@@ -107,7 +110,7 @@ describe('SubmitTransactionMenu', () => {
         };
 
         const submitTransactionMenu = shallow(<SubmitTransactionMenu
-            currencyAmountStore={currencyAmountStore}
+            amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
@@ -119,11 +122,13 @@ describe('SubmitTransactionMenu', () => {
         expect(transactionStore.addTransaction.mock.calls[0][2]).toBe('Outing');
 
         expect(history.push).toHaveBeenCalledWith('/');
+        expect(amountStore.setValue).toHaveBeenCalledWith(0);
     });
 
     it('adds a new car transaction and redirects to / upon clicking the car button', () => {
-        const currencyAmountStore = {
-            amount: jest.fn(() => 123.00)
+        const amountStore = {
+            value: jest.fn(() => 123.00),
+            setValue: jest.fn()
         };
         const transactionStore = {
             addTransaction: jest.fn()
@@ -133,7 +138,7 @@ describe('SubmitTransactionMenu', () => {
         };
 
         const submitTransactionMenu = shallow(<SubmitTransactionMenu
-            currencyAmountStore={currencyAmountStore}
+            amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
@@ -145,11 +150,13 @@ describe('SubmitTransactionMenu', () => {
         expect(transactionStore.addTransaction.mock.calls[0][2]).toBe('Car');
 
         expect(history.push).toHaveBeenCalledWith('/');
+        expect(amountStore.setValue).toHaveBeenCalledWith(0);
     });
 
     it('adds a new groceries transaction and redirects to / upon clicking the groceries button', () => {
-        const currencyAmountStore = {
-            amount: jest.fn(() => 123.00)
+        const amountStore = {
+            value: jest.fn(() => 123.00),
+            setValue: jest.fn()
         };
         const transactionStore = {
             addTransaction: jest.fn()
@@ -159,7 +166,7 @@ describe('SubmitTransactionMenu', () => {
         };
 
         const submitTransactionMenu = shallow(<SubmitTransactionMenu
-            currencyAmountStore={currencyAmountStore}
+            amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
@@ -171,11 +178,12 @@ describe('SubmitTransactionMenu', () => {
         expect(transactionStore.addTransaction.mock.calls[0][2]).toBe('Groceries');
 
         expect(history.push).toHaveBeenCalledWith('/');
+        expect(amountStore.setValue).toHaveBeenCalledWith(0);
     });
 
     it('does not add a new transaction or redirect when there is no amount', () => {
-        const currencyAmountStore = {
-            amount: jest.fn(() => null)
+        const amountStore = {
+            value: jest.fn(() => null)
         };
         const transactionStore = {
             addTransaction: jest.fn()
@@ -185,7 +193,7 @@ describe('SubmitTransactionMenu', () => {
         };
 
         const submitTransactionMenu = shallow(<SubmitTransactionMenu
-            currencyAmountStore={currencyAmountStore}
+            amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);

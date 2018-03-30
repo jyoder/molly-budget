@@ -12,6 +12,7 @@ class SubmitTransactionMenu extends React.Component {
                 <Button
                     className="SubmitTransactionMenu-Categories-General"
                     size="lg"
+                    outline
                     disabled={this._disabled()}
                     onClick={() => this._onClick('General')}>
                     <FontAwesome name="dollar" /> General
@@ -20,6 +21,7 @@ class SubmitTransactionMenu extends React.Component {
                 <Button
                     className="SubmitTransactionMenu-Categories-Outing"
                     size="lg"
+                    outline
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Outing')}>
                     <FontAwesome name="coffee" /> Outing
@@ -28,6 +30,7 @@ class SubmitTransactionMenu extends React.Component {
                 <Button
                     className="SubmitTransactionMenu-Categories-Car"
                     size="lg"
+                    outline
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Car')}>
                     <FontAwesome name="car" /> Car
@@ -36,6 +39,7 @@ class SubmitTransactionMenu extends React.Component {
                 <Button
                     className="SubmitTransactionMenu-Categories-Groceries"
                     size="lg"
+                    outline
                     disabled={this._disabled()}
                     onClick={() => this._onClick('Groceries')}>
                     <FontAwesome name="shopping-cart" /> Groceries
@@ -45,20 +49,21 @@ class SubmitTransactionMenu extends React.Component {
     }
 
     _disabled() {
-        return this.props.currencyAmountStore.amount() === null;
+        return this.props.amountStore.value() === null;
     }
 
     _onClick(category) {
-        const amount = this.props.currencyAmountStore.amount();
+        const amount = this.props.amountStore.value();
         if(amount) {
             this.props.transactionStore.addTransaction(amount, new Date(), category);
             this.props.history.push('/');
+            this.props.amountStore.setValue(0);
         }
     }
 }
 
 SubmitTransactionMenu.propTypes = {
-    currencyAmountStore: PropTypes.object.isRequired,
+    amountStore: PropTypes.object.isRequired,
     transactionStore: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
