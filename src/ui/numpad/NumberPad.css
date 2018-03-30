@@ -1,0 +1,11 @@
+.NumberPad {
+    display: inline-block;
+    text-align: center;
+    width: 20em;
+}
+
+.NumberPad-button {
+    width: 5em;
+    height: 5em;
+    margin: 0.8em;
+}
