@@ -19,7 +19,6 @@ class TransactionsPage extends React.Component {
                 </div>
 
                 <Button
-                    size='lg'
                     outline
                     block
                     className="TransactionsPage-button TransactionsPage-chooseCategoryButton"
@@ -28,7 +27,6 @@ class TransactionsPage extends React.Component {
                 </Button>
 
                 <Button
-                    size='lg'
                     outline
                     block
                     className="TransactionsPage-backButton"

@@ -7,7 +7,7 @@
 
 .AppLayout-header {
     padding: 1em;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
     color: var(--lightColor);
     background-color: var(--darkColor);
 }
