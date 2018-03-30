@@ -21,7 +21,6 @@ class CategorySelectionPage extends React.Component {
                 />
 
                 <Button
-                    size='lg'
                     outline
                     block
                     className="CategorySelectionPage-backButton"
