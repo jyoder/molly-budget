@@ -18,6 +18,14 @@ export default class Budget {
     }
 
     _amountSpent() {
-        return this._transactions.reduce((sum, t) => sum + t.amount(), 0.00);
+        return this._transactionsThisMonth().reduce((sum, t) => sum + t.amount(), 0.00);
+    }
+
+    _transactionsThisMonth() {
+        return this._transactions.filter((transaction) => this._occurredThisMonth(transaction));
+    }
+
+    _occurredThisMonth(transaction) {
+        return this._date.getMonth() === transaction.occurredAt().getMonth();
     }
 }
