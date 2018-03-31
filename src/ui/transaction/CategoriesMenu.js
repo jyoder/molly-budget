@@ -64,6 +64,7 @@ class CategoriesMenu extends React.Component {
 }
 
 CategoriesMenu.propTypes = {
+    className: PropTypes.string,
     amountStore: PropTypes.object.isRequired,
     transactionStore: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
