@@ -8,7 +8,7 @@ import FontAwesome from 'react-fontawesome';
 class CategoriesMenu extends React.Component {
     render() {
         return(
-            <ButtonGroup className="CategoriesMenu btn-block" vertical={true}>
+            <ButtonGroup className="btn-block" vertical={true}>
                 <Button
                     className="CategoriesMenu-General"
                     size="lg"
