@@ -55,7 +55,7 @@ class CategoriesMenu extends React.Component {
 
     _onClick(category) {
         const amount = this.props.amountStore.value();
-        if(amount) {
+        if(amount !== null) {
             this.props.transactionStore.addTransaction(amount, new Date(), category);
             this.props.history.push('/');
             this.props.amountStore.setValue(0);

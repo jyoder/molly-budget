@@ -86,6 +86,28 @@ describe('CategoriesMenu', () => {
             .props().disabled).toBeFalsy();
     });
 
+    it('allows the submission of zero valued transactions', () => {
+        const amountStore = {
+            value: jest.fn(() => 0.00),
+            setValue: jest.fn()
+        };
+        const transactionStore = {
+            addTransaction: jest.fn()
+        };
+        const history = {
+            push: jest.fn()
+        };
+
+        const categoriesMenu = shallow(<CategoriesMenu
+            amountStore={amountStore}
+            transactionStore={transactionStore}
+            history={history}
+        />);
+
+        categoriesMenu.find('.CategoriesMenu-General').simulate('click');
+        expect(transactionStore.addTransaction.mock.calls[0][0]).toBeCloseTo(0.00);
+    });
+
     it('adds a new general transaction, resets the amount, and redirects to / upon clicking the general button', () => {
         const amountStore = {
             value: jest.fn(() => 123.00),
