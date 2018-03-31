@@ -14,7 +14,7 @@ class TransactionAmountPage extends React.Component {
     render() {
         return(
             <section className="TransactionAmountPage AppPage">
-                <div className="TransactionAmountPage-numberInput">
+                <div className="TransactionAmountPage-amountInput">
                     <NumberPadDisplay valueStore={this.props.amountStore} />
                     <NumberPad valueStore={this.props.amountStore} />
                 </div>
