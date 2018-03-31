@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
 import NumberPadDisplay from 'ui/numpad/NumberPadDisplay';
 import NumberPad from 'ui/numpad/NumberPad';
-import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
+import CategoriesMenu from 'ui/transaction/CategoriesMenu';
 import { Button } from 'reactstrap';
 
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { Button } from 'reactstrap';
 import NumberPadDisplay from 'ui/numpad/NumberPadDisplay';
-import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
+import CategoriesMenu from 'ui/transaction/CategoriesMenu';
 
 import 'ui/app/AppPage.css';
 
@@ -19,8 +19,8 @@ class TransactionCategoriesPage extends React.Component {
 
                 <br />
                 
-                <SubmitTransactionMenu
-                    className="TransactionCategoriesPage-SubmitTransactionMenu"
+                <CategoriesMenu
+                    className="TransactionCategoriesPage-CategoriesMenu"
                     amountStore={this.props.amountStore}
                     transactionStore={this.props.transactionStore}
                     history={this.props.history}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Button } from 'reactstrap';
-import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
+import CategoriesMenu from 'ui/transaction/CategoriesMenu';
 
-describe('SubmitTransactionMenu', () => {
+describe('CategoriesMenu', () => {
     it('renders buttons for general, outing, car, and groceries', () => {
         const amountStore = {
             value: jest.fn(() => null)
@@ -11,16 +11,16 @@ describe('SubmitTransactionMenu', () => {
         const transactionStore = {};
         const history = {};
 
-        const submitTransactionMenu = shallow(<SubmitTransactionMenu
+        const categoriesMenu = shallow(<CategoriesMenu
             amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-General')).toHaveLength(1);
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Outing')).toHaveLength(1);
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Car')).toHaveLength(1);
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Groceries')).toHaveLength(1);
+        expect(categoriesMenu.find('.CategoriesMenu-General')).toHaveLength(1);
+        expect(categoriesMenu.find('.CategoriesMenu-Outing')).toHaveLength(1);
+        expect(categoriesMenu.find('.CategoriesMenu-Car')).toHaveLength(1);
+        expect(categoriesMenu.find('.CategoriesMenu-Groceries')).toHaveLength(1);
     });
 
     it('renders as disabled when no amount is available in the amount store', () => {
@@ -30,19 +30,19 @@ describe('SubmitTransactionMenu', () => {
         const transactionStore = {};
         const history = {};
 
-        const submitTransactionMenu = shallow(<SubmitTransactionMenu
+        const categoriesMenu = shallow(<CategoriesMenu
             amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-General')
+        expect(categoriesMenu.find('.CategoriesMenu-General')
             .props().disabled).toBeTruthy();
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Outing')
+        expect(categoriesMenu.find('.CategoriesMenu-Outing')
             .props().disabled).toBeTruthy();
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Car')
+        expect(categoriesMenu.find('.CategoriesMenu-Car')
             .props().disabled).toBeTruthy();
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Groceries')
+        expect(categoriesMenu.find('.CategoriesMenu-Groceries')
             .props().disabled).toBeTruthy();
     });
 
@@ -53,19 +53,19 @@ describe('SubmitTransactionMenu', () => {
         const transactionStore = {};
         const history = {};
 
-        const submitTransactionMenu = shallow(<SubmitTransactionMenu
+        const categoriesMenu = shallow(<CategoriesMenu
             amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-General')
+        expect(categoriesMenu.find('.CategoriesMenu-General')
             .props().disabled).toBeFalsy();
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Outing')
+        expect(categoriesMenu.find('.CategoriesMenu-Outing')
             .props().disabled).toBeFalsy();
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Car')
+        expect(categoriesMenu.find('.CategoriesMenu-Car')
             .props().disabled).toBeFalsy();
-        expect(submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Groceries')
+        expect(categoriesMenu.find('.CategoriesMenu-Groceries')
             .props().disabled).toBeFalsy();
     });
 
@@ -81,13 +81,13 @@ describe('SubmitTransactionMenu', () => {
             push: jest.fn()
         };
 
-        const submitTransactionMenu = shallow(<SubmitTransactionMenu
+        const categoriesMenu = shallow(<CategoriesMenu
             amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        submitTransactionMenu.find('.SubmitTransactionMenu-Categories-General').simulate('click');
+        categoriesMenu.find('.CategoriesMenu-General').simulate('click');
         expect(transactionStore.addTransaction).toHaveBeenCalledTimes(1);
         expect(transactionStore.addTransaction.mock.calls[0][0]).toBeCloseTo(123.00);
         expect(transactionStore.addTransaction.mock.calls[0][1]).toBeInstanceOf(Date);
@@ -109,13 +109,13 @@ describe('SubmitTransactionMenu', () => {
             push: jest.fn()
         };
 
-        const submitTransactionMenu = shallow(<SubmitTransactionMenu
+        const categoriesMenu = shallow(<CategoriesMenu
             amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Outing').simulate('click');
+        categoriesMenu.find('.CategoriesMenu-Outing').simulate('click');
         expect(transactionStore.addTransaction).toHaveBeenCalledTimes(1);
         expect(transactionStore.addTransaction.mock.calls[0][0]).toBeCloseTo(123.00);
         expect(transactionStore.addTransaction.mock.calls[0][1]).toBeInstanceOf(Date);
@@ -137,13 +137,13 @@ describe('SubmitTransactionMenu', () => {
             push: jest.fn()
         };
 
-        const submitTransactionMenu = shallow(<SubmitTransactionMenu
+        const categoriesMenu = shallow(<CategoriesMenu
             amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Car').simulate('click');
+        categoriesMenu.find('.CategoriesMenu-Car').simulate('click');
         expect(transactionStore.addTransaction).toHaveBeenCalledTimes(1);
         expect(transactionStore.addTransaction.mock.calls[0][0]).toBeCloseTo(123.00);
         expect(transactionStore.addTransaction.mock.calls[0][1]).toBeInstanceOf(Date);
@@ -165,13 +165,13 @@ describe('SubmitTransactionMenu', () => {
             push: jest.fn()
         };
 
-        const submitTransactionMenu = shallow(<SubmitTransactionMenu
+        const categoriesMenu = shallow(<CategoriesMenu
             amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        submitTransactionMenu.find('.SubmitTransactionMenu-Categories-Groceries').simulate('click');
+        categoriesMenu.find('.CategoriesMenu-Groceries').simulate('click');
         expect(transactionStore.addTransaction).toHaveBeenCalledTimes(1);
         expect(transactionStore.addTransaction.mock.calls[0][0]).toBeCloseTo(123.00);
         expect(transactionStore.addTransaction.mock.calls[0][1]).toBeInstanceOf(Date);
@@ -192,13 +192,13 @@ describe('SubmitTransactionMenu', () => {
             push: jest.fn()
         };
 
-        const submitTransactionMenu = shallow(<SubmitTransactionMenu
+        const categoriesMenu = shallow(<CategoriesMenu
             amountStore={amountStore}
             transactionStore={transactionStore}
             history={history}
         />);
 
-        submitTransactionMenu.find('.SubmitTransactionMenu-Categories-General').simulate('click');
+        categoriesMenu.find('.CategoriesMenu-General').simulate('click');
         expect(transactionStore.addTransaction).not.toHaveBeenCalled();
         expect(history.push).not.toHaveBeenCalledWith('/');
     });

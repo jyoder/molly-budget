@@ -1,12 +1,12 @@
 import TransactionCategoriesPage from 'ui/transaction/TransactionCategoriesPage';
-import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
+import CategoriesMenu from 'ui/transaction/CategoriesMenu';
 
 import React from 'react';
 import { shallow } from 'enzyme';
 
 
 describe('TransactionCategoriesPage', () => {
-    it('renders the SubmitTransactionMenu', () => {
+    it('renders the CategoriesMenu', () => {
         const amountStore = {};
         const transactionStore = {};
         const history = { push: jest.fn() };
@@ -16,7 +16,7 @@ describe('TransactionCategoriesPage', () => {
             history={history}
         />);
         
-        expect(transactionCategoriesPage.find(SubmitTransactionMenu)).toHaveLength(1);
+        expect(transactionCategoriesPage.find(CategoriesMenu)).toHaveLength(1);
     });
 
     it('redirects back to the transaction entry page when the user clicks the back button', () => {

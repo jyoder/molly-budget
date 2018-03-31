@@ -5,12 +5,12 @@ import { Button, ButtonGroup } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 
 
-class SubmitTransactionMenu extends React.Component {
+class CategoriesMenu extends React.Component {
     render() {
         return(
-            <ButtonGroup className="SubmitTransactionMenu-Categories btn-block" vertical={true}>
+            <ButtonGroup className="CategoriesMenu btn-block" vertical={true}>
                 <Button
-                    className="SubmitTransactionMenu-Categories-General"
+                    className="CategoriesMenu-General"
                     size="lg"
                     outline
                     disabled={this._disabled()}
@@ -19,7 +19,7 @@ class SubmitTransactionMenu extends React.Component {
                 </Button>
                 
                 <Button
-                    className="SubmitTransactionMenu-Categories-Outing"
+                    className="CategoriesMenu-Outing"
                     size="lg"
                     outline
                     disabled={this._disabled()}
@@ -28,7 +28,7 @@ class SubmitTransactionMenu extends React.Component {
                 </Button>
 
                 <Button
-                    className="SubmitTransactionMenu-Categories-Car"
+                    className="CategoriesMenu-Car"
                     size="lg"
                     outline
                     disabled={this._disabled()}
@@ -37,7 +37,7 @@ class SubmitTransactionMenu extends React.Component {
                 </Button>
 
                 <Button
-                    className="SubmitTransactionMenu-Categories-Groceries"
+                    className="CategoriesMenu-Groceries"
                     size="lg"
                     outline
                     disabled={this._disabled()}
@@ -62,10 +62,10 @@ class SubmitTransactionMenu extends React.Component {
     }
 }
 
-SubmitTransactionMenu.propTypes = {
+CategoriesMenu.propTypes = {
     amountStore: PropTypes.object.isRequired,
     transactionStore: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
 
-export default observer(SubmitTransactionMenu);
+export default observer(CategoriesMenu);
