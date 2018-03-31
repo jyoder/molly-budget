@@ -6,6 +6,11 @@ describe('value', () => {
         const valueStore = new ValueStore();
         expect(valueStore.value()).toBeNull();
     });
+
+    it('returns the optional initial value supplied in the constructor', () => {
+        const valueStore = new ValueStore(1);
+        expect(valueStore.value()).toBe(1);
+    })
 });
 
 describe('setValue', () => {

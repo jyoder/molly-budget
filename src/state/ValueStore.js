@@ -2,8 +2,8 @@ import { decorate, observable } from 'mobx';
 
 
 class ValueStore {
-    constructor() {
-        this._value = null;
+    constructor(value = null) {
+        this._value = value;
     }
 
     setValue(value) {

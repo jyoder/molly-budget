@@ -22,7 +22,7 @@ function _createAppStore() {
     const firebase = _firebase();
     FirebaseAuthenticator.create(firebase).authenticate((user) => {
         appStore.setUser(user);
-        appStore.setAmountStore(new ValueStore());
+        appStore.setAmountStore(new ValueStore(0.0));
         TransactionStore.create(firebase.database(), user.uid, (transactionStore) => {
             appStore.setTransactionStore(transactionStore);
         });
