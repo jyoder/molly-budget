@@ -12,33 +12,31 @@ class AppRoutes extends React.Component {
     render() {
         return(
             <Router>
-                <div>
-                    <Switch>
-                        <Route exact path="/" render={({ history }) => (
-                            <BudgetSummaryPage
-                                user={this.props.appStore.user()}
-                                budget={this.props.budget}
-                                history={history}
-                            />)}
-                        />
+                <Switch>
+                    <Route exact path="/" render={({ history }) => (
+                        <BudgetSummaryPage
+                            user={this.props.appStore.user()}
+                            budget={this.props.budget}
+                            history={history}
+                        />)}
+                    />
                     
-                        <Route path="/transactions" render={({ history }) => (
-                            <TransactionsPage
-                                amountStore={this.props.appStore.amountStore()}
-                                transactionStore={this.props.appStore.transactionStore()}
-                                history={history}
-                            />)}
-                        />
+                    <Route path="/transactions" render={({ history }) => (
+                        <TransactionsPage
+                            amountStore={this.props.appStore.amountStore()}
+                            transactionStore={this.props.appStore.transactionStore()}
+                            history={history}
+                        />)}
+                    />
 
-                        <Route path="/categories" render={({ history }) => (
-                            <CategorySelectionPage
-                                amountStore={this.props.appStore.amountStore()}
-                                transactionStore={this.props.appStore.transactionStore()}
-                                history={history}
-                            />)}
-                        />
-                    </Switch>
-                </div>
+                    <Route path="/categories" render={({ history }) => (
+                        <CategorySelectionPage
+                            amountStore={this.props.appStore.amountStore()}
+                            transactionStore={this.props.appStore.transactionStore()}
+                            history={history}
+                        />)}
+                    />
+                </Switch>
             </Router>
         );
     }
