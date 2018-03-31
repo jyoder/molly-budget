@@ -7,14 +7,14 @@ import NumberPad from 'ui/numpad/NumberPad';
 import { Button } from 'reactstrap';
 
 import 'ui/app/AppPage.css';
-import 'ui/transaction/TransactionsPage.css';
+import 'ui/transaction/TransactionAmountPage.css';
 
 
-class TransactionsPage extends React.Component {
+class TransactionAmountPage extends React.Component {
     render() {
         return(
-            <section className="TransactionsPage AppPage">
-                <div className="TransactionsPage-numberInput">
+            <section className="TransactionAmountPage AppPage">
+                <div className="TransactionAmountPage-numberInput">
                     <NumberPadDisplay valueStore={this.props.amountStore} />
                     <NumberPad valueStore={this.props.amountStore} />
                 </div>
@@ -22,7 +22,7 @@ class TransactionsPage extends React.Component {
                 <Button
                     outline
                     block
-                    className="TransactionsPage-chooseCategoryButton"
+                    className="TransactionAmountPage-chooseCategoryButton"
                     onClick={() => this._onClickChooseCategory()}>
                     Choose Category
                 </Button>
@@ -30,7 +30,7 @@ class TransactionsPage extends React.Component {
                 <Button
                     outline
                     block
-                    className="TransactionsPage-backButton"
+                    className="TransactionAmountPage-backButton"
                     onClick={() => this._onClickGoBack()}>
                     Go Back
                 </Button>
@@ -47,10 +47,10 @@ class TransactionsPage extends React.Component {
     }
 }
 
-TransactionsPage.propTypes = {
+TransactionAmountPage.propTypes = {
     amountStore: PropTypes.object.isRequired,
     transactionStore: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
 
-export default observer(TransactionsPage);
+export default observer(TransactionAmountPage);

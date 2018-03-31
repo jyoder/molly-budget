@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
-import TransactionsPage from 'ui/transaction/TransactionsPage';
+import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
 import CategorySelectionPage from 'ui/transaction/CategorySelectionPage';
 
 
@@ -22,7 +22,7 @@ class AppRoutes extends React.Component {
                     />
                     
                     <Route path="/transactions" render={({ history }) => (
-                        <TransactionsPage
+                        <TransactionAmountPage
                             amountStore={this.props.appStore.amountStore()}
                             transactionStore={this.props.appStore.transactionStore()}
                             history={history}
