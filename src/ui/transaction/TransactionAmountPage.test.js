@@ -37,7 +37,7 @@ describe('TransactionAmountPage', () => {
         expect(transactionAmountPage.find(NumberPad)).toHaveLength(1);
     });
 
-    it('navigates to /categories when the choose category button is clicked', () => {
+    it('navigates to /transactions/categories when the choose category button is clicked', () => {
         const amountStore = {};
         const transactionStore = {};
         const history = { push: jest.fn() };
@@ -49,7 +49,7 @@ describe('TransactionAmountPage', () => {
         />);
 
         transactionAmountPage.find('.TransactionAmountPage-chooseCategoryButton').simulate('click');
-        expect(history.push).toHaveBeenCalledWith('/categories');
+        expect(history.push).toHaveBeenCalledWith('/transactions/categories');
     });
 
     it('navigates to / when the go back button is clicked', () => {

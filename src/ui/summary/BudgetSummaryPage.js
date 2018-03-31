@@ -35,7 +35,7 @@ class BudgetSummaryPage extends React.Component {
     }
 
     _onAddTransactionClicked() {
-        this.props.history.push('/transactions');
+        this.props.history.push('/transactions/amount');
     }
 }
 

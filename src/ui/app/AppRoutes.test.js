@@ -22,10 +22,10 @@ describe('AppRoutes', () => {
         expect(wrapper.find(TransactionCategoriesPage)).toHaveLength(0);
     });
 
-    it('renders TransactionAmountPage when the user navigates to /transactions', () => {
+    it('renders TransactionAmountPage when the user navigates to /transactions/amount', () => {
         const budget = Budget.create(10.00, []);
         const wrapper = mount(
-            <MemoryRouter initialEntries={['/transactions']}>
+            <MemoryRouter initialEntries={['/transactions/amount']}>
                 <AppRoutes appStore={_appStore()} budget={budget}/>
             </MemoryRouter>
         );
@@ -34,10 +34,10 @@ describe('AppRoutes', () => {
         expect(wrapper.find(TransactionCategoriesPage)).toHaveLength(0);
     });
 
-    it('renders TransactionCategoriesPage when the user navigates to /categories', () => {
+    it('renders TransactionCategoriesPage when the user navigates to /transactions/categories', () => {
         const budget = Budget.create(10.00, []);
         const wrapper = mount(
-            <MemoryRouter initialEntries={['/categories']}>
+            <MemoryRouter initialEntries={['/transactions/categories']}>
                 <AppRoutes appStore={_appStore()} budget={budget}/>
             </MemoryRouter>
         );

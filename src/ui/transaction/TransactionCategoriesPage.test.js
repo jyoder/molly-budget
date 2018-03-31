@@ -32,7 +32,7 @@ describe('TransactionCategoriesPage', () => {
         const backButton = transactionCategoriesPage.find('.TransactionCategoriesPage-backButton'); 
         backButton.simulate('click');
         
-        expect(history.push).toHaveBeenCalledWith('/transactions');
+        expect(history.push).toHaveBeenCalledWith('/transactions/amount');
         expect(amountStore.setValue).not.toHaveBeenCalled();
     });
 });

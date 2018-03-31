@@ -21,7 +21,7 @@ class AppRoutes extends React.Component {
                         />)}
                     />
                     
-                    <Route path="/transactions" render={({ history }) => (
+                    <Route path="/transactions/amount" render={({ history }) => (
                         <TransactionAmountPage
                             amountStore={this.props.appStore.amountStore()}
                             transactionStore={this.props.appStore.transactionStore()}
@@ -29,7 +29,7 @@ class AppRoutes extends React.Component {
                         />)}
                     />
 
-                    <Route path="/categories" render={({ history }) => (
+                    <Route path="/transactions/categories" render={({ history }) => (
                         <TransactionCategoriesPage
                             amountStore={this.props.appStore.amountStore()}
                             transactionStore={this.props.appStore.transactionStore()}

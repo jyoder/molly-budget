@@ -39,7 +39,7 @@ class TransactionAmountPage extends React.Component {
     }
 
     _onClickChooseCategory() {
-        this.props.history.push('/categories');
+        this.props.history.push('/transactions/categories');
     }
 
     _onClickGoBack() {
