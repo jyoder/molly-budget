@@ -5,20 +5,28 @@ import { Button } from 'reactstrap';
 import NumberPadDisplay from 'ui/numpad/NumberPadDisplay';
 import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
 
+import 'ui/app/AppPage.css';
+
 
 class CategorySelectionPage extends React.Component {
     render() {
         return(
-            <section>
+            <section className="CategorySelectionPage AppPage">
                 <NumberPadDisplay
+                    className="CategorySelectionPage-NumberPadDisplay"
                     valueStore={this.props.amountStore}
                 />
+
+                <br />
                 
                 <SubmitTransactionMenu
+                    className="CategorySelectionPage-SubmitTransactionMenu"
                     amountStore={this.props.amountStore}
                     transactionStore={this.props.transactionStore}
                     history={this.props.history}
                 />
+
+                <br />
 
                 <Button
                     outline
