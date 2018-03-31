@@ -8,19 +8,19 @@ import SubmitTransactionMenu from 'ui/transaction/SubmitTransactionMenu';
 import 'ui/app/AppPage.css';
 
 
-class CategorySelectionPage extends React.Component {
+class TransactionCategoriesPage extends React.Component {
     render() {
         return(
-            <section className="CategorySelectionPage AppPage">
+            <section className="TransactionCategoriesPage AppPage">
                 <NumberPadDisplay
-                    className="CategorySelectionPage-NumberPadDisplay"
+                    className="TransactionCategoriesPage-NumberPadDisplay"
                     valueStore={this.props.amountStore}
                 />
 
                 <br />
                 
                 <SubmitTransactionMenu
-                    className="CategorySelectionPage-SubmitTransactionMenu"
+                    className="TransactionCategoriesPage-SubmitTransactionMenu"
                     amountStore={this.props.amountStore}
                     transactionStore={this.props.transactionStore}
                     history={this.props.history}
@@ -31,7 +31,7 @@ class CategorySelectionPage extends React.Component {
                 <Button
                     outline
                     block
-                    className="CategorySelectionPage-backButton"
+                    className="TransactionCategoriesPage-backButton"
                     onClick={() => this._onClick()}>Go Back
                 </Button>
             </section>
@@ -43,10 +43,10 @@ class CategorySelectionPage extends React.Component {
     }
 }
 
-CategorySelectionPage.propTypes = {
+TransactionCategoriesPage.propTypes = {
     amountStore: PropTypes.object.isRequired,
     transactionStore: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
 
-export default observer(CategorySelectionPage);
+export default observer(TransactionCategoriesPage);

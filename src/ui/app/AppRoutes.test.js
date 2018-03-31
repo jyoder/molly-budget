@@ -5,7 +5,7 @@ import { shallow, mount } from 'enzyme';
 import AppRoutes from 'ui/app/AppRoutes';
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
 import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
-import CategorySelectionPage from 'ui/transaction/CategorySelectionPage';
+import TransactionCategoriesPage from 'ui/transaction/TransactionCategoriesPage';
 import Budget from 'state/Budget';
 
 
@@ -19,7 +19,7 @@ describe('AppRoutes', () => {
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(1);
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
-        expect(wrapper.find(CategorySelectionPage)).toHaveLength(0);
+        expect(wrapper.find(TransactionCategoriesPage)).toHaveLength(0);
     });
 
     it('renders TransactionAmountPage when the user navigates to /transactions', () => {
@@ -31,10 +31,10 @@ describe('AppRoutes', () => {
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(1);
-        expect(wrapper.find(CategorySelectionPage)).toHaveLength(0);
+        expect(wrapper.find(TransactionCategoriesPage)).toHaveLength(0);
     });
 
-    it('renders CategorySelectionPage when the user navigates to /categories', () => {
+    it('renders TransactionCategoriesPage when the user navigates to /categories', () => {
         const budget = Budget.create(10.00, []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/categories']}>
@@ -43,7 +43,7 @@ describe('AppRoutes', () => {
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
-        expect(wrapper.find(CategorySelectionPage)).toHaveLength(1);
+        expect(wrapper.find(TransactionCategoriesPage)).toHaveLength(1);
     });
 });
 
