@@ -23,6 +23,23 @@ describe('CategoriesMenu', () => {
         expect(categoriesMenu.find('.CategoriesMenu-Groceries')).toHaveLength(1);
     });
 
+    it('renders the root element with the specified className', () => {
+        const amountStore = {
+            value: jest.fn(() => null)
+        };
+        const transactionStore = {};
+        const history = {};
+
+        const categoriesMenu = shallow(<CategoriesMenu
+            className="MySpecialClass"
+            amountStore={amountStore}
+            transactionStore={transactionStore}
+            history={history}
+        />);
+
+        expect(categoriesMenu.find('.MySpecialClass')).toHaveLength(1);
+    });
+
     it('renders as disabled when no amount is available in the amount store', () => {
         const amountStore = {
             value: jest.fn(() => null)

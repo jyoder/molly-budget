@@ -6,7 +6,7 @@ import { formatCurrency } from 'ui/format/CurrencyFormat';
 
 class NumberPadDisplay extends React.Component {
     render() {
-        return <p className="NumberPadDisplay h3">${this._number()}</p>
+        return <p className="NumberPadDisplay h4">${this._number()}</p>
     }
 
     _number() {

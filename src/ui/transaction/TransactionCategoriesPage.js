@@ -12,21 +12,18 @@ class TransactionCategoriesPage extends React.Component {
     render() {
         return(
             <section className="TransactionCategoriesPage AppPage">
-                <NumberPadDisplay
-                    className="TransactionCategoriesPage-NumberPadDisplay"
-                    valueStore={this.props.amountStore}
-                />
-
-                <br />
-                
-                <CategoriesMenu
-                    className="TransactionCategoriesPage-CategoriesMenu"
-                    amountStore={this.props.amountStore}
-                    transactionStore={this.props.transactionStore}
-                    history={this.props.history}
-                />
-
-                <br />
+                <div>
+                    <NumberPadDisplay
+                        className="TransactionCategoriesPage-NumberPadDisplay"
+                        valueStore={this.props.amountStore}
+                    />
+                    <CategoriesMenu
+                        className="TransactionCategoriesPage-CategoriesMenu"
+                        amountStore={this.props.amountStore}
+                        transactionStore={this.props.transactionStore}
+                        history={this.props.history}
+                    />
+                </div>
 
                 <Button
                     outline

@@ -8,43 +8,44 @@ import FontAwesome from 'react-fontawesome';
 class CategoriesMenu extends React.Component {
     render() {
         return(
-            <ButtonGroup className="btn-block" vertical={true}>
-                <Button
-                    className="CategoriesMenu-General"
-                    size="lg"
-                    outline
-                    disabled={this._disabled()}
-                    onClick={() => this._onClick('General')}>
-                    <FontAwesome name="dollar" /> General
-                </Button>
-                
-                <Button
-                    className="CategoriesMenu-Outing"
-                    size="lg"
-                    outline
-                    disabled={this._disabled()}
-                    onClick={() => this._onClick('Outing')}>
-                    <FontAwesome name="coffee" /> Outing
-                </Button>
+            <div className={this.props.className}>
+                <ButtonGroup
+                    className="btn-block"
+                    vertical={true}>
+                    
+                    <Button
+                        className="CategoriesMenu-General"
+                        outline
+                        disabled={this._disabled()}
+                        onClick={() => this._onClick('General')}>
+                        <FontAwesome name="dollar" /> General
+                    </Button>
+                    
+                    <Button
+                        className="CategoriesMenu-Outing"
+                        outline
+                        disabled={this._disabled()}
+                        onClick={() => this._onClick('Outing')}>
+                        <FontAwesome name="coffee" /> Outing
+                    </Button>
 
-                <Button
-                    className="CategoriesMenu-Car"
-                    size="lg"
-                    outline
-                    disabled={this._disabled()}
-                    onClick={() => this._onClick('Car')}>
-                    <FontAwesome name="car" /> Car
-                </Button>
+                    <Button
+                        className="CategoriesMenu-Car"
+                        outline
+                        disabled={this._disabled()}
+                        onClick={() => this._onClick('Car')}>
+                        <FontAwesome name="car" /> Car
+                    </Button>
 
-                <Button
-                    className="CategoriesMenu-Groceries"
-                    size="lg"
-                    outline
-                    disabled={this._disabled()}
-                    onClick={() => this._onClick('Groceries')}>
-                    <FontAwesome name="shopping-cart" /> Groceries
-                </Button>
-            </ButtonGroup>
+                    <Button
+                        className="CategoriesMenu-Groceries"
+                        outline
+                        disabled={this._disabled()}
+                        onClick={() => this._onClick('Groceries')}>
+                        <FontAwesome name="shopping-cart" /> Groceries
+                    </Button>
+                </ButtonGroup>
+            </div>
         );
     }
 
