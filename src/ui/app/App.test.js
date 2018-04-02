@@ -16,6 +16,7 @@ describe('App', () => {
     it('renders AppRoutes when the user has authenticated', () => {
         const appStore = new AppStore();
         appStore.setUser(_user());
+        appStore.setAmountStore({});
         appStore.setTransactionStore(_transactionStore());
 
         const app = shallow(<App appStore={appStore} />);

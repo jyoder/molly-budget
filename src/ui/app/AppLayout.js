@@ -9,10 +9,12 @@ class AppLayout extends React.Component {
         return(
             <div className="AppLayout">
                 <header className="AppLayout-header">
-                    <h1>MollyBudget</h1>
+                    <h4 className="AppLayout-heading">MollyBudget</h4>
                 </header>
 
-                {this.props.children}
+                <section className="AppLayout-content">
+                    {this.props.children}
+                </section>
             </div>
         );
     }

@@ -33,6 +33,6 @@ describe('BudgetSummary', () => {
         const budgetSummary = shallow(<BudgetSummary user={user} budget={budget} history={history}/>);
 
         budgetSummary.find('.BudgetSummaryPage-addTransaction').simulate('click');
-        expect(history.push).toHaveBeenCalledWith('/transactions');
+        expect(history.push).toHaveBeenCalledWith('/transactions/amount');
     });
 });

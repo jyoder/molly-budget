@@ -1,7 +1,21 @@
+html, body, #root {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
 
     font-family: sans-serif;
     font-size: 100%;
+}
+
+
+/* 
+ * Disable effects when hovering over and clicking buttons. This resolves the "sticky" button
+ * problem that occurs on mobile devices.
+ */
+.btn:hover {
+    color: #6c757d !important;
+    background: inherit !important;
 }

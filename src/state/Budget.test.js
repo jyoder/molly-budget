@@ -30,6 +30,18 @@ describe('current', () => {
         expect(budget.current()).toBeCloseTo(15.00);
     });
 
+    it('ignores transactions from a previous month', () => {
+        const today = new Date(2018, 2, 1);
+        
+        const transactions = [
+            new Transaction('id1', 10.00, new Date(2018, 1, 1), 'Disneyland'),
+            new Transaction('id2', 15.00, new Date(2018, 2, 2), 'Knotts')
+        ];
+
+        const budget = new Budget(today, 20.00, transactions);
+        expect(budget.current()).toBeCloseTo(5.00);
+    });
+
     it('returns the accrual rate on the first day of the month', () => {
         const today = new Date(2018, 2, 1);
         const budget = new Budget(today, 40.00, []);

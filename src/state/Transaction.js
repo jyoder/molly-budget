@@ -1,8 +1,8 @@
 export default class Transaction {
-    constructor(id, amount, occurredOn, category) {
+    constructor(id, amount, occurredAt, category) {
         this._id = id;
         this._amount = amount;
-        this._occurredOn = occurredOn;
+        this._occurredAt = occurredAt;
         this._category = category;
     }
 
@@ -14,8 +14,8 @@ export default class Transaction {
         return this._amount;
     }
 
-    occurredOn() {
-        return this._occurredOn;
+    occurredAt() {
+        return this._occurredAt;
     }
 
     category() {

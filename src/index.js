@@ -8,6 +8,7 @@ import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import Environment from 'environment/Environment';
 import AppStore from 'state/AppStore';
 import TransactionStore from 'state/TransactionStore';
+import ValueStore from 'state/ValueStore';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'index.css';
@@ -20,11 +21,11 @@ function _createAppStore() {
     const appStore = new AppStore();
     const firebase = _firebase();
     FirebaseAuthenticator.create(firebase).authenticate((user) => {
-        appStore.setTransactionStore(
-            TransactionStore.create(firebase.database(), user.uid)
-        );
-        // Delay initialization a bit to give us a chance to fetch initial data
-        setTimeout(() => { appStore.setUser(user) }, 500);
+        appStore.setUser(user);
+        appStore.setAmountStore(new ValueStore(0.0));
+        TransactionStore.create(firebase.database(), user.uid, (transactionStore) => {
+            appStore.setTransactionStore(transactionStore);
+        });
     });
     return appStore;
 }

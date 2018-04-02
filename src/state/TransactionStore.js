@@ -4,20 +4,24 @@ import TransactionSerializer from 'state/TransactionSerializer';
 
 
 class TransactionStore {
-    static create(firebaseDatabase, userId) {
+    static create(firebaseDatabase, userId, onInitialized) {
         const transactionsRef = firebaseDatabase.ref(`/accounts/${userId}/transactions`);
         const transactionStore = new TransactionStore(transactionsRef, []);
-        this._connect(transactionsRef, transactionStore);
+        this._initialize(transactionsRef, transactionStore, onInitialized);
 
         return transactionStore;
     }
 
-    static _connect(transactionRef, transactionStore) {
+    static _initialize(transactionRef, transactionStore, onInitialized) {
         transactionRef.on('value', (snapshot) => {
             if(snapshot.val()) {
                 transactionStore.receiveTransactions(
                     TransactionSerializer.fromJsonList(Object.values(snapshot.val()))
                 );
+            }
+            if(onInitialized) {
+                onInitialized(transactionStore);
+                onInitialized = null;
             }
         });
     }
@@ -31,9 +35,9 @@ class TransactionStore {
         return this._transactions.slice();
     }
 
-    addTransaction(amount, occurredOn, category) {
+    addTransaction(amount, occurredAt, category) {
         const ref = this._transactionsRef.push();
-        const transaction = new Transaction(ref.key, amount, occurredOn, category);
+        const transaction = new Transaction(ref.key, amount, occurredAt, category);
         ref.set(TransactionSerializer.toJson(transaction));
     }
 

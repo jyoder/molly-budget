@@ -6,7 +6,7 @@ export default class TransactionSerializer {
         return {
             id: transaction.id(),
             amount: transaction.amount(),
-            occurredOn: transaction.occurredOn(),
+            occurredAt: transaction.occurredAt().toISOString(),
             category: transaction.category()
         };
     }
@@ -15,7 +15,7 @@ export default class TransactionSerializer {
         return new Transaction(
             json.id,
             json.amount,
-            json.occurredOn,
+            new Date(json.occurredAt),
             json.category
         );
     }

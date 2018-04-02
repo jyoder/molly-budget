@@ -5,7 +5,7 @@ import Transaction from 'state/Transaction';
 describe('create', () => {
     it('creates a new transaction store and wires up the database ref', () => {
         const firebaseDatabase = _firebaseDatabase();
-        const transactionStore = TransactionStore.create(firebaseDatabase, 'john');
+        const transactionStore = TransactionStore.create(firebaseDatabase, 'john', jest.fn());
         
         expect(firebaseDatabase.ref).toHaveBeenCalledWith('/accounts/john/transactions');
         expect(firebaseDatabase.ref().on).toHaveBeenCalledTimes(1);
@@ -14,6 +14,21 @@ describe('create', () => {
         const transaction1 = new Transaction('id1', 123.00, new Date(2018, 2, 1), 'Disneyland');
         const transaction2 = new Transaction('id2', 124.00, new Date(2018, 2, 2), 'Knotts');
         expect(transactionStore.transactions()).toEqual([transaction1, transaction2]);
+    });
+
+    it('invokes the onInitialized callback once upon first reception of transactions', () => {
+        const firebaseDatabase = _firebaseDatabase();
+        const onInitialized = jest.fn();
+        const transactionStore = TransactionStore.create(firebaseDatabase, 'john', onInitialized);
+        
+        expect(firebaseDatabase.ref).toHaveBeenCalledWith('/accounts/john/transactions');
+        expect(firebaseDatabase.ref().on).toHaveBeenCalledTimes(1);
+
+        firebaseDatabase.ref().on.mock.calls[0][1](_snapshot());
+        expect(onInitialized).toHaveBeenCalledWith(transactionStore);
+
+        firebaseDatabase.ref().on.mock.calls[0][1](_snapshot());
+        expect(onInitialized).toHaveBeenCalledTimes(1);
     });
 
     it('handles the case where the database snapshot value is null', () => {
@@ -43,13 +58,13 @@ describe('addTransaction', () => {
     it('adds a new transaction to the firebase database', () => {
         const transactionsRef = _transactionsRef();
         const transactionStore = new TransactionStore(transactionsRef, []);
-        const occurredOn = new Date(2018, 2, 1);
+        const occurredAt = new Date('2018-03-01T08:00:00.000Z');
         
-        transactionStore.addTransaction(123.00, occurredOn, 'Disneyland');
+        transactionStore.addTransaction(123.00, occurredAt, 'Disneyland');
         expect(transactionsRef.push().set).toHaveBeenCalledWith({
             id: 'someKey',
             amount: 123.00,
-            occurredOn: occurredOn,
+            occurredAt: '2018-03-01T08:00:00.000Z',
             category: 'Disneyland'
         });
     });
@@ -90,13 +105,13 @@ function _snapshot() {
             'id1': {
                 id: 'id1',
                 amount: 123.00,
-                occurredOn: new Date(2018, 2, 1),
+                occurredAt: new Date(2018, 2, 1),
                 category: 'Disneyland'
             },
             'id2': {
                 id: 'id2',
                 amount: 124.00,
-                occurredOn: new Date(2018, 2, 2),
+                occurredAt: new Date(2018, 2, 2),
                 category: 'Knotts'
             }
         })
