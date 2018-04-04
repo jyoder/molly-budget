@@ -11,6 +11,10 @@ import 'ui/app/AppPage.css';
 
 
 class TransactionAmountPage extends React.Component {
+    componentWillMount() {
+        this.props.amountStore.setValue(null);
+    }
+
     render() {
         return(
             <section className="AppPage">

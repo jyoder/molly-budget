@@ -10,7 +10,10 @@ import { Button } from 'reactstrap';
 
 describe('TransactionAmountPage', () => {
     it('renders a NumberPadDisplay', () => {
-        const amountStore = { value: jest.fn() };
+        const amountStore = {
+            value: jest.fn(),
+            setValue: jest.fn()
+        };
         const categoryStore = {};
         const transactionStore = {};
         const history = {};
@@ -26,7 +29,10 @@ describe('TransactionAmountPage', () => {
     });
 
     it('renders a CategorySelector', () => {
-        const amountStore = { value: jest.fn() };
+        const amountStore = {
+            value: jest.fn(),
+            setValue: jest.fn()
+        };
         const categoryStore = {};
         const transactionStore = {};
         const history = {};
@@ -42,7 +48,10 @@ describe('TransactionAmountPage', () => {
     });
 
     it('renders a NumberPad', () => {
-        const amountStore = { value: jest.fn() };
+        const amountStore = {
+            value: jest.fn(),
+            setValue: jest.fn()
+        };
         const categoryStore = {};
         const transactionStore = {};
         const history = {};
@@ -57,8 +66,31 @@ describe('TransactionAmountPage', () => {
         expect(transactionAmountPage.find(NumberPad)).toHaveLength(1);
     });
 
+    it('resets the transaction amount to null upon mounting the page', () => {
+        const amountStore = { 
+            value: jest.fn(() => 0.0),
+            setValue: jest.fn()
+        };
+        const categoryStore = { value: jest.fn(() => 'General') };
+        const transactionStore = { addTransaction: jest.fn() };
+        const history = { push: jest.fn() };
+        
+        const transactionAmountPage = shallow(<TransactionAmountPage
+            amountStore={amountStore}
+            categoryStore={categoryStore}
+            transactionStore={transactionStore}
+            history={history}
+        />);
+
+        expect(amountStore.setValue).toHaveBeenCalledWith(null);
+        
+    });
+
     it('disables the submit transaction button while the amount is null', () => {
-        const amountStore = { value: jest.fn(() => null) };
+        const amountStore = {
+            value: jest.fn(() => null),
+            setValue: jest.fn()
+        };
         const categoryStore = { value: jest.fn(() => 'General') };
         const transactionStore = { addTransaction: jest.fn() };
         const history = { push: jest.fn() };
@@ -76,7 +108,10 @@ describe('TransactionAmountPage', () => {
     });
 
     it('disables the submit transaction button while the amount is zero', () => {
-        const amountStore = { value: jest.fn(() => 0.0) };
+        const amountStore = { 
+            value: jest.fn(() => 0.0),
+            setValue: jest.fn()
+        };
         const categoryStore = { value: jest.fn(() => 'General') };
         const transactionStore = { addTransaction: jest.fn() };
         const history = { push: jest.fn() };
@@ -94,7 +129,10 @@ describe('TransactionAmountPage', () => {
     });
 
     it('submits the transaction and navigates to / when the submit transaction button is clicked', () => {
-        const amountStore = { value: jest.fn(() => 123.00) };
+        const amountStore = {
+            value: jest.fn(() => 123.00),
+            setValue: jest.fn()
+        };
         const categoryStore = { value: jest.fn(() => 'General') };
         const transactionStore = { addTransaction: jest.fn() };
         const history = { push: jest.fn() };
@@ -115,7 +153,10 @@ describe('TransactionAmountPage', () => {
     });
 
     it('navigates to / without submitting a transaction when the go back button is clicked', () => {
-        const amountStore = { value: jest.fn() };
+        const amountStore = {
+            value: jest.fn(),
+            setValue: jest.fn()
+        };
         const categoryStore = {};
         const transactionStore = { addTransaction: jest.fn() };
         const history = { push: jest.fn() };
