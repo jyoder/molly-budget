@@ -5,7 +5,6 @@ import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
 import NumberPadDisplay from 'ui/numpad/NumberPadDisplay';
 import NumberPad from 'ui/numpad/NumberPad';
 import CategorySelector from 'ui/transaction/CategorySelector';
-import CategoriesMenu from 'ui/transaction/CategoriesMenu';
 import { Button } from 'reactstrap';
 
 
