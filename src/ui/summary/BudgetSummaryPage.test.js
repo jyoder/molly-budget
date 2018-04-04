@@ -26,13 +26,13 @@ describe('BudgetSummary', () => {
         expect(budgetSummary.find('.BudgetSummaryPage-addTransaction')).toHaveLength(1);
     });
 
-    it('navigates to the transactions page when the add transaction button is clicked', () => {
+    it('navigates to /transactions when the add transaction button is clicked', () => {
         const user = { displayName: 'Fred Rogers' };
         const budget = new Budget(new Date(2018, 2, 15), 10.00, []);
         const history = { push: jest.fn() };
         const budgetSummary = shallow(<BudgetSummary user={user} budget={budget} history={history}/>);
 
         budgetSummary.find('.BudgetSummaryPage-addTransaction').simulate('click');
-        expect(history.push).toHaveBeenCalledWith('/transactions/amount');
+        expect(history.push).toHaveBeenCalledWith('/transactions');
     });
 });
