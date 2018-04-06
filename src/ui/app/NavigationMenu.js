@@ -19,7 +19,7 @@ export default class NavigationMenu extends React.Component {
                     <Collapse isOpen={!this.state.collapsed} navbar>
                         <Nav navbar>
                             <NavItem>
-                                <NavLink onClick href="/daily_budget">Daily Budget Amount</NavLink>
+                                <NavLink href="/daily_budget">Daily Budget Amount</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
