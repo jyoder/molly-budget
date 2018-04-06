@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
 import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
-import SettingsPage from 'ui/settings/SettingsPage';
+import DailyBudgetPage from 'ui/settings/DailyBudgetPage';
 import ValueStore from 'state/ValueStore';
 
 
@@ -36,8 +36,8 @@ class AppRoutes extends React.Component {
                         />)}
                     />
 
-                    <Route path="/settings" render={({ history }) => (
-                        <SettingsPage />)}
+                    <Route path="/daily_budget" render={({ history }) => (
+                        <DailyBudgetPage />)}
                     />
                 </Switch>
             </Router>
