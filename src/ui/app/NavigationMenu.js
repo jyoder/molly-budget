@@ -21,7 +21,7 @@ export default class NavigationMenu extends React.Component {
                     <NavbarToggler onClick={() => { this._onTogglerClicked() }} />
                     <Collapse isOpen={!this.state.collapsed} navbar>
                         <Nav navbar>
-                            {this._navItem('/daily_budget', 'Daily Budget Amount')}
+                            {this._navItem('/settings/daily_budget', 'Daily Budget Amount')}
                         </Nav>
                     </Collapse>
                 </Navbar>

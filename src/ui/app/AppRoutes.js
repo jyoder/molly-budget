@@ -5,8 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
 import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
-import DailyBudgetPage from 'ui/settings/DailyBudgetPage';
-import DailyBudgetEditPage from 'ui/settings/DailyBudgetEditPage';
+import SettingsRoutes from 'ui/settings/SettingsRoutes';
 import ValueStore from 'state/ValueStore';
 
 
@@ -39,14 +38,8 @@ class AppRoutes extends React.Component {
                     />)}
                 />
 
-                <Route path="/daily_budget" render={({ history }) => (
-                    <DailyBudgetPage
-                        location={this.props.location} />)}
-                />
-
-                <Route path="/daily_budget_edit" render={({ history }) => (
-                    <DailyBudgetEditPage
-                        dailyBudgetStore={this._dailyBudgetStore}
+                <Route path="/settings" render={({ history }) => (
+                    <SettingsRoutes
                         location={this.props.location} />)}
                 />
             </Switch>

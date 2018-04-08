@@ -41,7 +41,7 @@ describe('NavigationMenu', () => {
     });
 
     it('marks the selected item as active when it matches the current location', () => {
-        const location = { pathname: '/daily_budget' };
+        const location = { pathname: '/settings/daily_budget' };
         const navigationMenu = shallow(<NavigationMenu location={location} />);
         
         navigationMenu.find(NavbarToggler).simulate('click');
