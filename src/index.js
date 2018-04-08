@@ -10,11 +10,20 @@ import AppStore from 'state/AppStore';
 import TransactionStore from 'state/TransactionStore';
 import ValueStore from 'state/ValueStore';
 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'index.css';
 
-
-ReactDOM.render(<App appStore={_createAppStore()} />, document.getElementById('root'));
+const appStore = _createAppStore();
+ReactDOM.render(
+    <Router>
+        <Route render={({location}) => (
+            <App appStore={appStore} location={location} />
+        )} />
+    </Router>,
+    document.getElementById('root')
+);
 
 
 function _createAppStore() {

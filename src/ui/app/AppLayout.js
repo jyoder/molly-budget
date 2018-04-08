@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import NavigationMenu from 'ui/app/NavigationMenu';
 
@@ -9,16 +10,20 @@ class AppLayout extends React.Component {
     render() {
         return(
             <div className="AppLayout">
-                <section className="AppLayout-header">
-                    <NavigationMenu />
-                </section>
+                <header className="AppLayout-header">
+                    <NavigationMenu location={this.props.location} />
+                </header>
 
-                <section className="AppLayout-content">
+                <content className="AppLayout-content">
                     {this.props.children}
-                </section>
+                </content>
             </div>
         );
     }
 }
+
+AppLayout.propTypes = {
+    location: PropTypes.object.isRequired
+};
 
 export default observer(AppLayout);
