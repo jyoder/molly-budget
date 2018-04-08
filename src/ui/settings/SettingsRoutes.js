@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -33,8 +32,5 @@ class SettingsRoutes extends React.Component {
         );
     }
 }
-
-SettingsRoutes.propTypes = {
-};
 
 export default observer(SettingsRoutes);
