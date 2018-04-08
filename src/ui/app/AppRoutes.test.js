@@ -6,6 +6,7 @@ import AppRoutes from 'ui/app/AppRoutes';
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
 import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
 import DailyBudgetPage from 'ui/settings/DailyBudgetPage';
+import DailyBudgetEditPage from 'ui/settings/DailyBudgetEditPage';
 import Budget from 'state/Budget';
 
 
@@ -20,6 +21,7 @@ describe('AppRoutes', () => {
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(1);
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
         expect(wrapper.find(DailyBudgetPage)).toHaveLength(0);
+        expect(wrapper.find(DailyBudgetEditPage)).toHaveLength(0);
     });
 
     it('renders TransactionAmountPage when the user navigates to /transactions', () => {
@@ -32,6 +34,7 @@ describe('AppRoutes', () => {
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(1);
         expect(wrapper.find(DailyBudgetPage)).toHaveLength(0);
+        expect(wrapper.find(DailyBudgetEditPage)).toHaveLength(0);
     });
 
     it('renders DailyBudgetPage when the user navigates to /daily_budget', () => {
@@ -44,6 +47,20 @@ describe('AppRoutes', () => {
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
         expect(wrapper.find(DailyBudgetPage)).toHaveLength(1);
+        expect(wrapper.find(DailyBudgetEditPage)).toHaveLength(0);
+    });
+
+    it('renders DailyBudgetEditPage when the user navigates to /daily_budget_edit', () => {
+        const budget = Budget.create(10.00, []);
+        const wrapper = mount(
+            <MemoryRouter initialEntries={['/daily_budget_edit']}>
+                <AppRoutes appStore={_appStore()} budget={budget}/>
+            </MemoryRouter>
+        );
+        expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
+        expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
+        expect(wrapper.find(DailyBudgetPage)).toHaveLength(0);
+        expect(wrapper.find(DailyBudgetEditPage)).toHaveLength(1);
     });
 });
 
