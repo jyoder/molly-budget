@@ -1,5 +1,7 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
+import { Link } from 'react-router-dom';
+
 
 export default class NavigationMenu extends React.Component {
     constructor(props) {
@@ -18,9 +20,7 @@ export default class NavigationMenu extends React.Component {
                     <NavbarToggler onClick={() => { this._onTogglerClicked() }} />
                     <Collapse isOpen={!this.state.collapsed} navbar>
                         <Nav navbar>
-                            <NavItem>
-                                <NavLink href="/daily_budget">Daily Budget Amount</NavLink>
-                            </NavItem>
+                            {this._navItem('/daily_budget', 'Daily Budget Amount')}
                         </Nav>
                     </Collapse>
                 </Navbar>
@@ -28,9 +28,27 @@ export default class NavigationMenu extends React.Component {
         );
     }
 
+    _navItem(pathname, description) {
+        return(
+            <NavItem>
+                <NavLink tag={Link} to={pathname}
+                    onClick={() => this._collapseNavBar() }
+                    active={this.props.location.pathname === pathname}>
+                    {description}
+                </NavLink>
+            </NavItem>
+        );
+    }
+
     _onTogglerClicked() {
         this.setState((state) => ({
             collapsed: !state.collapsed
         }));
+    }
+
+    _collapseNavBar() {
+        this.setState({
+            collapsed: true
+        });
     }
 }
