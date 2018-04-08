@@ -22,7 +22,10 @@ class SettingsRoutes extends React.Component {
                 )} />
 
                 <Route path="/settings/daily_budget/edit" render={({ history }) => (
-                    <DailyBudgetEditPage dailyBudgetStore={this._dailyBudgetStore}/>
+                    <DailyBudgetEditPage
+                        dailyBudgetStore={this._dailyBudgetStore}
+                        history={history}
+                    />
                 )} />
             </Switch>
         );

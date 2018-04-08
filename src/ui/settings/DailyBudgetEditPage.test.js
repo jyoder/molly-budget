@@ -12,6 +12,7 @@ describe('DailyBudgetEditPage', () => {
         const dailyBudgetEditPage = shallow(
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
+                history={{}}
         />);
 
         expect(dailyBudgetEditPage.find('.DailyBudgetEditPage-dailyBudget').text())
@@ -23,6 +24,7 @@ describe('DailyBudgetEditPage', () => {
         const dailyBudgetEditPage = shallow(
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
+                history={{}}
         />);
 
         expect(dailyBudgetEditPage.find('.DailyBudgetEditPage-dailyBudget').text())
@@ -34,6 +36,7 @@ describe('DailyBudgetEditPage', () => {
         const dailyBudgetEditPage = shallow(
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
+                history={{}}
         />);
 
         expect(dailyBudgetEditPage.find('.DailyBudgetEditPage-dailyBudget').text())
@@ -45,8 +48,35 @@ describe('DailyBudgetEditPage', () => {
         const dailyBudgetEditPage = shallow(
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
+                history={{}}
         />);
 
         expect(dailyBudgetEditPage.find(NumberPad)).toHaveLength(1);
+    });
+
+    it('navigates back to /settings/daily_budget when the save change button is clicked', () => {
+        const dailyBudgetStore = new ValueStore(20);
+        const history = { push: jest.fn() };
+        const dailyBudgetEditPage = shallow(
+            <DailyBudgetEditPage
+                dailyBudgetStore={dailyBudgetStore}
+                history={history}
+        />);
+
+        dailyBudgetEditPage.find('.DailyBudgetEditPage-saveChange').simulate('click');
+        expect(history.push).toHaveBeenCalledWith('/settings/daily_budget');
+    });
+
+    it('navigates back to /settings/daily_budget when the go back button is clicked', () => {
+        const dailyBudgetStore = new ValueStore(20);
+        const history = { push: jest.fn() };
+        const dailyBudgetEditPage = shallow(
+            <DailyBudgetEditPage
+                dailyBudgetStore={dailyBudgetStore}
+                history={history}
+        />);
+
+        dailyBudgetEditPage.find('.DailyBudgetEditPage-goBack').simulate('click');
+        expect(history.push).toHaveBeenCalledWith('/settings/daily_budget');
     });
 });
