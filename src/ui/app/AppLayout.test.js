@@ -7,7 +7,7 @@ import AppLayout from 'ui/app/AppLayout';
 describe('AppLayout', () => {
     it('renders child elements', () => {
         const appLayout = shallow(
-            <AppLayout>
+            <AppLayout location={{}}>
                 <p className="greeting">Hi!</p>
             </AppLayout>
         );
