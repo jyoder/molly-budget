@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import NavigationMenu from 'ui/app/NavigationMenu';
 
@@ -20,5 +21,9 @@ class AppLayout extends React.Component {
         );
     }
 }
+
+AppLayout.propTypes = {
+    location: PropTypes.object.isRequired
+};
 
 export default observer(AppLayout);

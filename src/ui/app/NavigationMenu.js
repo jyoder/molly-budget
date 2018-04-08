@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -51,4 +52,8 @@ export default class NavigationMenu extends React.Component {
             collapsed: true
         });
     }
+}
+
+NavigationMenu.propTypes = {
+    location: PropTypes.object.isRequired
 }

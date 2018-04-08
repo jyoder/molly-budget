@@ -48,7 +48,8 @@ class AppRoutes extends React.Component {
 
 AppRoutes.propTypes = {
     appStore: PropTypes.object.isRequired,
-    budget: PropTypes.object.isRequired
+    budget: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired
 };
 
 export default observer(AppRoutes);
