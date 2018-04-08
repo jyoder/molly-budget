@@ -13,7 +13,6 @@ class AppRoutes extends React.Component {
     constructor(props) {
         super(props);
         this._categoryStore = new ValueStore();
-        this._dailyBudgetStore = new ValueStore();
     }
 
     render() {
