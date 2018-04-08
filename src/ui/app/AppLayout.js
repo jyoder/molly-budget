@@ -10,7 +10,7 @@ class AppLayout extends React.Component {
         return(
             <div className="AppLayout">
                 <section className="AppLayout-header">
-                    <NavigationMenu />
+                    <NavigationMenu location={this.props.location} />
                 </section>
 
                 <section className="AppLayout-content">

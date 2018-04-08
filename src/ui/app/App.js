@@ -10,19 +10,31 @@ import Budget from 'state/Budget';
 
 class App extends React.Component {
     render() {
+        return this._initializing() ? this._uninitializedApp() : this._initializedApp();
+    }
+
+    _initializing() {
+        return !this.props.appStore.initialized;
+    }
+
+    _uninitializedApp() {
         return(
-            <AppLayout>
-                {this._content()}
+            <AppLayout location={this.props.location}>
+                <AuthenticationIndicator location={this.props.location} />
             </AppLayout>
         );
     }
 
-    _content() {
-        if(this.props.appStore.initialized) {
-            return(<AppRoutes appStore={this.props.appStore} budget={this._budget()} />);
-        } else {
-            return(<AuthenticationIndicator />);
-        }
+    _initializedApp() {
+        return(
+            <AppLayout location={this.props.location}>
+                <AppRoutes
+                    appStore={this.props.appStore}
+                    budget={this._budget()}
+                    location={this.props.location}
+                />
+            </AppLayout>
+        );
     }
 
     _budget() {
@@ -34,7 +46,8 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-    appStore: PropTypes.object.isRequired
+    appStore: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired
 };
 
 export default observer(App);
