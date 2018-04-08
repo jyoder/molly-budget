@@ -13,7 +13,8 @@ describe('DailyBudgetEditPage', () => {
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
                 history={{}}
-        />);
+            />
+        );
 
         expect(dailyBudgetEditPage.find('.DailyBudgetEditPage-dailyBudget').text())
             .toBe('Your daily budget is $40');
@@ -25,7 +26,8 @@ describe('DailyBudgetEditPage', () => {
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
                 history={{}}
-        />);
+            />
+        );
 
         expect(dailyBudgetEditPage.find('.DailyBudgetEditPage-dailyBudget').text())
             .toBe('Your daily budget is $20');
@@ -37,7 +39,8 @@ describe('DailyBudgetEditPage', () => {
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
                 history={{}}
-        />);
+            />
+        );
 
         expect(dailyBudgetEditPage.find('.DailyBudgetEditPage-dailyBudget').text())
             .toBe('Your daily budget is $20');
@@ -49,7 +52,8 @@ describe('DailyBudgetEditPage', () => {
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
                 history={{}}
-        />);
+            />
+        );
 
         expect(dailyBudgetEditPage.find(NumberPad)).toHaveLength(1);
     });
@@ -61,7 +65,8 @@ describe('DailyBudgetEditPage', () => {
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
                 history={history}
-        />);
+            />
+        );
 
         dailyBudgetEditPage.find('.DailyBudgetEditPage-saveChange').simulate('click');
         expect(history.push).toHaveBeenCalledWith('/settings/daily_budget');
@@ -74,7 +79,8 @@ describe('DailyBudgetEditPage', () => {
             <DailyBudgetEditPage
                 dailyBudgetStore={dailyBudgetStore}
                 history={history}
-        />);
+            />
+        );
 
         dailyBudgetEditPage.find('.DailyBudgetEditPage-goBack').simulate('click');
         expect(history.push).toHaveBeenCalledWith('/settings/daily_budget');
