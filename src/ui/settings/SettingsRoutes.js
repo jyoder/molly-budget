@@ -18,7 +18,9 @@ class SettingsRoutes extends React.Component {
         return(
             <Switch>
                 <Route exact path="/settings/daily_budget" render={({ history }) => (
-                    <DailyBudgetPage />
+                    <DailyBudgetPage
+                        history={history} 
+                    />
                 )} />
 
                 <Route path="/settings/daily_budget/edit" render={({ history }) => (
