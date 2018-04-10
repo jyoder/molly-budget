@@ -12,6 +12,7 @@ import ValueStore from 'state/ValueStore';
 class AppRoutes extends React.Component {
     constructor(props) {
         super(props);
+        this._amountStore = new ValueStore();
         this._categoryStore = new ValueStore();
     }
 
@@ -29,7 +30,7 @@ class AppRoutes extends React.Component {
                 
                 <Route path="/transactions" render={({ history }) => (
                     <TransactionAmountPage
-                        amountStore={this.props.appStore.amountStore()}
+                        amountStore={this._amountStore}
                         categoryStore={this._categoryStore}
                         transactionStore={this.props.appStore.transactionStore()}
                         history={history}

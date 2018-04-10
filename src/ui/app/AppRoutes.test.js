@@ -51,10 +51,6 @@ function _appStore() {
     const user = jest.fn(() => ({}));
     return {
         user: user,
-        amountStore: jest.fn(() => ({
-            value: jest.fn(),
-            setValue: jest.fn()
-        })),
         transactionStore: jest.fn(() => ({})),
         dailyBudgetStore: jest.fn(() => ({}))
     };
