@@ -1,7 +1,6 @@
 import AppStore from 'state/AppStore';
 import TransactionStore from 'state/TransactionStore';
 import DailyBudgetStore from 'state/DailyBudgetStore';
-import ValueStore from 'state/ValueStore';
 import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import FirebaseProvider from 'network/FirebaseProvider';
 import FirebaseAuthenticator from 'network/FirebaseAuthenticator';
@@ -42,7 +41,6 @@ export default class AppStoreProvider {
 
     _startAppStoreInitialization(user, appStore) {
         appStore.setUser(user);
-        appStore.setAmountStore(new ValueStore(0.0));
         this._transactionStoreClass.create(
             this._firebase.database(),
             user.uid,

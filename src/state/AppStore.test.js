@@ -4,7 +4,6 @@ import AppStore from 'state/AppStore';
 describe('initialized', () => {
     it('returns false if the user is missing', () => {
         const appStore = new AppStore();
-        appStore.setAmountStore({});
         appStore.setTransactionStore({});
         appStore.setDailyBudgetStore({});
         expect(appStore.initialized).toBeFalsy();
@@ -13,15 +12,6 @@ describe('initialized', () => {
     it('returns false if the transaction store is missing', () => {
         const appStore = new AppStore();
         appStore.setUser({});
-        appStore.setAmountStore({});
-        appStore.setDailyBudgetStore({});
-        expect(appStore.initialized).toBeFalsy();
-    });
-
-    it('returns false if the amount store is missing', () => {
-        const appStore = new AppStore();
-        appStore.setUser({});
-        appStore.setTransactionStore({});
         appStore.setDailyBudgetStore({});
         expect(appStore.initialized).toBeFalsy();
     });
@@ -29,15 +19,13 @@ describe('initialized', () => {
     it('returns false if the daily budget store is missing', () => {
         const appStore = new AppStore();
         appStore.setUser({});
-        appStore.setAmountStore({});
         appStore.setTransactionStore({});
         expect(appStore.initialized).toBeFalsy();
     });
 
-    it('returns true if the user, amount store, transaction store, and daily budget store are present', () => {
+    it('returns true if the user, transaction store, and daily budget store are present', () => {
         const appStore = new AppStore();
         appStore.setUser({});
-        appStore.setAmountStore({});
         appStore.setTransactionStore({});
         appStore.setDailyBudgetStore({});
         expect(appStore.initialized).toBeTruthy();
@@ -59,24 +47,6 @@ describe('setUser', () => {
         const user = {};
         appStore.setUser(user);
         expect(appStore.user()).toEqual(user);
-    });
-});
-
-describe('amountStore', () => {
-    it('returns the amount store', () => {
-        const appStore = new AppStore();
-        const amountStore = {};
-        appStore.setAmountStore(amountStore);
-        expect(appStore.amountStore()).toEqual(amountStore);
-    });
-});
-
-describe('setAmountStore', () => {
-    it('sets the amount store', () => {
-        const appStore = new AppStore();
-        const amountStore = {};
-        appStore.setAmountStore(amountStore);
-        expect(appStore.amountStore()).toEqual(amountStore);
     });
 });
 
