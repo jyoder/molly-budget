@@ -37,13 +37,14 @@ describe('getAppStore', () => {
             authenticate: authenticate
         };
 
-        const create = jest.fn();
-        const transactionStoreClass = { create: create };
+        const transactionStoreClass = { create: jest.fn() };
+        const dailyBudgetStoreClass = { create: jest.fn() };
 
         const appStoreProvider = new AppStoreProvider(
             firebase,
             firebaseAuthenticator,
-            transactionStoreClass
+            transactionStoreClass,
+            dailyBudgetStoreClass
         );
         const appStore = appStoreProvider.getAppStore();
 
@@ -51,7 +52,10 @@ describe('getAppStore', () => {
         authenticate.mock.calls[0][0](user);
 
         const transactionStore = {};
-        create.mock.calls[0][2](transactionStore);
+        transactionStoreClass.create.mock.calls[0][2](transactionStore);
+        
+        const dailyBudgetStore = {};
+        dailyBudgetStoreClass.create.mock.calls[0][2](dailyBudgetStore);
 
         expect(appStore.initialized).toBeTruthy();
     });

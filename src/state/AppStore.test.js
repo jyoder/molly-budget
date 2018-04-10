@@ -6,6 +6,7 @@ describe('initialized', () => {
         const appStore = new AppStore();
         appStore.setAmountStore({});
         appStore.setTransactionStore({});
+        appStore.setDailyBudgetStore({});
         expect(appStore.initialized).toBeFalsy();
     });
 
@@ -13,6 +14,7 @@ describe('initialized', () => {
         const appStore = new AppStore();
         appStore.setUser({});
         appStore.setAmountStore({});
+        appStore.setDailyBudgetStore({});
         expect(appStore.initialized).toBeFalsy();
     });
 
@@ -20,14 +22,24 @@ describe('initialized', () => {
         const appStore = new AppStore();
         appStore.setUser({});
         appStore.setTransactionStore({});
+        appStore.setDailyBudgetStore({});
         expect(appStore.initialized).toBeFalsy();
     });
 
-    it('returns true if the user, amount store, and transaction store are present', () => {
+    it('returns false if the daily budget store is missing', () => {
         const appStore = new AppStore();
         appStore.setUser({});
         appStore.setAmountStore({});
         appStore.setTransactionStore({});
+        expect(appStore.initialized).toBeFalsy();
+    });
+
+    it('returns true if the user, amount store, transaction store, and daily budget store are present', () => {
+        const appStore = new AppStore();
+        appStore.setUser({});
+        appStore.setAmountStore({});
+        appStore.setTransactionStore({});
+        appStore.setDailyBudgetStore({});
         expect(appStore.initialized).toBeTruthy();
     });
 });
@@ -83,5 +95,23 @@ describe('setTransactionStore', () => {
         const transactionStore = {};
         appStore.setTransactionStore(transactionStore);
         expect(appStore.transactionStore()).toEqual(transactionStore);
+    });
+});
+
+describe('dailyBudgetStore', () => {
+    it('returns the daily budget store', () => {
+        const appStore = new AppStore();
+        const dailyBudgetStore = {};
+        appStore.setDailyBudgetStore(dailyBudgetStore);
+        expect(appStore.dailyBudgetStore()).toEqual(dailyBudgetStore);
+    });
+});
+
+describe('setDailyBudgetStore', () => {
+    it('sets the daily budget store', () => {
+        const appStore = new AppStore();
+        const dailyBudgetStore = {};
+        appStore.setDailyBudgetStore(dailyBudgetStore);
+        expect(appStore.dailyBudgetStore()).toEqual(dailyBudgetStore);
     });
 });

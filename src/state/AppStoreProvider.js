@@ -1,5 +1,6 @@
 import AppStore from 'state/AppStore';
 import TransactionStore from 'state/TransactionStore';
+import DailyBudgetStore from 'state/DailyBudgetStore';
 import ValueStore from 'state/ValueStore';
 import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import FirebaseProvider from 'network/FirebaseProvider';
@@ -11,7 +12,7 @@ export default class AppStoreProvider {
     static create() {
         const firebase = this._firebase();
         const firebaseAuthenticator = FirebaseAuthenticator.create(firebase);
-        return new AppStoreProvider(firebase, firebaseAuthenticator, TransactionStore);
+        return new AppStoreProvider(firebase, firebaseAuthenticator, TransactionStore, DailyBudgetStore);
     }
     
     static _firebase() {
@@ -24,10 +25,11 @@ export default class AppStoreProvider {
         );
     }
     
-    constructor(firebase, firebaseAuthenticator, transactionStoreClass) {
+    constructor(firebase, firebaseAuthenticator, transactionStoreClass, dailyBudgetStoreClass) {
         this._firebase = firebase;
         this._firebaseAuthenticator = firebaseAuthenticator;
         this._transactionStoreClass = transactionStoreClass;
+        this._dailyBudgetStoreClass = dailyBudgetStoreClass;
     }
 
     getAppStore() {
@@ -46,6 +48,13 @@ export default class AppStoreProvider {
             user.uid,
             (transactionStore) => {
                 appStore.setTransactionStore(transactionStore);
+            }
+        );
+        this._dailyBudgetStoreClass.create(
+            this._firebase.database(),
+            user.uid,
+            (dailyBudgetStore) => {
+                appStore.setDailyBudgetStore(dailyBudgetStore);
             }
         );
     }
