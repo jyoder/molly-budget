@@ -39,6 +39,7 @@ class AppRoutes extends React.Component {
 
                 <Route path="/settings" render={({ history }) => (
                     <SettingsRoutes
+                        dailyBudgetStore={this.props.appStore.dailyBudgetStore()}
                         location={this.props.location} />)}
                 />
             </Switch>

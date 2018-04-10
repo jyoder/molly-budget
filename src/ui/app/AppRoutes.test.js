@@ -55,6 +55,7 @@ function _appStore() {
             value: jest.fn(),
             setValue: jest.fn()
         })),
-        transactionStore: jest.fn(() => ({}))
+        transactionStore: jest.fn(() => ({})),
+        dailyBudgetStore: jest.fn(() => ({}))
     };
 }

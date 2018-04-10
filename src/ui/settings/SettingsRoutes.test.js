@@ -9,9 +9,12 @@ import DailyBudgetEditPage from 'ui/settings/DailyBudgetEditPage';
 
 describe('SettingsRoutes', () => {
     it('renders DailyBudgetPage when the user navigates to /settings/daily_budget', () => {
+        const currentDailyBudget = { amount: jest.fn(() => 40.00) };
+        const dailyBudgetStore = { currentDailyBudget: jest.fn(() => currentDailyBudget) };
+
         const wrapper = mount(
             <MemoryRouter initialEntries={['/settings/daily_budget']}>
-                <SettingsRoutes />
+                <SettingsRoutes dailyBudgetStore={dailyBudgetStore}/>
             </MemoryRouter>
         );
         expect(wrapper.find(DailyBudgetPage)).toHaveLength(1);
@@ -19,9 +22,12 @@ describe('SettingsRoutes', () => {
     });
 
     it('renders DailyBudgetEditPage when the user navigates to /settings/daily_budget/edit', () => {
+        const currentDailyBudget = { amount: jest.fn(() => 40.00) };
+        const dailyBudgetStore = { currentDailyBudget: jest.fn(() => currentDailyBudget) };
+
         const wrapper = mount(
             <MemoryRouter initialEntries={['/settings/daily_budget/edit']}>
-                <SettingsRoutes />
+                <SettingsRoutes dailyBudgetStore={dailyBudgetStore} />
             </MemoryRouter>
         );
         expect(wrapper.find(DailyBudgetPage)).toHaveLength(0);
