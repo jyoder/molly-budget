@@ -29,17 +29,4 @@ describe('DailyBudgetPage', () => {
         dailyBudgetEditPage.find('.DailyBudgetPage-edit').simulate('click');
         expect(history.push).toHaveBeenCalledWith('/settings/daily_budget/edit');
     });
-
-    it('navigates back to / when the budget summary button is clicked', () => {
-        const history = { push: jest.fn() };
-        const dailyBudgetEditPage = shallow(
-            <DailyBudgetPage
-                currentDailyBudget={30.00}
-                history={history}
-            />
-        );
-
-        dailyBudgetEditPage.find('.DailyBudgetPage-budgetSummary').simulate('click');
-        expect(history.push).toHaveBeenCalledWith('/');
-    });
 });

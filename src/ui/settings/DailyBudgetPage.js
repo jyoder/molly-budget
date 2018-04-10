@@ -24,14 +24,6 @@ class DailyBudgetPage extends React.Component {
                         onClick={() => this._onClickEdit()}>
                         Edit
                     </Button>
-
-                    <Button
-                        outline
-                        block
-                        className="DailyBudgetPage-budgetSummary"
-                        onClick={() => this._onClickBudgetSummary()}>
-                        Budget Summary
-                    </Button>
                 </div>
             </div>
         );
@@ -39,10 +31,6 @@ class DailyBudgetPage extends React.Component {
 
     _onClickEdit() {
         this.props.history.push('/settings/daily_budget/edit');
-    }
-
-    _onClickBudgetSummary() {
-        this.props.history.push('/');
     }
 }
 
