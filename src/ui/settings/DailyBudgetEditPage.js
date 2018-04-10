@@ -8,8 +8,6 @@ import { Button } from 'reactstrap';
 import 'ui/app/AppPage.css';
 
 
-const DEFAULT_DAILY_BUDGET = 40;
-
 class DailyBudgetEditPage extends React.Component {
     render() {
         return(
@@ -19,7 +17,7 @@ class DailyBudgetEditPage extends React.Component {
                         Your daily budget is <strong>${this._dailyBudget()}</strong>
                     </p>
 
-                    <NumberPad valueStore={this.props.dailyBudgetStore} />
+                    <NumberPad valueStore={this.props.budgetInputStore} />
                 </div>
 
                 <div>
@@ -43,24 +41,26 @@ class DailyBudgetEditPage extends React.Component {
         );
     }
 
-    _dailyBudget() {
-        if(this.props.dailyBudgetStore.value() !== null) {
-            return Math.trunc(this.props.dailyBudgetStore.value());
-        } else {
-            return DEFAULT_DAILY_BUDGET;
-        }
-    }
-
     _onClickSaveChange() {
+        this.props.dailyBudgetStore.addDailyBudget(this._dailyBudget(), new Date());
         this.props.history.push('/settings/daily_budget');
     }
 
     _onClickGoBack() {
         this.props.history.push('/settings/daily_budget');
     }
+
+    _dailyBudget() {
+        if(this.props.budgetInputStore.value() !== null) {
+            return Math.trunc(this.props.budgetInputStore.value());
+        } else {
+            return this.props.dailyBudgetStore.currentDailyBudget().amount();
+        }
+    }
 }
 
 DailyBudgetEditPage.propTypes = {
+    budgetInputStore: PropTypes.object.isRequired,
     dailyBudgetStore: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
