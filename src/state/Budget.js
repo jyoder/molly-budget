@@ -1,11 +1,14 @@
+import BudgetAccumulator from 'state/BudgetAccumulator';
+
+
 export default class Budget {
-    static create(accrual_rate, transactions) {
-        return new Budget(new Date(), accrual_rate, transactions);
+    static create(dailyBudgets, transactions) {
+        return new Budget(new Date(), dailyBudgets, transactions);
     }
 
-    constructor(date, accrual_rate, transactions) {
+    constructor(date, dailyBudgets, transactions) {
         this._date = date;
-        this._accrual_rate = accrual_rate;
+        this._dailyBudgets = dailyBudgets;
         this._transactions = transactions;
     }
 
@@ -14,7 +17,7 @@ export default class Budget {
     }
 
     _amountAccrued() {
-        return this._date.getDate() * this._accrual_rate;
+        return (new BudgetAccumulator(this._dailyBudgets)).monthToDate(this._date);
     }
 
     _amountSpent() {

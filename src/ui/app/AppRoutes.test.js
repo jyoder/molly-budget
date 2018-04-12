@@ -11,7 +11,7 @@ import Budget from 'state/Budget';
 
 describe('AppRoutes', () => {
     it('renders BudgetSummaryPage when the user navigates to /', () => {
-        const budget = Budget.create(10.00, []);
+        const budget = Budget.create([], []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/']}>
                 <AppRoutes appStore={_appStore()} budget={budget} location={{}} />
