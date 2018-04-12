@@ -3,7 +3,7 @@ import DailyBudget from 'state/DailyBudget';
 import DailyBudgetSerializer from 'state/DailyBudgetSerializer';
 
 
-const DEFAULT_DAILY_BUDGET = new DailyBudget(40.00, new Date('0000-01-01T00:00:00.000Z'));
+const DEFAULT_DAILY_BUDGET = new DailyBudget('default', 0.00, new Date('0000-01-01T00:00:00.000Z'));
 
 class DailyBudgetStore {
     static create(firebaseDatabase, userId, onInitialized) {

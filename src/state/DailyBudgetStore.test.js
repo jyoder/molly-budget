@@ -64,9 +64,9 @@ describe('currentDailyBudget', () => {
         expect(dailyBudgetStore.currentDailyBudget()).toEqual(dailyBudgets[1]);
     });
 
-    it('returns a default daily budget with a value of 40 and the earliest time possible', () => {
+    it('returns a default daily budget with a value of 0.00 and the earliest time possible', () => {
         const dailyBudgetStore = new DailyBudgetStore(_dailyBudgetsRef(), []);
-        const defaultDailyBudget = new DailyBudget(40.00, new Date('0000-01-01T00:00:00.000Z'));
+        const defaultDailyBudget = new DailyBudget('default', 0.00, new Date('0000-01-01T00:00:00.000Z'));
         expect(dailyBudgetStore.currentDailyBudget()).toEqual(defaultDailyBudget);
     });
 });
