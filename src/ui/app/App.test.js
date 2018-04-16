@@ -16,8 +16,8 @@ describe('App', () => {
     it('renders AppRoutes when the user has authenticated', () => {
         const appStore = new AppStore();
         appStore.setUser(_user());
-        appStore.setAmountStore({});
         appStore.setTransactionStore(_transactionStore());
+        appStore.setDailyBudgetStore(_dailyBudgetStore());
 
         const app = shallow(<App appStore={appStore} location={{}} />);
         expect(app.find(AppRoutes)).toHaveLength(1);
@@ -32,6 +32,12 @@ describe('App', () => {
     function _transactionStore() {
         return {
             transactions: jest.fn()
+        };
+    }
+
+    function _dailyBudgetStore() {
+        return {
+            dailyBudgets: jest.fn()
         };
     }
 });

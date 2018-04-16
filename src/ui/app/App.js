@@ -39,7 +39,7 @@ class App extends React.Component {
 
     _budget() {
         return Budget.create(
-            40.00,
+            this.props.appStore.dailyBudgetStore().dailyBudgets(),
             this.props.appStore.transactionStore().transactions()
         );
     }

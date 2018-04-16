@@ -1,3 +1,9 @@
+path / {
+    read() { false }
+    write() { false }
+}
+
+
 type Transaction {
     id: String,
     amount: Number,
@@ -15,17 +21,27 @@ type Category extends String {
     }
 }
 
-
-path / {
-    read() { false }
-    write() { false }
-}
-
 path /accounts/{userId}/transactions {
     read() { isCurrentUser(userId) }
 }
 
 path /accounts/{userId}/transactions/{transactionId} is Transaction {
+    read() { isCurrentUser(userId) }
+    write() { isCurrentUser(userId) && createOnly(this) }
+}
+
+
+type DailyBudget {
+    id: String,
+    amount: Number,
+    createdAt: String
+}
+
+path /accounts/{userId}/dailyBudgets {
+    read() { isCurrentUser(userId) }
+}
+
+path /accounts/{userId}/dailyBudgets/{dailyBudgetId} is DailyBudget {
     read() { isCurrentUser(userId) }
     write() { isCurrentUser(userId) && createOnly(this) }
 }

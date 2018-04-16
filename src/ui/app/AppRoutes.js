@@ -5,13 +5,14 @@ import { Switch, Route } from 'react-router-dom';
 
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
 import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
-import DailyBudgetPage from 'ui/settings/DailyBudgetPage';
+import SettingsRoutes from 'ui/settings/SettingsRoutes';
 import ValueStore from 'state/ValueStore';
 
 
 class AppRoutes extends React.Component {
     constructor(props) {
         super(props);
+        this._amountStore = new ValueStore();
         this._categoryStore = new ValueStore();
     }
 
@@ -29,7 +30,7 @@ class AppRoutes extends React.Component {
                 
                 <Route path="/transactions" render={({ history }) => (
                     <TransactionAmountPage
-                        amountStore={this.props.appStore.amountStore()}
+                        amountStore={this._amountStore}
                         categoryStore={this._categoryStore}
                         transactionStore={this.props.appStore.transactionStore()}
                         history={history}
@@ -37,8 +38,9 @@ class AppRoutes extends React.Component {
                     />)}
                 />
 
-                <Route path="/daily_budget" render={({ history }) => (
-                    <DailyBudgetPage
+                <Route path="/settings" render={({ history }) => (
+                    <SettingsRoutes
+                        dailyBudgetStore={this.props.appStore.dailyBudgetStore()}
                         location={this.props.location} />)}
                 />
             </Switch>
