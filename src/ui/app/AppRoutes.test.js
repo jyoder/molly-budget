@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 
 import AppRoutes from 'ui/app/AppRoutes';
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
-import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
+import TransactionRoutes from 'ui/transaction/TransactionRoutes';
 import SettingsRoutes from 'ui/settings/SettingsRoutes';
 import Budget from 'state/Budget';
 
@@ -18,7 +18,7 @@ describe('AppRoutes', () => {
             </MemoryRouter>
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(1);
-        expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
+        expect(wrapper.find(TransactionRoutes)).toHaveLength(0);
         expect(wrapper.find(SettingsRoutes)).toHaveLength(0);
     });
 
@@ -30,7 +30,7 @@ describe('AppRoutes', () => {
             </MemoryRouter>
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
-        expect(wrapper.find(TransactionAmountPage)).toHaveLength(1);
+        expect(wrapper.find(TransactionRoutes)).toHaveLength(1);
         expect(wrapper.find(SettingsRoutes)).toHaveLength(0);
     });
 
@@ -42,7 +42,7 @@ describe('AppRoutes', () => {
             </MemoryRouter>
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
-        expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
+        expect(wrapper.find(TransactionRoutes)).toHaveLength(0);
         expect(wrapper.find(SettingsRoutes)).toHaveLength(1);
     });
 });

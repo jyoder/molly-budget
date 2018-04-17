@@ -4,18 +4,11 @@ import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
-import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
+import TransactionRoutes from 'ui/transaction/TransactionRoutes';
 import SettingsRoutes from 'ui/settings/SettingsRoutes';
-import ValueStore from 'state/ValueStore';
 
 
 class AppRoutes extends React.Component {
-    constructor(props) {
-        super(props);
-        this._amountStore = new ValueStore();
-        this._categoryStore = new ValueStore();
-    }
-
     render() {
         return(
             <Switch>
@@ -29,9 +22,7 @@ class AppRoutes extends React.Component {
                 />
                 
                 <Route path="/transactions" render={({ history }) => (
-                    <TransactionAmountPage
-                        amountStore={this._amountStore}
-                        categoryStore={this._categoryStore}
+                    <TransactionRoutes
                         transactionStore={this.props.appStore.transactionStore()}
                         history={history}
                         location={this.props.location}

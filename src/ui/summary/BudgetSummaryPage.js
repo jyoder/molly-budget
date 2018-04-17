@@ -15,13 +15,23 @@ class BudgetSummaryPage extends React.Component {
                     Hello {this._name()},<br />you have <strong>${this._amount()}</strong> to spend today.
                 </p>
 
-                <Button
-                    className='BudgetSummaryPage-addTransaction'
-                    outline
-                    block
-                    onClick={() => this._onAddTransactionClicked()}>
-                    Add Transaction
-                </Button>
+                <div>
+                    <Button
+                        className='BudgetSummaryPage-addTransaction'
+                        outline
+                        block
+                        onClick={() => this._onAddTransactionClicked()}>
+                        Add Transaction
+                    </Button>
+
+                    <Button
+                        className='BudgetSummaryPage-viewPastTransactions'
+                        outline
+                        block
+                        onClick={() => this._onViewPastTransactionsClicked()}>
+                        View Past Transactions
+                    </Button>
+                </div>
             </section>
         );
     }
@@ -35,6 +45,10 @@ class BudgetSummaryPage extends React.Component {
     }
 
     _onAddTransactionClicked() {
+        this.props.history.push('/transactions/new');
+    }
+
+    _onViewPastTransactionsClicked() {
         this.props.history.push('/transactions');
     }
 }

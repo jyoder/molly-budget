@@ -19,22 +19,23 @@ describe('BudgetSummary', () => {
             .toBe('Hello Fred Rogers,you have $150.00 to spend today.');
     });
 
-    it('renders the add transaction button', () => {
-        const user = { displayName: 'Fred Rogers' };
-        const budget = new Budget(new Date('2018-02-15T11:00:00.000Z'), [], []);
-        const history = { push: jest.fn() };
-        const budgetSummary = shallow(<BudgetSummary user={user} budget={budget} history={history}/>);
-
-        expect(budgetSummary.find('.BudgetSummaryPage-addTransaction')).toHaveLength(1);
-    });
-
-    it('navigates to /transactions when the add transaction button is clicked', () => {
+    it('navigates to /transactions/new when the add transaction button is clicked', () => {
         const user = { displayName: 'Fred Rogers' };
         const budget = new Budget(new Date('2018-02-15T11:00:00.000Z'), [], []);
         const history = { push: jest.fn() };
         const budgetSummary = shallow(<BudgetSummary user={user} budget={budget} history={history}/>);
 
         budgetSummary.find('.BudgetSummaryPage-addTransaction').simulate('click');
+        expect(history.push).toHaveBeenCalledWith('/transactions/new');
+    });
+
+    it('navigates to /transactions when the view past transactions button is clicked', () => {
+        const user = { displayName: 'Fred Rogers' };
+        const budget = new Budget(new Date('2018-02-15T11:00:00.000Z'), [], []);
+        const history = { push: jest.fn() };
+        const budgetSummary = shallow(<BudgetSummary user={user} budget={budget} history={history}/>);
+
+        budgetSummary.find('.BudgetSummaryPage-viewPastTransactions').simulate('click');
         expect(history.push).toHaveBeenCalledWith('/transactions');
     });
 });
