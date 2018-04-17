@@ -6,7 +6,8 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "firebase-bolt": "^0.8.2",
-    "firebase-tools": "^3.17.6"
+    "firebase-tools": "^3.17.6",
+    "targaryen": "^3.0.5"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
@@ -32,6 +33,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!<rootDir>/node_modules/",
+      "!src/test/*",
       "!src/index.js"
     ]
   }
