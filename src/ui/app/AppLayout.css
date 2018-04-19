@@ -1,9 +1,8 @@
 @import '~ui/app/AppTheme.css';
 
+
 .AppLayout {
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 .AppLayout-header {
@@ -11,11 +10,9 @@
 }
 
 .AppLayout-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+    height: calc(100% - 3.5em);
+    margin: auto;
+    width: 20em;
 
     text-align: center;
 };

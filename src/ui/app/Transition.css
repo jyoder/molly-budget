@@ -1,0 +1,25 @@
+.cross-fade-exit {
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+
+    opacity: 1;
+}
+
+.cross-fade-exit.cross-fade-exit-active {
+    transition: opacity 0.1s linear;
+    opacity: 0;
+}
+
+.cross-fade-enter {
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+
+    opacity: 0;
+}
+
+.cross-fade-enter.cross-fade-enter-active {
+    transition: opacity 0.1s linear;
+    opacity: 1;
+}

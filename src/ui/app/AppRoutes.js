@@ -7,11 +7,14 @@ import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
 import TransactionRoutes from 'ui/transaction/TransactionRoutes';
 import SettingsRoutes from 'ui/settings/SettingsRoutes';
 
+import 'ui/app/AppPage.css';
+
+
 
 class AppRoutes extends React.Component {
     render() {
         return(
-            <Switch>
+            <Switch location={this.props.location}>
                 <Route exact path="/" render={({ history }) => (
                     <BudgetSummaryPage
                         user={this.props.appStore.user()}

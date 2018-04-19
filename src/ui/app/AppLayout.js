@@ -5,6 +5,8 @@ import NavigationMenu from 'ui/app/NavigationMenu';
 
 import 'ui/app/AppLayout.css';
 
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import 'ui/app/Transition.css';
 
 class AppLayout extends React.Component {
     render() {
@@ -14,9 +16,13 @@ class AppLayout extends React.Component {
                     <NavigationMenu location={this.props.location} />
                 </header>
 
-                <content className="AppLayout-content">
-                    {this.props.children}
-                </content>
+                <TransitionGroup component={null}>
+                    <CSSTransition key={this.props.location.key} timeout={100} classNames="cross-fade">
+                        <div className="AppLayout-content" key={this.props.location.key}>
+                            {this.props.children}
+                        </div>
+                    </CSSTransition>
+                </TransitionGroup>
             </div>
         );
     }

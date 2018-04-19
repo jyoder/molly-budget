@@ -1,7 +1,6 @@
 .AppPage {
-    width: 20em;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    flex: 1;
 }
