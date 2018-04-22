@@ -23,6 +23,11 @@
     font-weight: bold;
 }
 
+.TransactionsIndexPage-categoryIcon {
+    width: 1em;
+    text-align: center;
+}
+
 .TransactionsIndexPage-category {
     text-align: left;
 }

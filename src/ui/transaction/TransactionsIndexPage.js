@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
+import FontAwesome from 'react-fontawesome';
 
 import 'ui/transaction/TransactionsIndexPage.css';
 
@@ -43,7 +44,7 @@ class TransactionsIndexPage extends React.Component {
     _dateRow(transactionDayView) {
         return(
             <tr key={transactionDayView.dateKey()}>
-                <td className="TransactionsIndexPage-date" colSpan="2">
+                <td className="TransactionsIndexPage-date" colSpan="3">
                     {transactionDayView.date()}
                 </td>
             </tr>
@@ -53,10 +54,11 @@ class TransactionsIndexPage extends React.Component {
     _totalRow(transactionDayView) {
         return(
             <tr key={transactionDayView.totalKey()}>
+                <td className="TransactionsIndexPage-categoryIcon">
+                </td>
                 <td className="TransactionsIndexPage-totalLabel">
                     Total
                 </td>
-                
                 <td className="TransactionsIndexPage-total">
                     {transactionDayView.total()}
                 </td>
@@ -67,8 +69,15 @@ class TransactionsIndexPage extends React.Component {
     _transactionRow(transactionRowView) {
         return(
             <tr key={transactionRowView.key()}>
-                <td className="TransactionsIndexPage-category">{transactionRowView.category()}</td>
-                <td className="TransactionsIndexPage-amount">{transactionRowView.amount()}</td>
+                <td className="TransactionsIndexPage-categoryIcon">
+                    <FontAwesome name={transactionRowView.categoryIcon()} />
+                </td>
+                <td className="TransactionsIndexPage-category">
+                     {transactionRowView.category()}
+                </td>
+                <td className="TransactionsIndexPage-amount">
+                    {transactionRowView.amount()}
+                </td>
             </tr>
         );
     }

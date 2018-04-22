@@ -6,6 +6,8 @@ import TransactionsIndexView from 'ui/transaction/TransactionsIndexView';
 import TransactionHistory from 'ui/transaction/TransactionHistory';
 import Transaction from 'state/Transaction';
 
+import FontAwesome from 'react-fontawesome';
+
 
 describe('TransactionsIndexPage', () => {
     it('renders transactions by day in order of newest to oldest', () => {
@@ -23,25 +25,28 @@ describe('TransactionsIndexPage', () => {
         />);
         
         const cols = transactionsIndexPage.find('td');
-        expect(cols).toHaveLength(12);
+        expect(cols).toHaveLength(17);
 
         expect(cols.at(0).text()).toBe('Tuesday, March 6, 2018');
         
-        expect(cols.at(1).text()).toBe('General');
-        expect(cols.at(2).text()).toBe('$40.00');
+        expect(cols.at(1).children().props().name).toBe('dollar');
+        expect(cols.at(2).text()).toBe('General');
+        expect(cols.at(3).text()).toBe('$40.00');
 
-        expect(cols.at(3).text()).toBe('General');
-        expect(cols.at(4).text()).toBe('$30.00');
+        expect(cols.at(4).children().props().name).toBe('dollar');
+        expect(cols.at(5).text()).toBe('General');
+        expect(cols.at(6).text()).toBe('$30.00');
         
-        expect(cols.at(5).text()).toBe('Total');
-        expect(cols.at(6).text()).toBe('$70.00');
+        expect(cols.at(8).text()).toBe('Total');
+        expect(cols.at(9).text()).toBe('$70.00');
 
-        expect(cols.at(7).text()).toBe('Monday, March 5, 2018');
+        expect(cols.at(10).text()).toBe('Monday, March 5, 2018');
 
-        expect(cols.at(8).text()).toBe('General');
-        expect(cols.at(9).text()).toBe('$20.00');
+        expect(cols.at(11).children().props().name).toBe('dollar');
+        expect(cols.at(12).text()).toBe('General');
+        expect(cols.at(13).text()).toBe('$20.00');
 
-        expect(cols.at(10).text()).toBe('Total');
-        expect(cols.at(11).text()).toBe('$20.00');
+        expect(cols.at(15).text()).toBe('Total');
+        expect(cols.at(16).text()).toBe('$20.00');
     });
 });
