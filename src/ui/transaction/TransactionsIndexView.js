@@ -1,3 +1,5 @@
+import CategoryIconMapper from 'ui/transaction/CategoryIconMapper';
+
 import { format } from 'date-fns';
 import { formatCurrency } from 'ui/format/CurrencyFormat';
 
@@ -62,5 +64,9 @@ export class TransactionRowView {
 
     category() {
         return this._transaction.category();
+    }
+
+    categoryIcon() {
+        return CategoryIconMapper.toIcon(this._transaction.category());
     }
 }

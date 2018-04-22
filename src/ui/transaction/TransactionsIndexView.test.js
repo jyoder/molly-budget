@@ -105,4 +105,12 @@ describe('TransactionRowView', () => {
             expect(rowView.category()).toBe('General');
         });
     });
+
+    describe('categoryIcon', () => {
+        it('returns the name of the icon corresponding to the category', () => {
+            const transaction = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+            const rowView = new TransactionRowView(transaction);
+            expect(rowView.categoryIcon()).toBe('dollar');
+        });
+    });
 });
