@@ -5,7 +5,7 @@ export default class CategoryIconMapper {
             case 'Outing' : return 'coffee';
             case 'Car' : return 'car';
             case 'Groceries' : return 'shopping-cart';
+            default: return 'question';
         }
-        return 'question';
     }
 }
