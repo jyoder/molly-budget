@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import FontAwesome from 'react-fontawesome';
+import CategoryIconMapper from 'ui/transaction/CategoryIconMapper';
 
 import 'ui/transaction/CategorySelector.css';
 
@@ -16,21 +17,21 @@ class CategorySelector extends React.Component {
     render() {
         return(
             <div className="CategorySelector">
-                {this._category('General', 'dollar')}
-                {this._category('Outing', 'coffee')}
-                {this._category('Car', 'car')}
-                {this._category('Groceries', 'shopping-cart')}
+                {this._category('General')}
+                {this._category('Outing')}
+                {this._category('Car')}
+                {this._category('Groceries')}
             </div>
         );
     }
 
-    _category(categoryName, iconName) {
+    _category(categoryName) {
         return(
             <div
                 className={this._categoryClasses(categoryName)}
                 onClick={() => this._select(categoryName)}>
                 
-                <FontAwesome name={iconName} />
+                <FontAwesome name={CategoryIconMapper.toIcon(categoryName)} />
                 <p className="Category-label">{categoryName}</p>
             </div>
         );
