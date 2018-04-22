@@ -1,0 +1,32 @@
+@import "~ui/app/AppTheme.css";
+
+
+.TransactionsIndexPage {
+    max-width: 40em;
+    width: 100%;
+    display: flex;
+    flex: 1;
+}
+
+.TransactionsIndexPage-date {
+    color: var(--lightColor);
+    background: var(--darkColor);
+}
+
+.TransactionsIndexPage-totalLabel {
+    text-align: left;
+    font-weight: bold;
+}
+
+.TransactionsIndexPage-total {
+    text-align: right;
+    font-weight: bold;
+}
+
+.TransactionsIndexPage-category {
+    text-align: left;
+}
+
+.TransactionsIndexPage-amount {
+    text-align: right;
+}

@@ -49,9 +49,11 @@ describe('AppRoutes', () => {
 
 function _appStore() {
     const user = jest.fn(() => ({}));
+    const transactionStore = { transactions: jest.fn(() => []) };
+
     return {
         user: user,
-        transactionStore: jest.fn(() => ({})),
+        transactionStore: jest.fn(() => transactionStore),
         dailyBudgetStore: jest.fn(() => ({}))
     };
 }
