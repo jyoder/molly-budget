@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import 'ui/app/NavigationMenu.css';
+
 
 export default class NavigationMenu extends React.Component {
     constructor(props) {
@@ -16,7 +18,7 @@ export default class NavigationMenu extends React.Component {
     render() {
         return (
             <div>
-                <Navbar dark style={ { backgroundColor: '#222' } } fixed="top">
+                <Navbar className="NavigationMenu-Navbar" dark fixed="top">
                     <NavbarBrand href="/">MollyBudget</NavbarBrand>
                     <NavbarToggler onClick={() => { this._onTogglerClicked() }} />
                     <Collapse isOpen={!this.state.collapsed} navbar>

@@ -1,0 +1,6 @@
+@import '~ui/app/AppTheme.css';
+
+
+.NavigationMenu-Navbar {
+    background-color: var(--darkColor);
+}
