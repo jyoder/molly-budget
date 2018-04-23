@@ -49,4 +49,18 @@ describe('TransactionsIndexPage', () => {
         expect(cols.at(15).text()).toBe('Total');
         expect(cols.at(16).text()).toBe('$20.00');
     });
+
+    it('renders an informative message when there are no transactions', () => {
+        const transactionHistory = new TransactionHistory([]);
+        const transactionsIndexView = new TransactionsIndexView(
+            4,
+            transactionHistory
+        );
+
+        const transactionsIndexPage = shallow(
+            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
+        />);
+
+        expect(transactionsIndexPage.find('p').text()).toBe("You haven't added any transactions.");
+    });
 });

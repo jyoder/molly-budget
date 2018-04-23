@@ -5,10 +5,19 @@ import { Table } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 
 import 'ui/transaction/TransactionsIndexPage.css';
+import 'ui/app/AppPage.css';
 
 
 class TransactionsIndexPage extends React.Component {
     render() {
+        if(this.props.transactionsIndexView.transactionDayViews().length > 0) {
+            return this._transactionsTable();
+        } else {
+            return this._noTransactionsMessage();
+        }
+    }
+
+    _transactionsTable() {
         return(
             <section className="TransactionsIndexPage">
                 <Table size="sm">
@@ -18,6 +27,14 @@ class TransactionsIndexPage extends React.Component {
                 </Table>
             </section>
         );
+    }
+
+    _noTransactionsMessage() {
+        return(
+            <section className="AppPage">
+                <p className="lead">You haven't added any transactions.</p>
+            </section>
+        )
     }
 
     _transactionRowsByDay() {
