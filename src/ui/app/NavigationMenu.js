@@ -19,7 +19,7 @@ export default class NavigationMenu extends React.Component {
         return (
             <div>
                 <Navbar className="NavigationMenu-Navbar" dark fixed="top">
-                    <NavbarBrand href="/">MollyBudget</NavbarBrand>
+                    <NavbarBrand tag={Link} to="/">MollyBudget</NavbarBrand>
                     <NavbarToggler onClick={() => { this._onTogglerClicked() }} />
                     <Collapse isOpen={!this.state.collapsed} navbar>
                         <Nav navbar>
