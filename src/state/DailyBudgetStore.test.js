@@ -13,7 +13,7 @@ describe('create', () => {
         firebaseDatabase.ref().on.mock.calls[0][1](_snapshot());
         const dailyBudget1 = new DailyBudget('id1', 123, new Date(2018, 2, 1));
         const dailyBudget2 = new DailyBudget('id2', 124, new Date(2018, 2, 2));
-        expect(dailyBudgetStore.dailyBudgets()).toEqual([dailyBudget1, dailyBudget2]);
+        expect(dailyBudgetStore.dailyBudgets().slice()).toEqual([dailyBudget1, dailyBudget2]);
     });
 
     it('invokes the onInitialized callback once upon first reception of daily budgets', () => {
@@ -39,7 +39,7 @@ describe('create', () => {
         expect(firebaseDatabase.ref().on).toHaveBeenCalledTimes(1);
 
         firebaseDatabase.ref().on.mock.calls[0][1]({ val: () => null });
-        expect(dailyBudgetStore.dailyBudgets()).toEqual([]);
+        expect(dailyBudgetStore.dailyBudgets().slice()).toEqual([]);
     });
 });
 
@@ -50,7 +50,7 @@ describe('dailyBudgets', () => {
             new DailyBudget('id2', 30, new Date())
         ];
         const dailyBudgetStore = new DailyBudgetStore(_dailyBudgetsRef(), dailyBudgets);
-        expect(dailyBudgetStore.dailyBudgets()).toEqual(dailyBudgets);
+        expect(dailyBudgetStore.dailyBudgets().slice()).toEqual(dailyBudgets);
     });
 });
 
@@ -94,7 +94,7 @@ describe('receiveDailyBudgets', () => {
         ];
         const dailyBudgetStore = new DailyBudgetStore(_dailyBudgetsRef(), []);
         dailyBudgetStore.receiveDailyBudgets(dailyBudgets);
-        expect(dailyBudgetStore.dailyBudgets()).toEqual(dailyBudgets);
+        expect(dailyBudgetStore.dailyBudgets().slice()).toEqual(dailyBudgets);
     });
 });
 

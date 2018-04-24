@@ -34,7 +34,7 @@ class DailyBudgetStore {
     }
 
     dailyBudgets() {
-        return this._dailyBudgets.slice();
+        return this._dailyBudgets;
     }
 
     currentDailyBudget() {
