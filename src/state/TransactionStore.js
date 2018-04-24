@@ -32,7 +32,7 @@ class TransactionStore {
     }
 
     transactions() {
-        return this._transactions.slice();
+        return this._transactions;
     }
 
     addTransaction(amount, occurredAt, category) {
