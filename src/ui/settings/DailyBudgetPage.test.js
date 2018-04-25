@@ -6,9 +6,13 @@ import DailyBudgetPage from 'ui/settings/DailyBudgetPage';
 
 describe('DailyBudgetPage', () => {
     it('renders the current daily budget', () => {
+        const dailyBudgetStore = {
+            currentDailyBudget: jest.fn(() => ({ amount: jest.fn(() => 30.00) }))
+        };
+
         const dailyBudgetPage = shallow(
             <DailyBudgetPage
-                currentDailyBudget={30.00}
+                dailyBudgetStore={dailyBudgetStore}
                 history={history}
             />
         );
@@ -18,10 +22,14 @@ describe('DailyBudgetPage', () => {
     });
 
     it('navigates to /settings/daily_budget/edit when the edit button is clicked', () => {
+        const dailyBudgetStore = {
+            currentDailyBudget: jest.fn(() => ({ amount: jest.fn(() => 30.00) }))
+        };
+
         const history = { push: jest.fn() };
         const dailyBudgetEditPage = shallow(
             <DailyBudgetPage
-                currentDailyBudget={30.00}
+                dailyBudgetStore={dailyBudgetStore}
                 history={history}
             />
         );

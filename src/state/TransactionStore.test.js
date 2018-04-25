@@ -13,7 +13,7 @@ describe('create', () => {
         firebaseDatabase.ref().on.mock.calls[0][1](_snapshot());
         const transaction1 = new Transaction('id1', 123.00, new Date(2018, 2, 1), 'Disneyland');
         const transaction2 = new Transaction('id2', 124.00, new Date(2018, 2, 2), 'Knotts');
-        expect(transactionStore.transactions()).toEqual([transaction1, transaction2]);
+        expect(transactionStore.transactions().slice()).toEqual([transaction1, transaction2]);
     });
 
     it('invokes the onInitialized callback once upon first reception of transactions', () => {
@@ -39,7 +39,7 @@ describe('create', () => {
         expect(firebaseDatabase.ref().on).toHaveBeenCalledTimes(1);
 
         firebaseDatabase.ref().on.mock.calls[0][1]({ val: () => null });
-        expect(transactionStore.transactions()).toEqual([]);
+        expect(transactionStore.transactions().slice()).toEqual([]);
     });
 });
 
@@ -50,7 +50,7 @@ describe('transactions', () => {
             new Transaction('id2', 30.12, new Date(), 'Movies')
         ];
         const transactionStore = new TransactionStore(_transactionsRef(), transactions);
-        expect(transactionStore.transactions()).toEqual(transactions);
+        expect(transactionStore.transactions().slice()).toEqual(transactions);
     });
 });
 
@@ -78,7 +78,7 @@ describe('receiveTransactions', () => {
         ];
         const transactionStore = new TransactionStore(_transactionsRef(), []);
         transactionStore.receiveTransactions(transactions);
-        expect(transactionStore.transactions()).toEqual(transactions);
+        expect(transactionStore.transactions().slice()).toEqual(transactions);
     });
 });
 

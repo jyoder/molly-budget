@@ -5,6 +5,10 @@ import { Switch, Route } from 'react-router-dom';
 
 import TransactionsIndexPage from 'ui/transaction/TransactionsIndexPage';
 import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
+
+import TransactionsIndexView from 'ui/transaction/TransactionsIndexView';
+import TransactionHistory from 'ui/transaction/TransactionHistory';
+
 import ValueStore from 'state/ValueStore';
 
 
@@ -21,7 +25,7 @@ class TransactionRoutesPage extends React.Component {
             <Switch>
                 <Route exact path="/transactions" render={({ history }) => (
                     <TransactionsIndexPage
-                        transactionStore={this.props.transactionStore}
+                        transactionsIndexView={this._transactionsIndexView()}
                         history={history} 
                     />
                 )} />
@@ -35,6 +39,15 @@ class TransactionRoutesPage extends React.Component {
                     />
                 )} />
             </Switch>
+        );
+    }
+
+    _transactionsIndexView() {
+        return new TransactionsIndexView(
+            (new Date()).getMonth(),
+            new TransactionHistory(
+                this.props.transactionStore.transactions()
+            )
         );
     }
 }

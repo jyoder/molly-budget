@@ -1,4 +1,4 @@
-import { decorate, observable } from 'mobx';
+import { decorate, observable, action } from 'mobx';
 import DailyBudget from 'state/DailyBudget';
 import DailyBudgetSerializer from 'state/DailyBudgetSerializer';
 
@@ -34,7 +34,7 @@ class DailyBudgetStore {
     }
 
     dailyBudgets() {
-        return this._dailyBudgets.slice();
+        return this._dailyBudgets;
     }
 
     currentDailyBudget() {
@@ -52,10 +52,11 @@ class DailyBudgetStore {
     }
 
     receiveDailyBudgets(dailyBudgets) {
-        this._dailyBudgets = dailyBudgets;
+        this._dailyBudgets.replace(dailyBudgets);
     }
 }
 
 export default decorate(DailyBudgetStore, {
-    _dailyBudgets: observable
+    _dailyBudgets: observable,
+    receiveDailyBudgets: action
 });

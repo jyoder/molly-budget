@@ -9,9 +9,10 @@ import TransactionsIndexPage from 'ui/transaction/TransactionsIndexPage';
 
 describe('TransactionRoutes', () => {
     it('renders TransactionsIndexPage when the user navigates to /transactions', () => {
+        const transactionStore = { transactions: jest.fn(() => []) };
         const wrapper = mount(
             <MemoryRouter initialEntries={['/transactions']}>
-                <TransactionRoutes transactionStore={{}} history={{}} location={{}}/>
+                <TransactionRoutes transactionStore={transactionStore} history={{}} location={{}}/>
             </MemoryRouter>
         );
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);

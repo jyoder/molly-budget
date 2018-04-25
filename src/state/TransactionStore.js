@@ -1,4 +1,4 @@
-import { decorate, observable } from 'mobx';
+import { decorate, observable, action } from 'mobx';
 import Transaction from 'state/Transaction';
 import TransactionSerializer from 'state/TransactionSerializer';
 
@@ -32,7 +32,7 @@ class TransactionStore {
     }
 
     transactions() {
-        return this._transactions.slice();
+        return this._transactions;
     }
 
     addTransaction(amount, occurredAt, category) {
@@ -42,10 +42,11 @@ class TransactionStore {
     }
 
     receiveTransactions(transactions) {
-        this._transactions = transactions;
+        this._transactions.replace(transactions);
     }
 }
 
 export default decorate(TransactionStore, {
-    _transactions: observable
+    _transactions: observable,
+    receiveTransactions: action
 });

@@ -12,7 +12,7 @@ class DailyBudgetPage extends React.Component {
             <div className="AppPage">
                 <div>
                     <p className="DailyBudgetPage-dailyBudget lead">
-                        Your daily budget is <strong>${this.props.currentDailyBudget}</strong>
+                        Your daily budget is <strong>${this._dailyBudget()}</strong>
                     </p>
                 </div>
 
@@ -29,13 +29,17 @@ class DailyBudgetPage extends React.Component {
         );
     }
 
+    _dailyBudget() {
+        return this.props.dailyBudgetStore.currentDailyBudget().amount();
+    }
+
     _onClickEdit() {
         this.props.history.push('/settings/daily_budget/edit');
     }
 }
 
 DailyBudgetPage.propTypes = {
-    currentDailyBudget: PropTypes.number.isRequired,
+    dailyBudgetStore: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
 
