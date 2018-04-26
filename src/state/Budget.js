@@ -1,4 +1,5 @@
 import BudgetAccumulator from 'state/BudgetAccumulator';
+import Transaction from 'state/Transaction';
 
 
 export default class Budget {
@@ -21,7 +22,7 @@ export default class Budget {
     }
 
     _amountSpent() {
-        return this._transactionsThisMonth().reduce((sum, t) => sum + t.amount(), 0.00);
+        return Transaction.totalExpenses(this._transactionsThisMonth());
     }
 
     _transactionsThisMonth() {

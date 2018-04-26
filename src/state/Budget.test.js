@@ -25,19 +25,20 @@ describe('create', () => {
 });
 
 describe('current', () => {
-    it('returns the amount accrued minus the amount spent', () => {
+    it('returns the amount accrued or received as income minus the amount spent', () => {
         const today = new Date('2018-04-02T11:00:00.000Z');;
         
         const dailyBudgets = [
             new DailyBudget('id1', 40.00, new Date('2018-04-01T11:00:00.000Z'))
         ];
         const transactions = [
-            new Transaction('id1', 10.00, new Date('2018-04-01T11:00:00.000Z'), 'Disneyland'),
-            new Transaction('id2', 15.00, new Date('2018-04-02T11:00:00.000Z'), 'Knotts')
+            new Transaction('id1', 10.00, new Date('2018-04-01T11:00:00.000Z'), 'General'),
+            new Transaction('id2', 15.00, new Date('2018-04-02T11:00:00.000Z'), 'Car'),
+            new Transaction('id2', 4.00, new Date('2018-04-02T11:00:00.000Z'), 'Income')
         ];
 
         const budget = new Budget(today, dailyBudgets, transactions);
-        expect(budget.current()).toBeCloseTo(15.00);
+        expect(budget.current()).toBeCloseTo(19.00);
     });
 
     it('ignores transactions from a previous month', () => {
