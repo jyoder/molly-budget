@@ -26,10 +26,11 @@ describe('total', () => {
     it('returns the sum of all transaction amounts for the day', () => {
         const transaction1 = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
         const transaction2 = new Transaction('id2', 40.00, new Date('2018-03-05T11:00:00.000Z'), 'General');
+        const transaction3 = new Transaction('id3', 10.00, new Date('2018-03-05T11:30:00.000Z'), 'Income');
         const transactionsOnDay = new TransactionsOnDay(
             transaction1.occurredAt(),
-            [transaction1, transaction2]);
+            [transaction1, transaction2, transaction3]);
 
-        expect(transactionsOnDay.total()).toBeCloseTo(60.00);
+        expect(transactionsOnDay.total()).toBeCloseTo(50.00);
     });
 });

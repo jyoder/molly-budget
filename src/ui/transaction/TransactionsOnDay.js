@@ -1,3 +1,6 @@
+import Transaction from 'state/Transaction';
+
+
 export default class TransactionsOnDay {
     constructor(date, transactions) {
         this._date = date;
@@ -13,6 +16,6 @@ export default class TransactionsOnDay {
     }
 
     total() {
-        return this._transactions.reduce((sum, t) => sum + t.amount(), 0.00);
+        return Transaction.totalExpenses(this._transactions);
     }
 }
