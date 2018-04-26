@@ -1,4 +1,5 @@
 import CategoryIconMapper from 'ui/transaction/CategoryIconMapper';
+import Transaction from 'state/Transaction';
 
 import { format } from 'date-fns';
 import { formatCurrency } from 'ui/format/CurrencyFormat';
@@ -41,7 +42,15 @@ export class TransactionDayView {
     }
 
     total() {
-        return `$${formatCurrency(this._transactionsOnDay.total())}`;
+        return `$${formatCurrency(Math.abs(this._transactionsOnDay.total()))}`;
+    }
+
+    totalClass() {
+        if(this._transactionsOnDay.total() > 0.00) {
+            return 'TransactionsIndexPage-total--loss';
+         } else {
+            return 'TransactionsIndexPage-total--gain';
+         }
     }
 
     _isoDate() {
@@ -60,6 +69,14 @@ export class TransactionRowView {
 
     amount() {
         return `$${formatCurrency(this._transaction.amount())}`;
+    }
+
+    amountClass() {
+        if(this._transaction.type() === Transaction.EXPENSE) {
+            return 'TransactionsIndexPage-amount--expense';
+        } else if(this._transaction.type() === Transaction.INCOME) {
+            return 'TransactionsIndexPage-amount--income';
+        }
     }
 
     category() {

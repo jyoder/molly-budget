@@ -76,7 +76,7 @@ class TransactionsIndexPage extends React.Component {
                 <td className="TransactionsIndexPage-totalLabel">
                     Total
                 </td>
-                <td className="TransactionsIndexPage-total">
+                <td className={`TransactionsIndexPage-total ${transactionDayView.totalClass()}`}>
                     {transactionDayView.total()}
                 </td>
             </tr>
@@ -92,7 +92,7 @@ class TransactionsIndexPage extends React.Component {
                 <td className="TransactionsIndexPage-category">
                      {transactionRowView.category()}
                 </td>
-                <td className="TransactionsIndexPage-amount">
+                <td className={`TransactionsIndexPage-amount ${transactionRowView.amountClass()}`}>
                     {transactionRowView.amount()}
                 </td>
             </tr>

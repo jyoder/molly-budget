@@ -78,6 +78,48 @@ describe('TransactionDayView', () => {
 
             expect(dayView.total()).toBe('$50.00');
         });
+
+        it('returns a positive number even if the income exceeds the spend', () => {
+            const transaction1 = new Transaction('id1', 200.00, new Date('2018-03-05T11:24:12.000Z'), 'Income');
+            const transaction2 = new Transaction('id2', 30.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+            
+            const dayView = new TransactionDayView(
+                new TransactionsOnDay(
+                    transaction1.occurredAt(),
+                    [transaction1, transaction2]
+                )
+            );
+
+            expect(dayView.total()).toBe('$170.00');
+        });
+    });
+
+    describe('totalClass', () => {
+        it('returns TransactionsIndexPage-total--gain if the total is negative', () => {
+            const transaction = new Transaction('id1', 200.00, new Date('2018-03-05T11:24:12.000Z'), 'Income');
+            
+            const dayView = new TransactionDayView(
+                new TransactionsOnDay(
+                    transaction.occurredAt(),
+                    [transaction]
+                )
+            );
+
+            expect(dayView.totalClass()).toBe('TransactionsIndexPage-total--gain');
+        });
+
+        it('returns TransactionsIndexPage-total--loss if the total is positive', () => {
+            const transaction = new Transaction('id1', 200.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+            
+            const dayView = new TransactionDayView(
+                new TransactionsOnDay(
+                    transaction.occurredAt(),
+                    [transaction]
+                )
+            );
+
+            expect(dayView.totalClass()).toBe('TransactionsIndexPage-total--loss');
+        });
     });
 });
 
@@ -95,6 +137,20 @@ describe('TransactionRowView', () => {
             const transaction = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
             const rowView = new TransactionRowView(transaction);
             expect(rowView.amount()).toBe('$20.00');
+        });
+    });
+
+    describe('amountClass', () => {
+        it('returns TransactionsIndexPage-amount--expense if the type of transaction is expense', () => {
+            const transaction = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+            const rowView = new TransactionRowView(transaction);
+            expect(rowView.amountClass()).toBe('TransactionsIndexPage-amount--expense');
+        });
+
+        it('returns TransactionsIndexPage-amount--income if the type of transaction is income', () => {
+            const transaction = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'Income');
+            const rowView = new TransactionRowView(transaction);
+            expect(rowView.amountClass()).toBe('TransactionsIndexPage-amount--income');
         });
     });
 

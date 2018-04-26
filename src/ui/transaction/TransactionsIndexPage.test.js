@@ -50,6 +50,46 @@ describe('TransactionsIndexPage', () => {
         expect(cols.at(16).text()).toBe('$20.00');
     });
 
+    it('renders transaction amounts with classes based on whether they are income or expenses', () => {
+        const expense = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+        const income = new Transaction('id2', 30.00, new Date('2018-03-06T11:24:12.000Z'), 'Income');
+        const transactionHistory = new TransactionHistory([expense, income]);
+        const transactionsIndexView = new TransactionsIndexView(
+            expense.occurredAt().getMonth(),
+            transactionHistory
+        );
+
+        const transactionsIndexPage = shallow(
+            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
+        />);
+        
+        const cols = transactionsIndexPage.find('td');
+    
+        expect(cols.at(2).text()).toBe('Income');
+        expect(cols.at(3).hasClass('TransactionsIndexPage-amount--income')).toBeTruthy();
+
+        expect(cols.at(9).text()).toBe('General');
+        expect(cols.at(10).hasClass('TransactionsIndexPage-amount--expense')).toBeTruthy();
+    });
+
+    it('renders daily totals with classes based on whether there is net gain or loss', () => {
+        const expense = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+        const income = new Transaction('id2', 30.00, new Date('2018-03-06T11:24:12.000Z'), 'Income');
+        const transactionHistory = new TransactionHistory([expense, income]);
+        const transactionsIndexView = new TransactionsIndexView(
+            expense.occurredAt().getMonth(),
+            transactionHistory
+        );
+
+        const transactionsIndexPage = shallow(
+            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
+        />);
+        
+        const cols = transactionsIndexPage.find('td');
+        expect(cols.at(6).hasClass('TransactionsIndexPage-total--gain')).toBeTruthy();
+        expect(cols.at(13).hasClass('TransactionsIndexPage-total--loss')).toBeTruthy();
+    });
+
     it('renders an informative message when there are no transactions', () => {
         const transactionHistory = new TransactionHistory([]);
         const transactionsIndexView = new TransactionsIndexView(
