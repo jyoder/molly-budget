@@ -18,6 +18,10 @@ describe('toIcon', () => {
         expect(CategoryIconMapper.toIcon('Groceries')).toBe('shopping-cart');
     });
 
+    it('returns the shopping-cart icon for the Income category', () => {
+        expect(CategoryIconMapper.toIcon('Income')).toBe('money');
+    });
+
     it('returns the question icon for an unknown category', () => {
         expect(CategoryIconMapper.toIcon('Barf')).toBe('question');
     });
