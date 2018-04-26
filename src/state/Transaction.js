@@ -1,4 +1,17 @@
 export default class Transaction {
+    static EXPENSE = 1;
+    static INCOME = 2;
+
+    static totalExpenses(transactions) {
+        return transactions.reduce(
+            (sum, t) => (
+                t.type() === Transaction.EXPENSE ?
+                    sum + t.amount() :
+                    sum - t.amount()),
+                0.00
+        );
+    }
+
     constructor(id, amount, occurredAt, category) {
         this._id = id;
         this._amount = amount;
@@ -8,6 +21,14 @@ export default class Transaction {
 
     id() {
         return this._id;
+    }
+
+    type() {
+        if(this._category === 'Income') {
+            return Transaction.INCOME;
+        } else {
+            return Transaction.EXPENSE;
+        }
     }
 
     amount() {
