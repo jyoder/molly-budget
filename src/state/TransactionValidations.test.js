@@ -183,4 +183,15 @@ describe('category', () => {
         });
         expect(allowed).toBeTruthy();
     });
+
+    it('allows saving a transaction with the Income category', () => {
+        const database = targaryen.database(rules, {}).as({ uid: 'userId' });
+        const { allowed } = database.write('/accounts/userId/transactions/abcd', {
+            id: 'abcd',
+            amount: 15.00,
+            occurredAt: '2018-04-17T03:50:53.161Z',
+            category: 'Income'
+        });
+        expect(allowed).toBeTruthy();
+    });
 });
