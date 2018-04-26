@@ -21,6 +21,7 @@ class CategorySelector extends React.Component {
                 {this._category('Outing')}
                 {this._category('Car')}
                 {this._category('Groceries')}
+                {this._category('Income')}
             </div>
         );
     }

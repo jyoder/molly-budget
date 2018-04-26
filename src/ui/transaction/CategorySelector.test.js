@@ -26,6 +26,11 @@ describe('CategorySelector', () => {
         expect(categorySelector.find('.Category-groceries')).toHaveLength(1);
     });
 
+    it('renders an "Income" category', () => {
+        const categorySelector = shallow(<CategorySelector categoryStore={new ValueStore()} />);
+        expect(categorySelector.find('.Category-income')).toHaveLength(1);
+    });
+
     it('selects the "General" category by default', () => {
         const valueStore = new ValueStore();
         const categorySelector = shallow(<CategorySelector categoryStore={valueStore} />);
@@ -76,6 +81,17 @@ describe('CategorySelector', () => {
         categorySelector.find('.Category-groceries').simulate('click');
         expect(categorySelector
             .find('.Category-groceries')
+            .hasClass('Category--selected')
+        ).toBeTruthy();
+    });
+
+    it('selects the "Income" category when clicked', () => {
+        const valueStore = new ValueStore();
+        const categorySelector = shallow(<CategorySelector categoryStore={valueStore} />);
+        
+        categorySelector.find('.Category-income').simulate('click');
+        expect(categorySelector
+            .find('.Category-income')
             .hasClass('Category--selected')
         ).toBeTruthy();
     });
