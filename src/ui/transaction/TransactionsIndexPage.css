@@ -23,6 +23,14 @@
     font-weight: bold;
 }
 
+.TransactionsIndexPage-total--gain {
+    color: var(--gainColor);
+}
+
+.TransactionsIndexPage-total--loss {
+    color: var(--lossColor);
+}
+
 .TransactionsIndexPage-categoryIcon {
     width: 1em;
     text-align: center;
@@ -34,4 +42,12 @@
 
 .TransactionsIndexPage-amount {
     text-align: right;
+}
+
+.TransactionsIndexPage-amount--income {
+    color: var(--gainColor);
+}
+
+.TransactionsIndexPage-amount--expense {
+    color: var(--lossColor);
 }

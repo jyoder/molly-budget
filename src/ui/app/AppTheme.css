@@ -2,4 +2,7 @@
     --lightColor: white;
     --darkColor: #222;
     --selectedColor: dodgerblue;
+
+    --gainColor: mediumseagreen;
+    --lossColor: crimson;
 }
