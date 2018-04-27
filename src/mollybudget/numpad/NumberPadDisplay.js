@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
-import { formatCurrency } from 'mollybudget/ui/format/CurrencyFormat';
+import { formatCurrency } from 'mollybudget/format/CurrencyFormat';
 
 
 class NumberPadDisplay extends React.Component {

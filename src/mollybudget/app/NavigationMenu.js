@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import 'mollybudget/ui/app/NavigationMenu.css';
+import 'mollybudget/app/NavigationMenu.css';
 
 
 export default class NavigationMenu extends React.Component {

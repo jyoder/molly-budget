@@ -2,9 +2,9 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 
-import TransactionRoutes from 'mollybudget/ui/transaction/TransactionRoutes';
-import TransactionAmountPage from 'mollybudget/ui/transaction/TransactionAmountPage';
-import TransactionsIndexPage from 'mollybudget/ui/transaction/TransactionsIndexPage';
+import TransactionRoutes from 'mollybudget/transaction/TransactionRoutes';
+import TransactionAmountPage from 'mollybudget/transaction/TransactionAmountPage';
+import TransactionsIndexPage from 'mollybudget/transaction/TransactionsIndexPage';
 
 
 describe('TransactionRoutes', () => {

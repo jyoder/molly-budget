@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 
-import 'mollybudget/ui/transaction/TransactionsIndexPage.css';
-import 'mollybudget/ui/app/AppPage.css';
+import 'mollybudget/transaction/TransactionsIndexPage.css';
+import 'mollybudget/app/AppPage.css';
 
 
 class TransactionsIndexPage extends React.Component {

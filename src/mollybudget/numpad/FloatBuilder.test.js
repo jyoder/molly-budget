@@ -1,4 +1,4 @@
-import FloatBuilder from 'mollybudget/ui/numpad/FloatBuilder';
+import FloatBuilder from 'mollybudget/numpad/FloatBuilder';
 
 
 describe('toFloat', () => {

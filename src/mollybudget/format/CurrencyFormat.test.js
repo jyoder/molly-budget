@@ -1,4 +1,4 @@
-import { formatCurrency, parseCurrency } from 'mollybudget/ui/format/CurrencyFormat';
+import { formatCurrency, parseCurrency } from 'mollybudget/format/CurrencyFormat';
 
 
 describe('formatCurrency', () => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TransactionAmountPage from 'mollybudget/ui/transaction/TransactionAmountPage';
-import NumberPadDisplay from 'mollybudget/ui/numpad/NumberPadDisplay';
-import NumberPad from 'mollybudget/ui/numpad/NumberPad';
-import CategorySelector from 'mollybudget/ui/transaction/CategorySelector';
+import TransactionAmountPage from 'mollybudget/transaction/TransactionAmountPage';
+import NumberPadDisplay from 'mollybudget/numpad/NumberPadDisplay';
+import NumberPad from 'mollybudget/numpad/NumberPad';
+import CategorySelector from 'mollybudget/transaction/CategorySelector';
 import { Button } from 'reactstrap';
 
 

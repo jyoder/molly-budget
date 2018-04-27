@@ -1,8 +1,8 @@
-import CategoryIconMapper from 'mollybudget/ui/transaction/CategoryIconMapper';
+import CategoryIconMapper from 'mollybudget/transaction/CategoryIconMapper';
 import Transaction from 'mollybudget/state/Transaction';
 
 import { format } from 'date-fns';
-import { formatCurrency } from 'mollybudget/ui/format/CurrencyFormat';
+import { formatCurrency } from 'mollybudget/format/CurrencyFormat';
 
 
 export default class TransactionsIndexView {
