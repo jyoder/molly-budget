@@ -1,4 +1,4 @@
-import AppStore from 'mollybudget/app/store/AppStore';
+import AppStore from 'mollybudget/app/model/AppStore';
 
 
 describe('initialized', () => {

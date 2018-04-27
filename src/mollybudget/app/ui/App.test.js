@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import App from 'mollybudget/app/ui/App';
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
 import AuthenticationIndicator from 'mollybudget/auth/ui/AuthenticationIndicator';
-import AppStore from 'mollybudget/app/store/AppStore';
+import AppStore from 'mollybudget/app/model/AppStore';
 
 
 describe('App', () => {
