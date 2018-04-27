@@ -2,9 +2,9 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 
-import SettingsRoutes from 'mollybudget/settings/SettingsRoutes';
-import DailyBudgetPage from 'mollybudget/settings/DailyBudgetPage';
-import DailyBudgetEditPage from 'mollybudget/settings/DailyBudgetEditPage';
+import SettingsRoutes from 'mollybudget/settings/ui/SettingsRoutes';
+import DailyBudgetPage from 'mollybudget/settings/ui/DailyBudgetPage';
+import DailyBudgetEditPage from 'mollybudget/settings/ui/DailyBudgetEditPage';
 
 
 describe('SettingsRoutes', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import DailyBudgetEditPage from 'mollybudget/settings/DailyBudgetEditPage';
+import DailyBudgetEditPage from 'mollybudget/settings/ui/DailyBudgetEditPage';
 import NumberPad from 'mollybudget/numpad/NumberPad';
 import ValueStore from 'mollybudget/state/ValueStore';
 

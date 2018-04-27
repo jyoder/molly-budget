@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import BudgetSummaryPage from 'mollybudget/budget/ui/BudgetSummaryPage';
 import TransactionRoutes from 'mollybudget/transaction/TransactionRoutes';
-import SettingsRoutes from 'mollybudget/settings/SettingsRoutes';
+import SettingsRoutes from 'mollybudget/settings/ui/SettingsRoutes';
 
 
 class AppRoutes extends React.Component {

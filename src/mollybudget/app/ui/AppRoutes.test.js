@@ -5,7 +5,7 @@ import { shallow, mount } from 'enzyme';
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
 import BudgetSummaryPage from 'mollybudget/budget/ui/BudgetSummaryPage';
 import TransactionRoutes from 'mollybudget/transaction/TransactionRoutes';
-import SettingsRoutes from 'mollybudget/settings/SettingsRoutes';
+import SettingsRoutes from 'mollybudget/settings/ui/SettingsRoutes';
 import Budget from 'mollybudget/budget/model/Budget';
 
 

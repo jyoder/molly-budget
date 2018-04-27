@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import DailyBudgetPage from 'mollybudget/settings/DailyBudgetPage';
+import DailyBudgetPage from 'mollybudget/settings/ui/DailyBudgetPage';
 
 
 describe('DailyBudgetPage', () => {
