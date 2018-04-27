@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import TransactionsIndexPage from 'mollybudget/transaction/ui/TransactionsIndexPage';
 import TransactionAmountPage from 'mollybudget/transaction/ui/TransactionAmountPage';
 
-import TransactionsIndexView from 'mollybudget/transaction/TransactionsIndexView';
+import TransactionsIndexView from 'mollybudget/transaction/ui/TransactionsIndexView';
 import TransactionHistory from 'mollybudget/transaction/TransactionHistory';
 
 import ValueStore from 'mollybudget/state/ValueStore';
