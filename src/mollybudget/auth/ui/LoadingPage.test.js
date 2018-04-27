@@ -5,8 +5,8 @@ import LoadingPage from 'mollybudget/auth/ui/LoadingPage';
 
 
 describe('LoadingPage', () => {
-    it('renders a message indicating authentication is underway', () => {
-        const authenticationIndicator = shallow(<LoadingPage />);
-        expect(authenticationIndicator.find('.LoadingPage-heading').text()).toBe('Loading');
+    it('renders a message to indicate the app is loading', () => {
+        const loadingPage = shallow(<LoadingPage />);
+        expect(loadingPage.find('.LoadingPage-heading').text()).toBe('Loading');
     });
 });
