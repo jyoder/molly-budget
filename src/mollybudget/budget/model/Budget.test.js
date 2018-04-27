@@ -1,4 +1,4 @@
-import Budget from 'mollybudget/state/Budget';
+import Budget from 'mollybudget/budget/model/Budget';
 import DailyBudget from 'mollybudget/state/DailyBudget';
 import Transaction from 'mollybudget/state/Transaction';
 

@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 import AppLayout from 'mollybudget/app/ui/AppLayout';
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
 import AuthenticationIndicator from 'mollybudget/auth/ui/AuthenticationIndicator';
-import Budget from 'mollybudget/state/Budget';
+import Budget from 'mollybudget/budget/model/Budget';
 
 
 class App extends React.Component {

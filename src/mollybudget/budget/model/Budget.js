@@ -1,4 +1,4 @@
-import BudgetAccumulator from 'mollybudget/state/BudgetAccumulator';
+import BudgetAccumulator from 'mollybudget/budget/model/BudgetAccumulator';
 import Transaction from 'mollybudget/state/Transaction';
 
 

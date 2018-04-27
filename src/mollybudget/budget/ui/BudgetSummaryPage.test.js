@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import BudgetSummary from 'mollybudget/budget/ui/BudgetSummaryPage';
-import Budget from 'mollybudget/state/Budget';
+import Budget from 'mollybudget/budget/model/Budget';
 import DailyBudget from 'mollybudget/state/DailyBudget';
 import { Button } from 'reactstrap';
 
