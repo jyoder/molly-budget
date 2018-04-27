@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 import NumberPad from 'mollybudget/numpad/NumberPad';
 import { Button } from 'reactstrap';
 
-import 'mollybudget/app/AppPage.css';
+import 'mollybudget/common/ui/AppPage.css';
 
 
 class DailyBudgetEditPage extends React.Component {

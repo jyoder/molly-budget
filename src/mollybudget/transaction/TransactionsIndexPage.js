@@ -5,7 +5,7 @@ import { Table } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 
 import 'mollybudget/transaction/TransactionsIndexPage.css';
-import 'mollybudget/app/AppPage.css';
+import 'mollybudget/common/ui/AppPage.css';
 
 
 class TransactionsIndexPage extends React.Component {
