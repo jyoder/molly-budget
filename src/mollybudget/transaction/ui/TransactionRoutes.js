@@ -7,7 +7,7 @@ import TransactionsIndexPage from 'mollybudget/transaction/ui/TransactionsIndexP
 import TransactionAmountPage from 'mollybudget/transaction/ui/TransactionAmountPage';
 
 import TransactionsIndexView from 'mollybudget/transaction/ui/TransactionsIndexView';
-import TransactionHistory from 'mollybudget/transaction/TransactionHistory';
+import TransactionHistory from 'mollybudget/transaction/model/TransactionHistory';
 
 import ValueStore from 'mollybudget/state/ValueStore';
 

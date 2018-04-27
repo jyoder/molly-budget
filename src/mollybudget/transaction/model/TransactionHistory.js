@@ -1,4 +1,4 @@
-import TransactionsOnDay from 'mollybudget/transaction/TransactionsOnDay';
+import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
 
 
 export default class TransactionHistory {

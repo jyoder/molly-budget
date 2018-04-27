@@ -1,7 +1,7 @@
 import TransactionsIndexView from 'mollybudget/transaction/ui/TransactionsIndexView';
 import { TransactionDayView, TransactionRowView } from 'mollybudget/transaction/ui/TransactionsIndexView';
-import TransactionHistory from 'mollybudget/transaction/TransactionHistory';
-import TransactionsOnDay from 'mollybudget/transaction/TransactionsOnDay';
+import TransactionHistory from 'mollybudget/transaction/model/TransactionHistory';
+import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
 import Transaction from 'mollybudget/state/Transaction';
 
 

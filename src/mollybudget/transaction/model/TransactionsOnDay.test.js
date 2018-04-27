@@ -1,4 +1,4 @@
-import TransactionsOnDay from 'mollybudget/transaction/TransactionsOnDay';
+import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
 import Transaction from 'mollybudget/state/Transaction';
 
 
