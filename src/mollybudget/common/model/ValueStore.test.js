@@ -1,4 +1,4 @@
-import ValueStore from 'mollybudget/state/ValueStore';
+import ValueStore from 'mollybudget/common/model/ValueStore';
 
 
 describe('value', () => {

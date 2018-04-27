@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import FloatBuilder from 'mollybudget/numpad/FloatBuilder';
-import ValueStore from 'mollybudget/state/ValueStore';
+import ValueStore from 'mollybudget/common/model/ValueStore';
 
 import 'mollybudget/numpad/NumberPad.css';
 

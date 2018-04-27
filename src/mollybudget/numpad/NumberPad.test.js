@@ -1,5 +1,5 @@
 import NumberPad from 'mollybudget/numpad/NumberPad';
-import ValueStore from 'mollybudget/state/ValueStore';
+import ValueStore from 'mollybudget/common/model/ValueStore';
 
 import React from 'react';
 import { shallow } from 'enzyme';
