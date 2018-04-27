@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import LoadingPage from 'mollybudget/auth/ui/LoadingPage';
+import LoadingPage from 'mollybudget/app/ui/LoadingPage';
 
 
 describe('LoadingPage', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BeatLoader } from 'react-spinners';
 
-import 'mollybudget/auth/ui/LoadingPage.css';
+import 'mollybudget/app/ui/LoadingPage.css';
 
 
 export default class LoadingPage extends React.Component {

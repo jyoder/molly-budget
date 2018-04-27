@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import App from 'mollybudget/app/ui/App';
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
-import LoadingPage from 'mollybudget/auth/ui/LoadingPage';
+import LoadingPage from 'mollybudget/app/ui/LoadingPage';
 import AppStore from 'mollybudget/app/model/AppStore';
 
 

@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 
 import AppLayout from 'mollybudget/app/ui/AppLayout';
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
-import LoadingPage from 'mollybudget/auth/ui/LoadingPage';
+import LoadingPage from 'mollybudget/app/ui/LoadingPage';
 import Budget from 'mollybudget/budget/model/Budget';
 
 
