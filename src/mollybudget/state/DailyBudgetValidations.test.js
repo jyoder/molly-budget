@@ -1,5 +1,5 @@
 import targaryen from 'targaryen';
-import DatabaseRulesLoader from 'test/DatabaseRulesLoader';
+import DatabaseRulesLoader from 'mollybudget/test/DatabaseRulesLoader';
 
 
 let rules = null;
