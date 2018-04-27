@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
-import BudgetSummaryPage from 'mollybudget/summary/BudgetSummaryPage';
+import BudgetSummaryPage from 'mollybudget/budget/ui/BudgetSummaryPage';
 import TransactionRoutes from 'mollybudget/transaction/TransactionRoutes';
 import SettingsRoutes from 'mollybudget/settings/SettingsRoutes';
 import Budget from 'mollybudget/state/Budget';
