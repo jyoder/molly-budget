@@ -2,9 +2,9 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
-import { formatCurrency } from 'ui/format/CurrencyFormat';
+import { formatCurrency } from 'mollybudget/ui/format/CurrencyFormat';
 
-import 'ui/app/AppPage.css';
+import 'mollybudget/ui/app/AppPage.css';
 
 
 class BudgetSummaryPage extends React.Component {

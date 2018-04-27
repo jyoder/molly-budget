@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { Switch, Route } from 'react-router-dom';
 
-import DailyBudgetPage from 'ui/settings/DailyBudgetPage';
-import DailyBudgetEditPage from 'ui/settings/DailyBudgetEditPage';
+import DailyBudgetPage from 'mollybudget/ui/settings/DailyBudgetPage';
+import DailyBudgetEditPage from 'mollybudget/ui/settings/DailyBudgetEditPage';
 import ValueStore from 'mollybudget/state/ValueStore';
 
 

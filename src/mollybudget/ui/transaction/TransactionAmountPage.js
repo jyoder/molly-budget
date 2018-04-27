@@ -2,12 +2,12 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 
-import NumberPadDisplay from 'ui/numpad/NumberPadDisplay';
-import NumberPad from 'ui/numpad/NumberPad';
-import CategorySelector from 'ui/transaction/CategorySelector';
+import NumberPadDisplay from 'mollybudget/ui/numpad/NumberPadDisplay';
+import NumberPad from 'mollybudget/ui/numpad/NumberPad';
+import CategorySelector from 'mollybudget/ui/transaction/CategorySelector';
 import { Button } from 'reactstrap';
 
-import 'ui/app/AppPage.css';
+import 'mollybudget/ui/app/AppPage.css';
 
 
 class TransactionAmountPage extends React.Component {

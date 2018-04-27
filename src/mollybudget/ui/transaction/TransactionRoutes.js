@@ -3,11 +3,11 @@ import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
-import TransactionsIndexPage from 'ui/transaction/TransactionsIndexPage';
-import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
+import TransactionsIndexPage from 'mollybudget/ui/transaction/TransactionsIndexPage';
+import TransactionAmountPage from 'mollybudget/ui/transaction/TransactionAmountPage';
 
-import TransactionsIndexView from 'ui/transaction/TransactionsIndexView';
-import TransactionHistory from 'ui/transaction/TransactionHistory';
+import TransactionsIndexView from 'mollybudget/ui/transaction/TransactionsIndexView';
+import TransactionHistory from 'mollybudget/ui/transaction/TransactionHistory';
 
 import ValueStore from 'mollybudget/state/ValueStore';
 

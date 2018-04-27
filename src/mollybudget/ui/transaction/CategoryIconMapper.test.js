@@ -1,4 +1,4 @@
-import CategoryIconMapper from 'ui/transaction/CategoryIconMapper';
+import CategoryIconMapper from 'mollybudget/ui/transaction/CategoryIconMapper';
 
 
 describe('toIcon', () => {

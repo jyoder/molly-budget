@@ -1,4 +1,4 @@
-import TransactionHistory from 'ui/transaction/TransactionHistory';
+import TransactionHistory from 'mollybudget/ui/transaction/TransactionHistory';
 import Transaction from 'mollybudget/state/Transaction';
 
 

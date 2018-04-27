@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import AppLayout from 'ui/app/AppLayout';
+import AppLayout from 'mollybudget/ui/app/AppLayout';
 
 
 describe('AppLayout', () => {

@@ -3,9 +3,9 @@ import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
-import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
-import TransactionRoutes from 'ui/transaction/TransactionRoutes';
-import SettingsRoutes from 'ui/settings/SettingsRoutes';
+import BudgetSummaryPage from 'mollybudget/ui/summary/BudgetSummaryPage';
+import TransactionRoutes from 'mollybudget/ui/transaction/TransactionRoutes';
+import SettingsRoutes from 'mollybudget/ui/settings/SettingsRoutes';
 
 
 class AppRoutes extends React.Component {

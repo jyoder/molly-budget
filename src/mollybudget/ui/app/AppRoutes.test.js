@@ -2,10 +2,10 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 
-import AppRoutes from 'ui/app/AppRoutes';
-import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
-import TransactionRoutes from 'ui/transaction/TransactionRoutes';
-import SettingsRoutes from 'ui/settings/SettingsRoutes';
+import AppRoutes from 'mollybudget/ui/app/AppRoutes';
+import BudgetSummaryPage from 'mollybudget/ui/summary/BudgetSummaryPage';
+import TransactionRoutes from 'mollybudget/ui/transaction/TransactionRoutes';
+import SettingsRoutes from 'mollybudget/ui/settings/SettingsRoutes';
 import Budget from 'mollybudget/state/Budget';
 
 

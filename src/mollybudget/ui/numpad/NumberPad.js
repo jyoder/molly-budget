@@ -2,10 +2,10 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
-import FloatBuilder from 'ui/numpad/FloatBuilder';
+import FloatBuilder from 'mollybudget/ui/numpad/FloatBuilder';
 import ValueStore from 'mollybudget/state/ValueStore';
 
-import 'ui/numpad/NumberPad.css';
+import 'mollybudget/ui/numpad/NumberPad.css';
 
 
 class NumberPad extends React.Component {

@@ -1,4 +1,4 @@
-import NumberPad from 'ui/numpad/NumberPad';
+import NumberPad from 'mollybudget/ui/numpad/NumberPad';
 import ValueStore from 'mollybudget/state/ValueStore';
 
 import React from 'react';

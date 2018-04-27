@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { Button } from 'reactstrap';
 
-import 'ui/app/AppPage.css';
+import 'mollybudget/ui/app/AppPage.css';
 
 
 class DailyBudgetPage extends React.Component {
