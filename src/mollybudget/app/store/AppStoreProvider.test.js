@@ -1,4 +1,4 @@
-import AppStoreProvider from 'mollybudget/state/AppStoreProvider';
+import AppStoreProvider from 'mollybudget/app/store/AppStoreProvider';
 
 
 describe('create', () => {
