@@ -1,6 +1,6 @@
 import { decorate, observable, action } from 'mobx';
-import DailyBudget from 'mollybudget/state/DailyBudget';
-import DailyBudgetSerializer from 'mollybudget/state/DailyBudgetSerializer';
+import DailyBudget from 'mollybudget/settings/model/DailyBudget';
+import DailyBudgetSerializer from 'mollybudget/settings/model/DailyBudgetSerializer';
 
 
 const DEFAULT_DAILY_BUDGET = new DailyBudget('default', 0.00, new Date('0000-01-01T00:00:00.000Z'));

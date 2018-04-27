@@ -1,5 +1,5 @@
 import Budget from 'mollybudget/budget/model/Budget';
-import DailyBudget from 'mollybudget/state/DailyBudget';
+import DailyBudget from 'mollybudget/settings/model/DailyBudget';
 import Transaction from 'mollybudget/state/Transaction';
 
 

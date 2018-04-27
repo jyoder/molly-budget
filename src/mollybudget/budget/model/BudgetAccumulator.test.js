@@ -1,5 +1,5 @@
 import BudgetAccumulator from 'mollybudget/budget/model/BudgetAccumulator';
-import DailyBudget from 'mollybudget/state/DailyBudget';
+import DailyBudget from 'mollybudget/settings/model/DailyBudget';
 
 
 describe('monthToDate', () => {

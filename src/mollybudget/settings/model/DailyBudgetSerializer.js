@@ -1,4 +1,4 @@
-import DailyBudget from 'mollybudget/state/DailyBudget';
+import DailyBudget from 'mollybudget/settings/model/DailyBudget';
 
 
 export default class DailyBudgetSerializer {
