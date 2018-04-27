@@ -1,4 +1,4 @@
-import FirebaseAuthenticator from 'network/FirebaseAuthenticator';
+import FirebaseAuthenticator from 'mollybudget/network/FirebaseAuthenticator';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 

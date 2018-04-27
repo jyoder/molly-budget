@@ -1,4 +1,4 @@
-import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
+import FirebaseConfigProvider from 'mollybudget/network/FirebaseConfigProvider';
 import Environment from 'mollybudget/environment/Environment';
 
 
