@@ -1,5 +1,5 @@
 import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
-import Transaction from 'mollybudget/state/Transaction';
+import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 describe('date', () => {

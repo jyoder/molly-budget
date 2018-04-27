@@ -1,5 +1,5 @@
-import TransactionStore from 'mollybudget/state/TransactionStore';
-import Transaction from 'mollybudget/state/Transaction';
+import TransactionStore from 'mollybudget/transaction/model/TransactionStore';
+import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 describe('create', () => {

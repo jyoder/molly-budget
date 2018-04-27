@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import TransactionsIndexPage from 'mollybudget/transaction/ui/TransactionsIndexPage';
 import TransactionsIndexView from 'mollybudget/transaction/ui/TransactionsIndexView';
 import TransactionHistory from 'mollybudget/transaction/model/TransactionHistory';
-import Transaction from 'mollybudget/state/Transaction';
+import Transaction from 'mollybudget/transaction/model/Transaction';
 
 import FontAwesome from 'react-fontawesome';
 

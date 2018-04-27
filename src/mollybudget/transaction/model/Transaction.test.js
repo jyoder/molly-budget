@@ -1,4 +1,4 @@
-import Transaction from 'mollybudget/state/Transaction';
+import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 describe('totalExpenses', () => {

@@ -1,5 +1,5 @@
 import TransactionHistory from 'mollybudget/transaction/model/TransactionHistory';
-import Transaction from 'mollybudget/state/Transaction';
+import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 describe('inMonthByDay', () => {

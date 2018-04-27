@@ -1,5 +1,5 @@
 import BudgetAccumulator from 'mollybudget/budget/model/BudgetAccumulator';
-import Transaction from 'mollybudget/state/Transaction';
+import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 export default class Budget {

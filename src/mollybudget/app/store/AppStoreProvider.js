@@ -1,5 +1,5 @@
 import AppStore from 'mollybudget/app/store/AppStore';
-import TransactionStore from 'mollybudget/state/TransactionStore';
+import TransactionStore from 'mollybudget/transaction/model/TransactionStore';
 import DailyBudgetStore from 'mollybudget/settings/model/DailyBudgetStore';
 import FirebaseConfigProvider from 'mollybudget/network/FirebaseConfigProvider';
 import FirebaseProvider from 'mollybudget/network/FirebaseProvider';

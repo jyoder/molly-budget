@@ -1,5 +1,5 @@
-import TransactionSerializer from 'mollybudget/state/TransactionSerializer';
-import Transaction from 'mollybudget/state/Transaction';
+import TransactionSerializer from 'mollybudget/transaction/model/TransactionSerializer';
+import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 describe('toJson', () => {

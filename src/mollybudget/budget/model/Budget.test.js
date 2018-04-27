@@ -1,6 +1,6 @@
 import Budget from 'mollybudget/budget/model/Budget';
 import DailyBudget from 'mollybudget/settings/model/DailyBudget';
-import Transaction from 'mollybudget/state/Transaction';
+import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 describe('create', () => {
