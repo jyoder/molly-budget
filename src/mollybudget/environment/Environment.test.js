@@ -1,4 +1,4 @@
-import Environment from 'environment/Environment';
+import Environment from 'mollybudget/environment/Environment';
 
 
 describe('instance', () => {

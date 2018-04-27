@@ -1,4 +1,4 @@
-import environmentName from 'environment/EnvironmentName';
+import environmentName from 'mollybudget/environment/EnvironmentName';
 
 
 const STAGE = 'stage';

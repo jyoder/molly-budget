@@ -1,5 +1,5 @@
 import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
-import Environment from 'environment/Environment';
+import Environment from 'mollybudget/environment/Environment';
 
 
 describe('getConfig', () => {

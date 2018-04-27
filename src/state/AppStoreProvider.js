@@ -4,7 +4,7 @@ import DailyBudgetStore from 'state/DailyBudgetStore';
 import FirebaseConfigProvider from 'network/FirebaseConfigProvider';
 import FirebaseProvider from 'network/FirebaseProvider';
 import FirebaseAuthenticator from 'network/FirebaseAuthenticator';
-import Environment from 'environment/Environment';
+import Environment from 'mollybudget/environment/Environment';
 
 
 export default class AppStoreProvider {

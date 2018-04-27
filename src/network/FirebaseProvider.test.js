@@ -1,5 +1,5 @@
 import FirebaseProvider from 'network/FirebaseProvider';
-import Environment from 'environment/Environment';
+import Environment from 'mollybudget/environment/Environment';
 
 
 describe('create', () => {
