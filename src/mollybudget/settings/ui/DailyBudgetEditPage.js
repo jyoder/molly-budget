@@ -11,7 +11,7 @@ import 'mollybudget/common/ui/Page.css';
 class DailyBudgetEditPage extends React.Component {
     render() {
         return(
-            <div className="AppPage">
+            <div className="Page">
                 <div>
                     <p className="DailyBudgetEditPage-dailyBudget lead">
                         Your daily budget is <strong>${this._dailyBudget()}</strong>

@@ -31,7 +31,7 @@ class TransactionsIndexPage extends React.Component {
 
     _noTransactionsMessage() {
         return(
-            <section className="AppPage">
+            <section className="Page">
                 <p className="lead">You haven't added any transactions.</p>
             </section>
         )

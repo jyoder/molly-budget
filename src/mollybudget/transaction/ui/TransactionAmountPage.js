@@ -17,7 +17,7 @@ class TransactionAmountPage extends React.Component {
 
     render() {
         return(
-            <section className="AppPage">
+            <section className="Page">
                 <NumberPadDisplay valueStore={this.props.amountStore} />
                 <CategorySelector categoryStore={this.props.categoryStore} />   
                 <NumberPad valueStore={this.props.amountStore} />

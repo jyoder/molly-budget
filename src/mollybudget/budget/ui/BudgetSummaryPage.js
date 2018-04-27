@@ -10,7 +10,7 @@ import 'mollybudget/common/ui/Page.css';
 class BudgetSummaryPage extends React.Component {
     render() {
         return(
-            <section className="AppPage BudgetSummaryPage">
+            <section className="Page BudgetSummaryPage">
                 <p className="BudgetSummaryPage-summary lead">
                     Hello {this._name()},<br />you have <strong>${this._amount()}</strong> to spend today.
                 </p>
