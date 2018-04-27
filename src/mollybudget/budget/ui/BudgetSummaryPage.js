@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import { formatCurrency } from 'mollybudget/format/CurrencyFormat';
 
-import 'mollybudget/common/ui/AppPage.css';
+import 'mollybudget/common/ui/Page.css';
 
 
 class BudgetSummaryPage extends React.Component {

@@ -7,7 +7,7 @@ import NumberPad from 'mollybudget/numpad/NumberPad';
 import CategorySelector from 'mollybudget/transaction/ui/CategorySelector';
 import { Button } from 'reactstrap';
 
-import 'mollybudget/common/ui/AppPage.css';
+import 'mollybudget/common/ui/Page.css';
 
 
 class TransactionAmountPage extends React.Component {
