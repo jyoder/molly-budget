@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import FontAwesome from 'react-fontawesome';
-import CategoryIconMapper from 'mollybudget/transaction/CategoryIconMapper';
+import CategoryIconMapper from 'mollybudget/transaction/ui/CategoryIconMapper';
 
-import 'mollybudget/transaction/CategorySelector.css';
+import 'mollybudget/transaction/ui/CategorySelector.css';
 
 
 const DEFAULT_CATEGORY = 'General';

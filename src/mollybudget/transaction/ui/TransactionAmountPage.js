@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import NumberPadDisplay from 'mollybudget/numpad/NumberPadDisplay';
 import NumberPad from 'mollybudget/numpad/NumberPad';
-import CategorySelector from 'mollybudget/transaction/CategorySelector';
+import CategorySelector from 'mollybudget/transaction/ui/CategorySelector';
 import { Button } from 'reactstrap';
 
 import 'mollybudget/common/ui/AppPage.css';

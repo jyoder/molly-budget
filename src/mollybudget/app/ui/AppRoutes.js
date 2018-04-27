@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
 import BudgetSummaryPage from 'mollybudget/budget/ui/BudgetSummaryPage';
-import TransactionRoutes from 'mollybudget/transaction/TransactionRoutes';
+import TransactionRoutes from 'mollybudget/transaction/ui/TransactionRoutes';
 import SettingsRoutes from 'mollybudget/settings/ui/SettingsRoutes';
 
 

@@ -1,4 +1,4 @@
-import CategoryIconMapper from 'mollybudget/transaction/CategoryIconMapper';
+import CategoryIconMapper from 'mollybudget/transaction/ui/CategoryIconMapper';
 import Transaction from 'mollybudget/state/Transaction';
 
 import { format } from 'date-fns';

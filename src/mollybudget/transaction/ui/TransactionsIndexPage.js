@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 
-import 'mollybudget/transaction/TransactionsIndexPage.css';
+import 'mollybudget/transaction/ui/TransactionsIndexPage.css';
 import 'mollybudget/common/ui/AppPage.css';
 
 

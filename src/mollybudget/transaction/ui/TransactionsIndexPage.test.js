@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TransactionsIndexPage from 'mollybudget/transaction/TransactionsIndexPage';
+import TransactionsIndexPage from 'mollybudget/transaction/ui/TransactionsIndexPage';
 import TransactionsIndexView from 'mollybudget/transaction/TransactionsIndexView';
 import TransactionHistory from 'mollybudget/transaction/TransactionHistory';
 import Transaction from 'mollybudget/state/Transaction';
