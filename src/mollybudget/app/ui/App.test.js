@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import App from 'mollybudget/app/ui/App';
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
-import AuthenticationIndicator from 'mollybudget/auth/AuthenticationIndicator';
+import AuthenticationIndicator from 'mollybudget/auth/ui/AuthenticationIndicator';
 import AppStore from 'mollybudget/state/AppStore';
 
 

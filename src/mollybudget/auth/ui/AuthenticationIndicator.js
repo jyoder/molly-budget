@@ -1,7 +1,7 @@
 import React from 'react';
 import { BeatLoader } from 'react-spinners';
 
-import 'mollybudget/auth/AuthenticationIndicator.css';
+import 'mollybudget/auth/ui/AuthenticationIndicator.css';
 
 
 export default class AuthenticationIndicator extends React.Component {

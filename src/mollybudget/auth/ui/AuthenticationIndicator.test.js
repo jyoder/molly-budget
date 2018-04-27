@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import AuthenticationIndicator from 'mollybudget/auth/AuthenticationIndicator';
+import AuthenticationIndicator from 'mollybudget/auth/ui/AuthenticationIndicator';
 
 
 describe('AuthenticationIndicator', () => {
