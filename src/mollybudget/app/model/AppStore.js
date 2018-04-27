@@ -1,4 +1,4 @@
-import { decorate, observable, computed, action } from 'mobx';
+import { action, computed, decorate, observable } from 'mobx';
 
 
 class AppStore {
@@ -36,7 +36,7 @@ class AppStore {
     setDailyBudgetStore(dailyBudgetStore) {
         this._dailyBudgetStore = dailyBudgetStore;
     }
-};
+}
 
 export default decorate(AppStore, {
     _user: observable,
