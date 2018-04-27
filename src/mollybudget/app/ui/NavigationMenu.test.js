@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 
-import NavigationMenu from 'mollybudget/app/NavigationMenu';
+import NavigationMenu from 'mollybudget/app/ui/NavigationMenu';
 import { Navbar, NavbarToggler, Collapse, NavLink } from 'reactstrap';
 
 

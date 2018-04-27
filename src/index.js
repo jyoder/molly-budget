@@ -1,5 +1,5 @@
 import React from 'react';
-import App from 'mollybudget/app/App';
+import App from 'mollybudget/app/ui/App';
 import AppStoreProvider from 'mollybudget/state/AppStoreProvider';
 
 import ReactDOM from 'react-dom';

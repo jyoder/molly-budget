@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
-import AppLayout from 'mollybudget/app/AppLayout';
-import AppRoutes from 'mollybudget/app/AppRoutes';
+import AppLayout from 'mollybudget/app/ui/AppLayout';
+import AppRoutes from 'mollybudget/app/ui/AppRoutes';
 import AuthenticationIndicator from 'mollybudget/auth/AuthenticationIndicator';
 import Budget from 'mollybudget/state/Budget';
 

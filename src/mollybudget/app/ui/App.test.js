@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import App from 'mollybudget/app/App';
-import AppRoutes from 'mollybudget/app/AppRoutes';
+import App from 'mollybudget/app/ui/App';
+import AppRoutes from 'mollybudget/app/ui/AppRoutes';
 import AuthenticationIndicator from 'mollybudget/auth/AuthenticationIndicator';
 import AppStore from 'mollybudget/state/AppStore';
 

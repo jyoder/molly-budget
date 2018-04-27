@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-import NavigationMenu from 'mollybudget/app/NavigationMenu';
+import NavigationMenu from 'mollybudget/app/ui/NavigationMenu';
 
-import 'mollybudget/app/AppLayout.css';
+import 'mollybudget/app/ui/AppLayout.css';
 
 
 class AppLayout extends React.Component {
