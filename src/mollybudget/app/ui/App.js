@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 
 import AppLayout from 'mollybudget/app/ui/AppLayout';
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
-import AuthenticationIndicator from 'mollybudget/auth/ui/AuthenticationIndicator';
+import LoadingPage from 'mollybudget/auth/ui/LoadingPage';
 import Budget from 'mollybudget/budget/model/Budget';
 
 
@@ -20,7 +20,7 @@ class App extends React.Component {
     _uninitializedApp() {
         return(
             <AppLayout location={this.props.location}>
-                <AuthenticationIndicator location={this.props.location} />
+                <LoadingPage location={this.props.location} />
             </AppLayout>
         );
     }

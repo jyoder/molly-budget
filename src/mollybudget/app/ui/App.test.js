@@ -3,17 +3,17 @@ import { shallow } from 'enzyme';
 
 import App from 'mollybudget/app/ui/App';
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
-import AuthenticationIndicator from 'mollybudget/auth/ui/AuthenticationIndicator';
+import LoadingPage from 'mollybudget/auth/ui/LoadingPage';
 import AppStore from 'mollybudget/app/model/AppStore';
 
 
 describe('App', () => {
-    it('renders AuthenticationIndicator while the user has not yet authenticated', () => {
+    it('renders LoadingPage while the app has not been fully initialized', () => {
         const app = shallow(<App appStore={new AppStore()} location={{}}/>);
-        expect(app.find(AuthenticationIndicator)).toHaveLength(1);
+        expect(app.find(LoadingPage)).toHaveLength(1);
     });
  
-    it('renders AppRoutes when the user has authenticated', () => {
+    it('renders AppRoutes when the app has been fully initialized', () => {
         const appStore = new AppStore();
         appStore.setUser(_user());
         appStore.setTransactionStore(_transactionStore());
