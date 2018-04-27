@@ -1,5 +1,5 @@
-import DailyBudgetStore from 'state/DailyBudgetStore';
-import DailyBudget from 'state/DailyBudget';
+import DailyBudgetStore from 'mollybudget/state/DailyBudgetStore';
+import DailyBudget from 'mollybudget/state/DailyBudget';
 
 
 describe('create', () => {

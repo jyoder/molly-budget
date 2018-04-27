@@ -1,5 +1,5 @@
 import CategoryIconMapper from 'ui/transaction/CategoryIconMapper';
-import Transaction from 'state/Transaction';
+import Transaction from 'mollybudget/state/Transaction';
 
 import { format } from 'date-fns';
 import { formatCurrency } from 'ui/format/CurrencyFormat';

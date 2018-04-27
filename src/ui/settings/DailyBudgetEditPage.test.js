@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import DailyBudgetEditPage from 'ui/settings/DailyBudgetEditPage';
 import NumberPad from 'ui/numpad/NumberPad';
-import ValueStore from 'state/ValueStore';
+import ValueStore from 'mollybudget/state/ValueStore';
 
 
 describe('DailyBudgetEditPage', () => {

@@ -9,7 +9,7 @@ import TransactionAmountPage from 'ui/transaction/TransactionAmountPage';
 import TransactionsIndexView from 'ui/transaction/TransactionsIndexView';
 import TransactionHistory from 'ui/transaction/TransactionHistory';
 
-import ValueStore from 'state/ValueStore';
+import ValueStore from 'mollybudget/state/ValueStore';
 
 
 class TransactionRoutesPage extends React.Component {

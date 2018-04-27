@@ -1,6 +1,6 @@
-import Budget from 'state/Budget';
-import DailyBudget from 'state/DailyBudget';
-import Transaction from 'state/Transaction';
+import Budget from 'mollybudget/state/Budget';
+import DailyBudget from 'mollybudget/state/DailyBudget';
+import Transaction from 'mollybudget/state/Transaction';
 
 
 describe('create', () => {

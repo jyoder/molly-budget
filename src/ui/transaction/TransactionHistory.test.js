@@ -1,5 +1,5 @@
 import TransactionHistory from 'ui/transaction/TransactionHistory';
-import Transaction from 'state/Transaction';
+import Transaction from 'mollybudget/state/Transaction';
 
 
 describe('inMonthByDay', () => {

@@ -6,7 +6,7 @@ import AppRoutes from 'ui/app/AppRoutes';
 import BudgetSummaryPage from 'ui/summary/BudgetSummaryPage';
 import TransactionRoutes from 'ui/transaction/TransactionRoutes';
 import SettingsRoutes from 'ui/settings/SettingsRoutes';
-import Budget from 'state/Budget';
+import Budget from 'mollybudget/state/Budget';
 
 
 describe('AppRoutes', () => {

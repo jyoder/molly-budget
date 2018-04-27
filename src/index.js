@@ -1,6 +1,6 @@
 import React from 'react';
 import App from 'ui/app/App';
-import AppStoreProvider from 'state/AppStoreProvider';
+import AppStoreProvider from 'mollybudget/state/AppStoreProvider';
 
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';

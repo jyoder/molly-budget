@@ -1,5 +1,5 @@
-import DailyBudgetSerializer from 'state/DailyBudgetSerializer';
-import DailyBudget from 'state/DailyBudget';
+import DailyBudgetSerializer from 'mollybudget/state/DailyBudgetSerializer';
+import DailyBudget from 'mollybudget/state/DailyBudget';
 
 
 describe('toJson', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import CategorySelector from 'ui/transaction/CategorySelector';
-import ValueStore from 'state/ValueStore';
+import ValueStore from 'mollybudget/state/ValueStore';
 
 
 describe('CategorySelector', () => {

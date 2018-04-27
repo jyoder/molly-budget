@@ -2,7 +2,7 @@ import TransactionsIndexView from 'ui/transaction/TransactionsIndexView';
 import { TransactionDayView, TransactionRowView } from 'ui/transaction/TransactionsIndexView';
 import TransactionHistory from 'ui/transaction/TransactionHistory';
 import TransactionsOnDay from 'ui/transaction/TransactionsOnDay';
-import Transaction from 'state/Transaction';
+import Transaction from 'mollybudget/state/Transaction';
 
 
 describe('TransactionsIndexView', () => {

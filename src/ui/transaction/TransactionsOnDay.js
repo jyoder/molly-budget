@@ -1,4 +1,4 @@
-import Transaction from 'state/Transaction';
+import Transaction from 'mollybudget/state/Transaction';
 
 
 export default class TransactionsOnDay {

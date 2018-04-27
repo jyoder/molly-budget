@@ -1,5 +1,5 @@
 import TransactionsOnDay from 'ui/transaction/TransactionsOnDay';
-import Transaction from 'state/Transaction';
+import Transaction from 'mollybudget/state/Transaction';
 
 
 describe('date', () => {

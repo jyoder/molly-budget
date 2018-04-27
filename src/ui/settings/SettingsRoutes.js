@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import DailyBudgetPage from 'ui/settings/DailyBudgetPage';
 import DailyBudgetEditPage from 'ui/settings/DailyBudgetEditPage';
-import ValueStore from 'state/ValueStore';
+import ValueStore from 'mollybudget/state/ValueStore';
 
 
 class SettingsRoutes extends React.Component {
