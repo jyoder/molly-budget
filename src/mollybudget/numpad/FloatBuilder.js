@@ -1,4 +1,5 @@
 const MAX_FLOAT = 9999999999;
+const MAX_SCALE = 2;
 
 
 export default class FloatBuilder {
@@ -60,7 +61,7 @@ export default class FloatBuilder {
 
     _append(digit) {
         const newValue = this._value + digit;
-        return this._exceedsMax(newValue) ? this : new FloatBuilder(newValue);
+        return this._valid(newValue) ? new FloatBuilder(newValue) : this;
     }
 
     _isZero() {
@@ -71,7 +72,20 @@ export default class FloatBuilder {
         return this._value.indexOf('.') !== -1;
     }
 
+    _valid(value) {
+        return !this._exceedsMax(value) && !this._exceedsMaxScale(value);
+    }
+
     _exceedsMax(value) {
         return Number.parseFloat(value) > MAX_FLOAT;
+    }
+
+    _exceedsMaxScale(value) {
+        return this._scale(value) > MAX_SCALE;
+    }
+
+    _scale(value) {
+        const index = value.indexOf('.');
+        return index > 0 ? (value.length - index) - 1 : 0;
     }
 }

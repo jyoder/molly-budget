@@ -26,7 +26,12 @@ describe('point', () => {
 
     it('allows the user to build a number with no whole component', () => {
         const floatBuilder = new FloatBuilder();
-        expect(floatBuilder.point().zero().one().three().toFloat()).toBeCloseTo(0.013);
+        expect(floatBuilder.point().one().three().toFloat()).toBeCloseTo(0.13);
+    });
+
+    it('does not allow for numbers with scale greater than 2', () => {
+        const floatBuilder = new FloatBuilder();
+        expect(floatBuilder.point().one().three().four().toFloat()).toBe(0.13);
     });
 });
 
