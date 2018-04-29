@@ -45,9 +45,9 @@ class DailyBudgetStore {
         }
     }
 
-    addDailyBudget(amount, createdAt, category) {
+    addDailyBudget(amount, createdAt) {
         const ref = this._dailyBudgetsRef.push();
-        const dailyBudget = new DailyBudget(ref.key, amount, createdAt, category);
+        const dailyBudget = new DailyBudget(ref.key, amount, createdAt);
         ref.set(DailyBudgetSerializer.toJson(dailyBudget));
     }
 
