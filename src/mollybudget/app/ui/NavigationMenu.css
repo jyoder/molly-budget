@@ -1,0 +1,6 @@
+@import '~mollybudget/common/ui/Theme.css';
+
+
+.NavigationMenu-Navbar {
+    background-color: var(--darkColor);
+}

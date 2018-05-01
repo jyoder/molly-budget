@@ -1,0 +1,53 @@
+@import "~mollybudget/common/ui/Theme.css";
+
+
+.TransactionsIndexPage {
+    max-width: 40em;
+    width: 100%;
+    display: flex;
+    flex: 1;
+}
+
+.TransactionsIndexPage-date {
+    color: var(--lightColor);
+    background: var(--darkColor);
+}
+
+.TransactionsIndexPage-totalLabel {
+    text-align: left;
+    font-weight: bold;
+}
+
+.TransactionsIndexPage-total {
+    text-align: right;
+    font-weight: bold;
+}
+
+.TransactionsIndexPage-total--gain {
+    color: var(--gainColor);
+}
+
+.TransactionsIndexPage-total--loss {
+    color: var(--lossColor);
+}
+
+.TransactionsIndexPage-categoryIcon {
+    width: 1em;
+    text-align: center;
+}
+
+.TransactionsIndexPage-category {
+    text-align: left;
+}
+
+.TransactionsIndexPage-amount {
+    text-align: right;
+}
+
+.TransactionsIndexPage-amount--income {
+    color: var(--gainColor);
+}
+
+.TransactionsIndexPage-amount--expense {
+    color: var(--lossColor);
+}
