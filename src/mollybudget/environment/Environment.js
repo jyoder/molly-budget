@@ -1,7 +1,7 @@
 import environmentName from 'mollybudget/environment/EnvironmentName';
 
 
-const STAGE = 'stage';
+const TEST = 'test';
 const PRODUCTION = 'production';
 
 export default class Environment {
@@ -17,8 +17,8 @@ export default class Environment {
         return this._name;
     }
 
-    isStage() {
-        return this._name === STAGE;
+    isTest() {
+        return this._name === TEST;
     }
 
     isProduction() {

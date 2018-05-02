@@ -3,10 +3,10 @@ import Environment from 'mollybudget/environment/Environment';
 
 
 describe('getConfig', () => {
-    it('returns the stage config for the stage environment', () => {
-        const environment = new Environment('stage');
+    it('returns the test config for the test environment', () => {
+        const environment = new Environment('test');
         const configProvider = new FirebaseConfigProvider(environment);
-        expect(configProvider.getConfig()).toEqual(_stageConfig());
+        expect(configProvider.getConfig()).toEqual(_testConfig());
     });
 
     it('returns the production config for the production environment', () => {
@@ -22,14 +22,14 @@ describe('getConfig', () => {
     });
 });
 
-function _stageConfig() {
+function _testConfig() {
     return {
-        apiKey: "AIzaSyDmd2LD_8zJluy80aIGF0V02lufOUV_XG4",
-        authDomain: "molly-budget-prototype.firebaseapp.com",
-        databaseURL: "https://molly-budget-prototype.firebaseio.com",
-        projectId: "molly-budget-prototype",
-        storageBucket: "molly-budget-prototype.appspot.com",
-        messagingSenderId: "621412060960"
+        apiKey: "AIzaSyCUu0Nh7x5-XP2KK2F2ehVFtm1F54lmzHM",
+        authDomain: "molly-budget-test.firebaseapp.com",
+        databaseURL: "https://molly-budget-test.firebaseio.com",
+        projectId: "molly-budget-test",
+        storageBucket: "molly-budget-test.appspot.com",
+        messagingSenderId: "426946562620"
     };
 }
 

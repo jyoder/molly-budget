@@ -1,6 +1,6 @@
 {
   "projects": {
-    "stage": "molly-budget-stage",
+    "test": "molly-budget-test",
     "production": "molly-budget"
   }
 }

@@ -17,7 +17,7 @@ fi
 if [ "${branch}" == "master" ]; then
     environment_name="production"
 else
-    environment_name="stage"
+    environment_name="test"
 fi
 
 echo "${environment_name}" > $output_file

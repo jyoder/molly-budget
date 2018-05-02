@@ -14,7 +14,7 @@ project='';
 if [ "${environment_name}" == "production" ]; then
     project=$project_base
 else
-    project="${project_base}-prototype"
+    project="${project_base}-test"
 fi
 
 $firebase deploy --token=$FIREBASE_TOKEN --project $project --non-interactive
