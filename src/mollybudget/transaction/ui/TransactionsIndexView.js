@@ -74,7 +74,7 @@ export class TransactionRowView {
     amountClass() {
         if(this._transaction.type() === Transaction.EXPENSE) {
             return 'TransactionsIndexPage-amount--expense';
-        } else if(this._transaction.type() === Transaction.INCOME) {
+        } else {
             return 'TransactionsIndexPage-amount--income';
         }
     }
