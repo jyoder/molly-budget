@@ -6,26 +6,26 @@ describe('instance', () => {
         expect(Environment.instance()).toBeInstanceOf(Environment);
     });
 
-    it('returns the stage environment by default', () => {
-        expect(Environment.instance().name()).toBe('stage');
-        expect(Environment.instance().isStage());
+    it('returns the test environment by default', () => {
+        expect(Environment.instance().name()).toBe('test');
+        expect(Environment.instance().isTest());
     });
 });
 
 describe('name', () => {
     it('returns the environment name', () => {
-        const environment = new Environment('stage');
-        expect(environment.name()).toBe('stage');
+        const environment = new Environment('test');
+        expect(environment.name()).toBe('test');
     });
 });
 
-describe('isStage', () => {
-    it('returns true if the environment is stage', () => {
-        expect(new Environment('stage').isStage()).toBeTruthy();
+describe('isTest', () => {
+    it('returns true if the environment is test', () => {
+        expect(new Environment('test').isTest()).toBeTruthy();
     });
 
-    it('returns false if the environment is not stage', () => {
-        expect(new Environment('production').isStage()).toBeFalsy();
+    it('returns false if the environment is not test', () => {
+        expect(new Environment('production').isTest()).toBeFalsy();
     });
 });
 
@@ -35,6 +35,6 @@ describe('isProduction', () => {
     });
 
     it('returns false if the environment is not production', () => {
-        expect(new Environment('stage').isProduction()).toBeFalsy();
+        expect(new Environment('test').isProduction()).toBeFalsy();
     });
 });
