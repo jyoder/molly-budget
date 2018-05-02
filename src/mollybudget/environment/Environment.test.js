@@ -6,9 +6,9 @@ describe('instance', () => {
         expect(Environment.instance()).toBeInstanceOf(Environment);
     });
 
-    it('returns the test environment by default', () => {
-        expect(Environment.instance().name()).toBe('test');
-        expect(Environment.instance().isTest());
+    it('returns the development environment by default', () => {
+        expect(Environment.instance().name()).toBe('development');
+        expect(Environment.instance().isDevelopment());
     });
 });
 
@@ -16,6 +16,16 @@ describe('name', () => {
     it('returns the environment name', () => {
         const environment = new Environment('test');
         expect(environment.name()).toBe('test');
+    });
+});
+
+describe('isDevelopment', () => {
+    it('returns true if the environment is development', () => {
+        expect(new Environment('development').isDevelopment()).toBeTruthy();
+    });
+
+    it('returns false if the environment is not development', () => {
+        expect(new Environment('production').isDevelopment()).toBeFalsy();
     });
 });
 

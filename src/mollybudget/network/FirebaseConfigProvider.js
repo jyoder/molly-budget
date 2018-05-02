@@ -4,13 +4,26 @@ export default class FirebaseConfigProvider {
     }
     
     getConfig() {
-        if(this._environment.isTest()) {
+        if(this._environment.isDevelopment()) {
+            return this._developmentConfig();
+        } else if(this._environment.isTest()) {
             return this._testConfig();
         } else if(this._environment.isProduction()) {
             return this._productionConfig();
         } else {
             return null;
         }
+    }
+
+    _developmentConfig() {
+        return {
+            apiKey: "AIzaSyCnUdXPav7xCIxR-pG7qlGfHwiCOAjnFmY",
+            authDomain: "molly-budget-development.firebaseapp.com",
+            databaseURL: "https://molly-budget-development.firebaseio.com",
+            projectId: "molly-budget-development",
+            storageBucket: "molly-budget-development.appspot.com",
+            messagingSenderId: "446883309052"
+        };
     }
 
     _testConfig() {
