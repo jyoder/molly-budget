@@ -34,10 +34,6 @@ class SettingsRoutes extends React.Component {
             </Switch>
         );
     }
-
-    _currentDailyBudget() {
-        return this.props.dailyBudgetStore.currentDailyBudget().amount();
-    }
 }
 
 SettingsRoutes.propTypes = {
