@@ -10,14 +10,13 @@ branch="${1}"
 environment_name=""
 output_file="./.environment-name"
 
-if [ "${branch}" == "" ]; then
-    echo "Usage: scripts/determine-environment-name.sh <branch-name>"
-fi
 
-if [ "${branch}" == "master" ]; then
+if [[ "${CI}" == "true" && "${branch}" == "master" ]]; then
     environment_name="production"
-else
+elif [ "${CI}" == "true" ]; then
     environment_name="test"
+else
+    environment_name="development"
 fi
 
 echo "${environment_name}" > $output_file

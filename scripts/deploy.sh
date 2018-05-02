@@ -13,8 +13,10 @@ project='';
 
 if [ "${environment_name}" == "production" ]; then
     project=$project_base
-else
+elif [ "${environment_name}" == "test" ]; then
     project="${project_base}-test"
+else
+    project="${project_base}-development"
 fi
 
 $firebase deploy --token=$FIREBASE_TOKEN --project $project --non-interactive

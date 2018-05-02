@@ -1,6 +1,7 @@
 {
   "projects": {
     "test": "molly-budget-test",
-    "production": "molly-budget"
+    "production": "molly-budget",
+    "default": "molly-budget-development"
   }
 }
