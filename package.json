@@ -34,7 +34,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!<rootDir>/node_modules/",
-      "!src/test/*",
+      "!src/mollybudget/test/*",
       "!src/index.js"
     ]
   }
