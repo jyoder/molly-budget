@@ -11,11 +11,6 @@
 }
 
 .AppLayout-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-
+    height: calc(100% - 3.5em);
     text-align: center;
 };
