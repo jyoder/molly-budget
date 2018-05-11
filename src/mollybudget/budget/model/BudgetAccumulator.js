@@ -1,52 +1,45 @@
+import { differenceInCalendarDays } from 'date-fns';
+
 export default class BudgetAccumulator {
     constructor(dailyBudgets) {
         this._dailyBudgets = dailyBudgets;
     }
 
-    monthToDate(date) {
-        if(this._dailyBudgets.length === 0) {
+    accumulate(date) {
+        const dailyBudgets = this._withoutFutures(date, this._dailyBudgets);
+        if(dailyBudgets.length === 0) {
             return 0.00;
         }
-        
-        const dailyBudgets = this._dailyBudgets.slice();
-        const startDate = this._dailyBudgets[0].createdAt();
-        
+
         let amount = 0.00;
-        let dailyBudget = null;
-        this._forEachDateBetween(startDate, date, (currDate) => {
-            while(dailyBudgets.length > 0 && this._afterDay(currDate, dailyBudgets[0].createdAt())) {
-                dailyBudget = dailyBudgets.shift();
-            }
-            if(dailyBudget !== null && this._sameMonth(currDate, date)) {
-                amount += dailyBudget.amount();
-            }
+        this._forEachPair(dailyBudgets, (dailyBudget1, dailyBudget2) => {
+            amount += this._accumulate(dailyBudget1, dailyBudget2);
         });
+        const last = this._dailyBudgets[dailyBudgets.length - 1];
+        amount += this._accumulateBetween(last.createdAt(), date, last.amount());
+
         return amount;
     }
 
-    _forEachDateBetween(start, end, func) {        
-        let curr = new Date(start);
-        while(curr < end || this._sameDay(curr, end)) {
-            func(curr);
-            curr.setDate(curr.getDate() + 1);
+    _withoutFutures(date, dailyBudgets) {
+        return dailyBudgets.filter((dailyBudget) => dailyBudget.createdAt() < date);
+    }
+
+    _forEachPair(array, func) {
+        for(var i = 0; i < array.length - 1; i++) {
+            func(array[i], array[i + 1]);
         }
     }
 
-    _afterDay(date1, date2) {
-        return !this._sameDay(date1, date2) && date1 > date2;
-    }
-
-    _sameDay(date1, date2) {
-        return(
-            this._sameMonth(date1, date2) &&
-            date1.getDate() === date2.getDate()
+    _accumulate(dailyBudget1, dailyBudget2) {
+        return this._accumulateBetween(
+            dailyBudget1.createdAt(),
+            dailyBudget2.createdAt(),
+            dailyBudget1.amount()
         );
     }
 
-    _sameMonth(date1, date2) {
-        return(
-            date1.getFullYear() === date2.getFullYear() &&
-            date1.getMonth() === date2.getMonth()
-        );
+    _accumulateBetween(date1, date2, dailyAmount) {
+        return differenceInCalendarDays(date2, date1) * dailyAmount;
     }
 }

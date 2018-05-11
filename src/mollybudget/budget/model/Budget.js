@@ -18,18 +18,10 @@ export default class Budget {
     }
 
     _amountAccrued() {
-        return (new BudgetAccumulator(this._dailyBudgets)).monthToDate(this._date);
+        return (new BudgetAccumulator(this._dailyBudgets)).accumulate(this._date);
     }
 
     _amountSpent() {
-        return Transaction.totalExpenses(this._transactionsThisMonth());
-    }
-
-    _transactionsThisMonth() {
-        return this._transactions.filter((transaction) => this._occurredThisMonth(transaction));
-    }
-
-    _occurredThisMonth(transaction) {
-        return this._date.getMonth() === transaction.occurredAt().getMonth();
+        return Transaction.totalExpenses(this._transactions);
     }
 }
