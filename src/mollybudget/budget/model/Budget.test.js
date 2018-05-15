@@ -41,19 +41,19 @@ describe('current', () => {
         expect(budget.current()).toBeCloseTo(19.00);
     });
 
-    it('ignores transactions from a previous month', () => {
-        const today = new Date('2018-04-02T11:00:00.000Z');;
+    it('includes transactions from a previous month', () => {
+        const today = new Date('2018-04-02T11:00:00.000Z');
         
         const dailyBudgets = [
             new DailyBudget('id1', 40.00, new Date('2018-01-01T11:00:00.000Z'))
         ];
         const transactions = [
             new Transaction('id1', 10.00, new Date('2018-01-01T11:00:00.000Z'), 'Disneyland'),
-            new Transaction('id2', 15.00, new Date('2018-04-02T11:00:00.000Z'), 'Knotts')
+            new Transaction('id2', 15.00, new Date('2018-01-31T11:00:00.000Z'), 'Knotts')
         ];
 
         const budget = new Budget(today, dailyBudgets, transactions);
-        expect(budget.current()).toBeCloseTo(65.00);
+        expect(budget.current()).toBeCloseTo(3615.00);
     });
 
     it('adjusts accrual rate over the course of a month based on daily budget updates', () => {
@@ -70,7 +70,6 @@ describe('current', () => {
         ];
 
         const budget = new Budget(today, dailyBudgets, transactions);
-        expect(budget.current()).toBeCloseTo(6115.00);
+        expect(budget.current()).toBeCloseTo(9675.00);
     });
-
 });
