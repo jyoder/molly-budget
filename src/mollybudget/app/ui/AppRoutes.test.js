@@ -11,7 +11,7 @@ import Budget from 'mollybudget/budget/model/Budget';
 
 describe('AppRoutes', () => {
     it('renders BudgetSummaryPage when the user navigates to /', () => {
-        const budget = Budget.create([], []);
+        const budget = new Budget(new Date(), [], []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/']}>
                 <AppRoutes appStore={_appStore()} budget={budget} location={{}} />
@@ -23,7 +23,7 @@ describe('AppRoutes', () => {
     });
 
     it('renders TransactionAmountPage when the user navigates to /transactions', () => {
-        const budget = Budget.create(10.00, []);
+        const budget = new Budget(new Date(), 10.00, []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/transactions']}>
                 <AppRoutes appStore={_appStore()} budget={budget} location={{}}/>
@@ -35,7 +35,7 @@ describe('AppRoutes', () => {
     });
 
     it('renders SettingsRoutes when the user navigates to /settings', () => {
-        const budget = Budget.create(10.00, []);
+        const budget = new Budget(new Date(), 10.00, []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/settings']}>
                 <AppRoutes appStore={_appStore()} budget={budget} location={{}}/>

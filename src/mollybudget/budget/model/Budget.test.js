@@ -3,27 +3,6 @@ import DailyBudget from 'mollybudget/settings/model/DailyBudget';
 import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
-describe('create', () => {
-    it('returns a budget configured with the current date', () => {
-        const savedDate = Date;
-        const today = new Date('2018-04-05T11:00:00.000Z');
-
-        const dailyBudgets = [
-            new DailyBudget('id1', 8.00, new Date('2018-04-01T11:00:00.000Z'))
-        ];
-        const transactions = [
-            new Transaction('id1', 10.00, new Date('2018-04-02T11:00:00.000Z'), 'Disneyland')
-        ];
-        
-        // Mock the date constructor and restore it after creating a budget
-        Date = jest.fn(() => today);
-        const budget = Budget.create(dailyBudgets, transactions);
-        Date = savedDate;
-
-        expect(budget.current()).toBeCloseTo(22.00);
-    });
-});
-
 describe('current', () => {
     it('returns the amount accrued or received as income minus the amount spent', () => {
         const today = new Date('2018-04-02T11:00:00.000Z');;

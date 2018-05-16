@@ -3,10 +3,6 @@ import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 export default class Budget {
-    static create(dailyBudgets, transactions) {
-        return new Budget(new Date(), dailyBudgets, transactions);
-    }
-
     constructor(date, dailyBudgets, transactions) {
         this._date = date;
         this._dailyBudgets = dailyBudgets;
