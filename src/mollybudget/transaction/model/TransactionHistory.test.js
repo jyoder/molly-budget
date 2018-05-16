@@ -9,6 +9,60 @@ describe('inMonthByDay', () => {
         expect(transactionHistory.inMonthByDay(date)).toEqual([]);
     });
 
+    it('returns a transaction group specifying the rollover amount, if specified', () => {
+        const date = new Date('2018-05-05T11:24:12.000Z');
+        const transactionHistory = new TransactionHistory([], 123.12);
+        
+        const transactionsByDay = transactionHistory.inMonthByDay(date);
+        expect(transactionsByDay).toHaveLength(1);
+        expect(transactionsByDay[0].date().getDate()).toBe(1);
+
+        expect(transactionsByDay[0].transactions()).toHaveLength(1);
+        expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
+        expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(123.12);
+        expect(transactionsByDay[0].transactions()[0].category()).toBe('Rollover');
+    });
+
+    it('allows the rollover amount to be coupled with other transactions on the first of the month', () => {
+        const may1 = new Date('2018-05-01T11:24:12.000Z');
+        const transaction = new Transaction('id1', 10.00, may1, 'General');
+        const transactionHistory = new TransactionHistory([transaction], 111.10);
+        
+        const transactionsByDay = transactionHistory.inMonthByDay(may1);
+        expect(transactionsByDay).toHaveLength(1);
+        expect(transactionsByDay[0].date().getDate()).toBe(1);
+        
+        expect(transactionsByDay[0].transactions()).toHaveLength(2);
+        expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
+        expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(111.10);
+        expect(transactionsByDay[0].transactions()[0].category()).toBe('Rollover');
+
+        expect(transactionsByDay[0].transactions()[1].occurredAt().getDate()).toBe(1);
+        expect(transactionsByDay[0].transactions()[1].amount()).toBeCloseTo(10.00);
+        expect(transactionsByDay[0].transactions()[1].category()).toBe('General');
+    });
+
+    it('inserts rollover on the first of the month even if other transactions are not on the first', () => {
+        const may1 = new Date('2018-05-01T11:24:12.000Z');
+        const may2 = new Date('2018-05-02T11:24:12.000Z');
+        const transaction = new Transaction('id1', 10.00, may2, 'General');
+        const transactionHistory = new TransactionHistory([transaction], 111.10);
+        
+        const transactionsByDay = transactionHistory.inMonthByDay(may1);
+        expect(transactionsByDay).toHaveLength(2);
+        expect(transactionsByDay[0].date().getDate()).toBe(1);
+        
+        expect(transactionsByDay[0].transactions()).toHaveLength(1);
+        expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
+        expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(111.10);
+        expect(transactionsByDay[0].transactions()[0].category()).toBe('Rollover');
+
+        expect(transactionsByDay[1].transactions()).toHaveLength(1);
+        expect(transactionsByDay[1].transactions()[0].occurredAt().getDate()).toBe(2);
+        expect(transactionsByDay[1].transactions()[0].amount()).toBeCloseTo(10.00);
+        expect(transactionsByDay[1].transactions()[0].category()).toBe('General');
+    });
+
     it('returns a single group of transactions if only one transaction exists in the given month', () => {
         const transaction = new Transaction('id1', 10.00, new Date('2018-05-05T11:24:12.000Z'), 'General');
         const transactionHistory = new TransactionHistory([transaction]);

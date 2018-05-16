@@ -1,10 +1,12 @@
 import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
 import { startOfMonth } from 'date-fns';
+import Transaction from './Transaction';
 
 
 export default class TransactionHistory {
-    constructor(transactions) {
+    constructor(transactions, rolloverAmount = null) {
         this._transactions = transactions;
+        this._rolloverAmount = rolloverAmount
     }
 
     inMonthByDay(date) {
@@ -14,7 +16,12 @@ export default class TransactionHistory {
     }
 
     _transactionGroups(transactions, date) {
-        return this._byDay(this._newestFirst(this._inMonth(date.getMonth(), this._transactions)));
+        const ordered = this._newestFirst(this._inMonth(date.getMonth(), this._transactions));
+        if(this._rolloverAmount !== null) {
+            return this._byDay(this._withRollover(ordered, this._rolloverAmount, date));
+        } else {
+            return this._byDay(ordered);
+        }
     }
 
     _inMonth(month, transactions) {
@@ -40,5 +47,18 @@ export default class TransactionHistory {
             group.push(transaction);
         });
         return Array.from(groups.values());
+    }
+
+    _withRollover(transactions, amount, date) {
+        return [this._rolloverTransaction(amount, date), ...transactions];
+    }
+
+    _rolloverTransaction(amount, date) {
+        return new Transaction(
+            'rolloverId',
+            amount,
+            startOfMonth(date),
+            'Rollover'
+        );
     }
 }
