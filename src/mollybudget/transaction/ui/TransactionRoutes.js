@@ -44,7 +44,7 @@ class TransactionRoutes extends React.Component {
 
     _transactionsIndexView() {
         return new TransactionsIndexView(
-            (new Date()).getMonth(),
+            this.props.dateSnapshot.getMonth(),
             new TransactionHistory(
                 this.props.transactionStore.transactions()
             )
@@ -54,6 +54,7 @@ class TransactionRoutes extends React.Component {
 
 TransactionRoutes.propTypes = {
     transactionStore: PropTypes.object.isRequired,
+    dateSnapshot: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
 

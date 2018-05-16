@@ -12,7 +12,12 @@ describe('TransactionRoutes', () => {
         const transactionStore = { transactions: jest.fn(() => []) };
         const wrapper = mount(
             <MemoryRouter initialEntries={['/transactions']}>
-                <TransactionRoutes transactionStore={transactionStore} history={{}} location={{}}/>
+                <TransactionRoutes
+                    transactionStore={transactionStore}
+                    dateSnapshot={new Date()}
+                    history={{}}
+                    location={{}}
+                />
             </MemoryRouter>
         );
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
@@ -22,7 +27,12 @@ describe('TransactionRoutes', () => {
     it('renders TransactionAmountPage when the user navigates to /transactions/new', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/transactions/new']}>
-                <TransactionRoutes transactionStore={{}} history={{}} location={{}}/>
+                <TransactionRoutes
+                    transactionStore={{}}
+                    dateSnapshot={new Date()}
+                    history={{}}
+                    location={{}}
+                />
             </MemoryRouter>
         );
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(1);

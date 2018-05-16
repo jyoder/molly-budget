@@ -11,10 +11,16 @@ import Budget from 'mollybudget/budget/model/Budget';
 
 describe('AppRoutes', () => {
     it('renders BudgetSummaryPage when the user navigates to /', () => {
-        const budget = new Budget(new Date(), [], []);
+        const today = new Date();
+        const budget = new Budget(today, [], []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/']}>
-                <AppRoutes appStore={_appStore()} budget={budget} location={{}} />
+                <AppRoutes
+                    appStore={_appStore()}
+                    budget={budget}
+                    dateSnapshot={today}
+                    location={{}}
+                />
             </MemoryRouter>
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(1);
@@ -23,10 +29,16 @@ describe('AppRoutes', () => {
     });
 
     it('renders TransactionAmountPage when the user navigates to /transactions', () => {
-        const budget = new Budget(new Date(), 10.00, []);
+        const today = new Date();
+        const budget = new Budget(today, 10.00, []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/transactions']}>
-                <AppRoutes appStore={_appStore()} budget={budget} location={{}}/>
+                <AppRoutes
+                    appStore={_appStore()}
+                    budget={budget}
+                    dateSnapshot={today}
+                    location={{}}
+                />
             </MemoryRouter>
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
@@ -35,10 +47,16 @@ describe('AppRoutes', () => {
     });
 
     it('renders SettingsRoutes when the user navigates to /settings', () => {
-        const budget = new Budget(new Date(), 10.00, []);
+        const today = new Date();
+        const budget = new Budget(today, 10.00, []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/settings']}>
-                <AppRoutes appStore={_appStore()} budget={budget} location={{}}/>
+                <AppRoutes
+                    appStore={_appStore()}
+                    budget={budget}
+                    dateSnapshot={today}
+                    location={{}}
+                />
             </MemoryRouter>
         );
         expect(wrapper.find(BudgetSummaryPage)).toHaveLength(0);
