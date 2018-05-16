@@ -11,7 +11,7 @@ describe('TransactionsIndexView', () => {
             const transaction = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
             const transactionHistory = new TransactionHistory([transaction]);
             const transactionsIndexView = new TransactionsIndexView(
-                transaction.occurredAt().getMonth(),
+                transaction.occurredAt(),
                 transactionHistory
             );
             

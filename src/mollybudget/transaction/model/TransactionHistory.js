@@ -1,4 +1,5 @@
 import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
+import { startOfMonth } from 'date-fns';
 
 
 export default class TransactionHistory {
@@ -6,10 +7,14 @@ export default class TransactionHistory {
         this._transactions = transactions;
     }
 
-    inMonthByDay(month) {
-        return this._byDay(this._newestFirst(this._inMonth(month, this._transactions))).map(
-            (group) => (new TransactionsOnDay(group[0].occurredAt(), group)
-        ));
+    inMonthByDay(date) {
+        return this._transactionGroups(this._transactions, date).map(
+            (group) => (new TransactionsOnDay(group[0].occurredAt(), group))
+        );
+    }
+
+    _transactionGroups(transactions, date) {
+        return this._byDay(this._newestFirst(this._inMonth(date.getMonth(), this._transactions)));
     }
 
     _inMonth(month, transactions) {

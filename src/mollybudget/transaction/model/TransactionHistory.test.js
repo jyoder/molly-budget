@@ -4,15 +4,16 @@ import Transaction from 'mollybudget/transaction/model/Transaction';
 
 describe('inMonthByDay', () => {
     it('returns an empty array when there are no transactions', () => {
+        const date = new Date('2018-05-05T11:24:12.000Z');
         const transactionHistory = new TransactionHistory([]);
-        expect(transactionHistory.inMonthByDay(5)).toEqual([]);
+        expect(transactionHistory.inMonthByDay(date)).toEqual([]);
     });
 
     it('returns a single group of transactions if only one transaction exists in the given month', () => {
         const transaction = new Transaction('id1', 10.00, new Date('2018-05-05T11:24:12.000Z'), 'General');
         const transactionHistory = new TransactionHistory([transaction]);
         
-        const transactionsByDay = transactionHistory.inMonthByDay(transaction.occurredAt().getMonth());
+        const transactionsByDay = transactionHistory.inMonthByDay(transaction.occurredAt());
         expect(transactionsByDay).toHaveLength(1);
         expect(transactionsByDay[0].date().getDate()).toBe(5);
         expect(transactionsByDay[0].transactions()).toEqual([transaction]);
@@ -31,7 +32,7 @@ describe('inMonthByDay', () => {
             transaction4
         ]);
         
-        const transactionsByDay = transactionHistory.inMonthByDay(transaction1.occurredAt().getMonth());
+        const transactionsByDay = transactionHistory.inMonthByDay(transaction1.occurredAt());
         expect(transactionsByDay).toHaveLength(3);
 
         expect(transactionsByDay[0].date().getDate()).toBe(7);
@@ -53,7 +54,7 @@ describe('inMonthByDay', () => {
             transaction2
         ]);
         
-        const transactionsByDay = transactionHistory.inMonthByDay(transaction1.occurredAt().getMonth());
+        const transactionsByDay = transactionHistory.inMonthByDay(transaction1.occurredAt());
         expect(transactionsByDay).toHaveLength(1);
         
         expect(transactionsByDay[0].date().getDate()).toBe(5);

@@ -16,7 +16,7 @@ describe('TransactionsIndexPage', () => {
         const transaction3 = new Transaction('id3', 40.00, new Date('2018-03-06T11:25:12.000Z'), 'General');
         const transactionHistory = new TransactionHistory([transaction1, transaction2, transaction3]);
         const transactionsIndexView = new TransactionsIndexView(
-            transaction1.occurredAt().getMonth(),
+            transaction1.occurredAt(),
             transactionHistory
         );
 
@@ -55,7 +55,7 @@ describe('TransactionsIndexPage', () => {
         const income = new Transaction('id2', 30.00, new Date('2018-03-06T11:24:12.000Z'), 'Income');
         const transactionHistory = new TransactionHistory([expense, income]);
         const transactionsIndexView = new TransactionsIndexView(
-            expense.occurredAt().getMonth(),
+            expense.occurredAt(),
             transactionHistory
         );
 
@@ -77,7 +77,7 @@ describe('TransactionsIndexPage', () => {
         const income = new Transaction('id2', 30.00, new Date('2018-03-06T11:24:12.000Z'), 'Income');
         const transactionHistory = new TransactionHistory([expense, income]);
         const transactionsIndexView = new TransactionsIndexView(
-            expense.occurredAt().getMonth(),
+            expense.occurredAt(),
             transactionHistory
         );
 
@@ -93,7 +93,7 @@ describe('TransactionsIndexPage', () => {
     it('renders an informative message when there are no transactions', () => {
         const transactionHistory = new TransactionHistory([]);
         const transactionsIndexView = new TransactionsIndexView(
-            4,
+            new Date(),
             transactionHistory
         );
 
