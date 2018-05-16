@@ -12,7 +12,7 @@ import TransactionHistory from 'mollybudget/transaction/model/TransactionHistory
 import ValueStore from 'mollybudget/common/model/ValueStore';
 
 
-class TransactionRoutesPage extends React.Component {
+class TransactionRoutes extends React.Component {
     constructor(props) {
         super(props);
 
@@ -52,9 +52,9 @@ class TransactionRoutesPage extends React.Component {
     }
 }
 
-TransactionRoutesPage.propTypes = {
+TransactionRoutes.propTypes = {
     transactionStore: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
 
-export default observer(TransactionRoutesPage);
+export default observer(TransactionRoutes);
