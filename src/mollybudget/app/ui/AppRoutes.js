@@ -16,6 +16,7 @@ class AppRoutes extends React.Component {
                     <BudgetSummaryPage
                         user={this.props.appStore.user()}
                         budget={this.props.budget}
+                        dateSnapshot={this.props.dateSnapshot}
                         history={history}
                         location={this.props.location}
                     />)}

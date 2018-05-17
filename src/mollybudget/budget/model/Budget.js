@@ -3,18 +3,17 @@ import Transaction from 'mollybudget/transaction/model/Transaction';
 
 
 export default class Budget {
-    constructor(date, dailyBudgets, transactions) {
-        this._date = date;
+    constructor(dailyBudgets, transactions) {
         this._dailyBudgets = dailyBudgets;
         this._transactions = transactions;
     }
 
-    current() {
-        return this._amountAccrued() - this._amountSpent();
+    totalToDate(date) {
+        return this._amountAccrued(date) - this._amountSpent();
     }
 
-    _amountAccrued() {
-        return (new BudgetAccumulator(this._dailyBudgets)).accumulate(this._date);
+    _amountAccrued(date) {
+        return (new BudgetAccumulator(this._dailyBudgets)).accumulate(date);
     }
 
     _amountSpent() {

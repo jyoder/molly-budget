@@ -41,7 +41,7 @@ class BudgetSummaryPage extends React.Component {
     }
 
     _amount() {
-        return formatCurrency(this.props.budget.current());
+        return formatCurrency(this.props.budget.totalToDate(this.props.dateSnapshot));
     }
 
     _onAddTransactionClicked() {
@@ -56,6 +56,7 @@ class BudgetSummaryPage extends React.Component {
 BudgetSummaryPage.propTypes = {
     user: PropTypes.object.isRequired,
     budget: PropTypes.object.isRequired,
+    dateSnapshot: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
 
