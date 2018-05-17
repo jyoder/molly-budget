@@ -21,8 +21,10 @@ describe('TransactionsIndexPage', () => {
         );
 
         const transactionsIndexPage = shallow(
-            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
-        />);
+            <TransactionsIndexPage
+                transactionsIndexView={transactionsIndexView}
+            />
+        );
         
         const cols = transactionsIndexPage.find('td');
         expect(cols).toHaveLength(17);
@@ -60,8 +62,10 @@ describe('TransactionsIndexPage', () => {
         );
 
         const transactionsIndexPage = shallow(
-            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
-        />);
+            <TransactionsIndexPage
+                transactionsIndexView={transactionsIndexView}
+            />
+        );
         
         const cols = transactionsIndexPage.find('td');
     
@@ -82,8 +86,10 @@ describe('TransactionsIndexPage', () => {
         );
 
         const transactionsIndexPage = shallow(
-            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
-        />);
+            <TransactionsIndexPage
+                transactionsIndexView={transactionsIndexView}
+            />
+        );
         
         const cols = transactionsIndexPage.find('td');
         expect(cols.at(6).hasClass('TransactionsIndexPage-total--gain')).toBeTruthy();
