@@ -9,14 +9,18 @@ export default class Budget {
     }
 
     totalToDate(date) {
-        return this._amountAccrued(date) - this._amountSpent();
+        return this._amountAccrued(date) - this._amountSpent(date);
     }
 
     _amountAccrued(date) {
         return (new BudgetAccumulator(this._dailyBudgets)).accumulate(date);
     }
 
-    _amountSpent() {
-        return Transaction.totalExpenses(this._transactions);
+    _amountSpent(date) {
+        return Transaction.totalExpenses(this._withoutFutures(date, this._transactions));
+    }
+
+    _withoutFutures(date, transactions) {
+        return transactions.filter((transaction) => transaction.occurredAt() <= date);
     }
 }

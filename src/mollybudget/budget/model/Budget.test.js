@@ -35,6 +35,17 @@ describe('totalToDate', () => {
         expect(budget.totalToDate(today)).toBeCloseTo(3615.00);
     });
 
+    it('excludes transactions in the future', () => {
+        const today = new Date('2018-04-02T11:00:00.000Z');
+        const transactions = [
+            new Transaction('id1', 10.00, new Date('2018-04-01T11:00:00.000Z'), 'Disneyland'),
+            new Transaction('id2', 15.00, new Date('2018-04-03T11:00:00.000Z'), 'Knotts')
+        ];
+
+        const budget = new Budget([], transactions);
+        expect(budget.totalToDate(today)).toBeCloseTo(-10.00);
+    });
+
     it('adjusts accrual rate over the course of a month based on daily budget updates', () => {
         const today = new Date('2018-04-07T11:00:00.000Z');;
         
