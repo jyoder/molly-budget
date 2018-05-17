@@ -80,6 +80,7 @@ describe('inMonthByDay', () => {
 
         expect(transactionsByDay[0].date().getDate()).toBe(1);
         expect(transactionsByDay[0].transactions()).toHaveLength(1);
+        expect(transactionsByDay[0].transactions()[0].id()).toBe('rolloverId');
         expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
         expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(111.10);
         expect(transactionsByDay[0].transactions()[0].category()).toBe('Rollover');

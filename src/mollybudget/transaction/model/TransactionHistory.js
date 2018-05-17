@@ -1,5 +1,6 @@
 import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
-import Transaction from './Transaction';
+import Transaction from 'mollybudget/transaction/model/Transaction';
+import RolloverTransaction from 'mollybudget/transaction/model/RolloverTransaction';
 import { startOfMonth } from 'date-fns';
 
 
@@ -58,11 +59,10 @@ export default class TransactionHistory {
     }
 
     _rolloverTransaction(amount, date) {
-        return new Transaction(
+        return new RolloverTransaction(
             'rolloverId',
             amount,
-            startOfMonth(date),
-            'Rollover'
+            startOfMonth(date)
         );
     }
 }
