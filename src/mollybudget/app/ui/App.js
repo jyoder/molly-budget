@@ -43,7 +43,6 @@ class App extends React.Component {
 
     _budget() {
         return new Budget(
-            new Date(),
             this.props.appStore.dailyBudgetStore().dailyBudgets(),
             this.props.appStore.transactionStore().transactions()
         );

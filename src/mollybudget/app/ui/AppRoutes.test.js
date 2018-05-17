@@ -3,9 +3,12 @@ import { MemoryRouter } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 
 import AppRoutes from 'mollybudget/app/ui/AppRoutes';
-import BudgetSummaryPage from 'mollybudget/budget/ui/BudgetSummaryPage';
 import TransactionRoutes from 'mollybudget/transaction/ui/TransactionRoutes';
+
 import SettingsRoutes from 'mollybudget/settings/ui/SettingsRoutes';
+import DailyBudget from 'mollybudget/settings/model/DailyBudget';
+
+import BudgetSummaryPage from 'mollybudget/budget/ui/BudgetSummaryPage';
 import Budget from 'mollybudget/budget/model/Budget';
 
 
@@ -30,7 +33,7 @@ describe('AppRoutes', () => {
 
     it('renders TransactionAmountPage when the user navigates to /transactions', () => {
         const today = new Date();
-        const budget = new Budget(10.00, []);
+        const budget = new Budget([], []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/transactions']}>
                 <AppRoutes
@@ -48,7 +51,7 @@ describe('AppRoutes', () => {
 
     it('renders SettingsRoutes when the user navigates to /settings', () => {
         const today = new Date();
-        const budget = new Budget(10.00, []);
+        const budget = new Budget([], []);
         const wrapper = mount(
             <MemoryRouter initialEntries={['/settings']}>
                 <AppRoutes
