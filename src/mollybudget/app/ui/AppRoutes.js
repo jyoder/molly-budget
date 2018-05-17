@@ -25,6 +25,7 @@ class AppRoutes extends React.Component {
                 <Route path="/transactions" render={({ history }) => (
                     <TransactionRoutes
                         transactionStore={this.props.appStore.transactionStore()}
+                        budget={this.props.budget}
                         dateSnapshot={this.props.dateSnapshot}
                         history={history}
                         location={this.props.location}
