@@ -1,6 +1,33 @@
 import TransactionHistory from 'mollybudget/transaction/model/TransactionHistory';
 import Transaction from 'mollybudget/transaction/model/Transaction';
+import Budget from 'mollybudget/budget/model/Budget';
+import DailyBudget from 'mollybudget/settings/model/DailyBudget';
 
+
+describe('createWithRollover', () => {
+    it('uses the given budget to determine the rollover at the beginning of the month', () => {
+        const date = new Date('2018-05-05T11:24:12.000Z');
+        const transaction = new Transaction('tId1', 10.00, date, 'General');
+        const dailyBudget = new DailyBudget('dId1', 10.00, new Date('2018-04-30T11:24:12.000Z'));
+        const budget = new Budget([dailyBudget], [transaction]);
+        const transactionHistory = TransactionHistory.createWithRollover(date, [transaction], budget);
+        
+        const transactionsByDay = transactionHistory.inMonthByDay(date);
+        expect(transactionsByDay).toHaveLength(2);
+
+        expect(transactionsByDay[0].date().getDate()).toBe(1);
+        expect(transactionsByDay[0].transactions()).toHaveLength(1);
+        expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
+        expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(10.00);
+        expect(transactionsByDay[0].transactions()[0].category()).toBe('Rollover');
+
+        expect(transactionsByDay[1].date().getDate()).toBe(5);
+        expect(transactionsByDay[1].transactions()).toHaveLength(1);
+        expect(transactionsByDay[1].transactions()[0].occurredAt().getDate()).toBe(5);
+        expect(transactionsByDay[1].transactions()[0].amount()).toBeCloseTo(10.00);
+        expect(transactionsByDay[1].transactions()[0].category()).toBe('General');
+    });
+});
 
 describe('inMonthByDay', () => {
     it('returns an empty array when there are no transactions', () => {
@@ -15,8 +42,8 @@ describe('inMonthByDay', () => {
         
         const transactionsByDay = transactionHistory.inMonthByDay(date);
         expect(transactionsByDay).toHaveLength(1);
-        expect(transactionsByDay[0].date().getDate()).toBe(1);
 
+        expect(transactionsByDay[0].date().getDate()).toBe(1);
         expect(transactionsByDay[0].transactions()).toHaveLength(1);
         expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
         expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(123.12);
@@ -30,8 +57,8 @@ describe('inMonthByDay', () => {
         
         const transactionsByDay = transactionHistory.inMonthByDay(may1);
         expect(transactionsByDay).toHaveLength(1);
+
         expect(transactionsByDay[0].date().getDate()).toBe(1);
-        
         expect(transactionsByDay[0].transactions()).toHaveLength(2);
         expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
         expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(111.10);
@@ -50,8 +77,8 @@ describe('inMonthByDay', () => {
         
         const transactionsByDay = transactionHistory.inMonthByDay(may1);
         expect(transactionsByDay).toHaveLength(2);
+
         expect(transactionsByDay[0].date().getDate()).toBe(1);
-        
         expect(transactionsByDay[0].transactions()).toHaveLength(1);
         expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
         expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(111.10);

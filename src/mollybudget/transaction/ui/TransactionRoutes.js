@@ -44,8 +44,10 @@ class TransactionRoutes extends React.Component {
     _transactionsIndexView() {
         return new TransactionsIndexView(
             this.props.dateSnapshot,
-            new TransactionHistory(
-                this.props.transactionStore.transactions()
+            TransactionHistory.createWithRollover(
+                this.props.dateSnapshot,
+                this.props.transactionStore.transactions(),
+                this.props.budget
             )
         );
     }

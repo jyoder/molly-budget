@@ -1,9 +1,13 @@
 import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
-import { startOfMonth } from 'date-fns';
 import Transaction from './Transaction';
+import { startOfMonth } from 'date-fns';
 
 
 export default class TransactionHistory {
+    static createWithRollover(asOfDate, transactions, budget) {
+        return new TransactionHistory(transactions, budget.totalToDate(startOfMonth(asOfDate)));
+    }
+
     constructor(transactions, rolloverAmount = null) {
         this._transactions = transactions;
         this._rolloverAmount = rolloverAmount
