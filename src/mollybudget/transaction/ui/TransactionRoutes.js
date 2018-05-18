@@ -55,6 +55,7 @@ class TransactionRoutes extends React.Component {
 
 TransactionRoutes.propTypes = {
     transactionStore: PropTypes.object.isRequired,
+    budget: PropTypes.object.isRequired,
     dateSnapshot: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };

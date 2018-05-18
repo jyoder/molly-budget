@@ -15,17 +15,17 @@ describe('createWithRollover', () => {
         const transactionsByDay = transactionHistory.inMonthByDay(date);
         expect(transactionsByDay).toHaveLength(2);
 
-        expect(transactionsByDay[0].date().getDate()).toBe(1);
+        expect(transactionsByDay[0].date().getDate()).toBe(5);
         expect(transactionsByDay[0].transactions()).toHaveLength(1);
-        expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
+        expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(5);
         expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(10.00);
-        expect(transactionsByDay[0].transactions()[0].category()).toBe('Rollover');
+        expect(transactionsByDay[0].transactions()[0].category()).toBe('General');
 
-        expect(transactionsByDay[1].date().getDate()).toBe(5);
+        expect(transactionsByDay[1].date().getDate()).toBe(1);
         expect(transactionsByDay[1].transactions()).toHaveLength(1);
-        expect(transactionsByDay[1].transactions()[0].occurredAt().getDate()).toBe(5);
+        expect(transactionsByDay[1].transactions()[0].occurredAt().getDate()).toBe(1);
         expect(transactionsByDay[1].transactions()[0].amount()).toBeCloseTo(10.00);
-        expect(transactionsByDay[1].transactions()[0].category()).toBe('General');
+        expect(transactionsByDay[1].transactions()[0].category()).toBe('Rollover');
     });
 });
 
@@ -78,17 +78,18 @@ describe('inMonthByDay', () => {
         const transactionsByDay = transactionHistory.inMonthByDay(may1);
         expect(transactionsByDay).toHaveLength(2);
 
-        expect(transactionsByDay[0].date().getDate()).toBe(1);
+        expect(transactionsByDay[0].date().getDate()).toBe(2);
         expect(transactionsByDay[0].transactions()).toHaveLength(1);
-        expect(transactionsByDay[0].transactions()[0].id()).toBe('rolloverId');
-        expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(1);
-        expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(111.10);
-        expect(transactionsByDay[0].transactions()[0].category()).toBe('Rollover');
+        expect(transactionsByDay[0].transactions()[0].occurredAt().getDate()).toBe(2);
+        expect(transactionsByDay[0].transactions()[0].amount()).toBeCloseTo(10.00);
+        expect(transactionsByDay[0].transactions()[0].category()).toBe('General');
 
+        expect(transactionsByDay[1].date().getDate()).toBe(1);
         expect(transactionsByDay[1].transactions()).toHaveLength(1);
-        expect(transactionsByDay[1].transactions()[0].occurredAt().getDate()).toBe(2);
-        expect(transactionsByDay[1].transactions()[0].amount()).toBeCloseTo(10.00);
-        expect(transactionsByDay[1].transactions()[0].category()).toBe('General');
+        expect(transactionsByDay[1].transactions()[0].id()).toBe('rolloverId');
+        expect(transactionsByDay[1].transactions()[0].occurredAt().getDate()).toBe(1);
+        expect(transactionsByDay[1].transactions()[0].amount()).toBeCloseTo(111.10);
+        expect(transactionsByDay[1].transactions()[0].category()).toBe('Rollover');
     });
 
     it('returns a single group of transactions if only one transaction exists in the given month', () => {
@@ -121,7 +122,7 @@ describe('inMonthByDay', () => {
         expect(transactionsByDay[0].transactions()).toEqual([transaction4]);
 
         expect(transactionsByDay[1].date().getDate()).toBe(6);
-        expect(transactionsByDay[1].transactions()).toEqual([transaction3, transaction2]);
+        expect(transactionsByDay[1].transactions()).toEqual([transaction2, transaction3]);
         
         expect(transactionsByDay[2].date().getDate()).toBe(5);
         expect(transactionsByDay[2].transactions()).toEqual([transaction1]);

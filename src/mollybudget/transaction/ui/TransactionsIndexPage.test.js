@@ -33,11 +33,11 @@ describe('TransactionsIndexPage', () => {
         
         expect(cols.at(1).children().props().name).toBe('dollar');
         expect(cols.at(2).text()).toBe('General');
-        expect(cols.at(3).text()).toBe('$40.00');
+        expect(cols.at(3).text()).toBe('$30.00');
 
         expect(cols.at(4).children().props().name).toBe('dollar');
         expect(cols.at(5).text()).toBe('General');
-        expect(cols.at(6).text()).toBe('$30.00');
+        expect(cols.at(6).text()).toBe('$40.00');
         
         expect(cols.at(8).text()).toBe('Total');
         expect(cols.at(9).text()).toBe('$70.00');

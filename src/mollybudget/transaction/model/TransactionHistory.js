@@ -1,12 +1,14 @@
 import TransactionsOnDay from 'mollybudget/transaction/model/TransactionsOnDay';
-import Transaction from 'mollybudget/transaction/model/Transaction';
 import RolloverTransaction from 'mollybudget/transaction/model/RolloverTransaction';
-import { startOfMonth } from 'date-fns';
+import { startOfMonth, isSameMonth } from 'date-fns';
 
 
 export default class TransactionHistory {
     static createWithRollover(asOfDate, transactions, budget) {
-        return new TransactionHistory(transactions, budget.totalToDate(startOfMonth(asOfDate)));
+        return new TransactionHistory(
+            transactions,
+            budget.totalToDate(startOfMonth(asOfDate))
+        );
     }
 
     constructor(transactions, rolloverAmount = null) {
@@ -21,20 +23,31 @@ export default class TransactionHistory {
     }
 
     _transactionGroups(transactions, date) {
-        const ordered = this._newestFirst(this._inMonth(date.getMonth(), this._transactions));
-        if(this._rolloverAmount !== null) {
-            return this._byDay(this._withRollover(ordered, this._rolloverAmount, date));
-        } else {
-            return this._byDay(ordered);
-        }
+        return(
+            this._newestFirst(
+                this._byDay(
+                    this._inMonth(
+                        date,
+                        this._withRollover(
+                            this._transactions,
+                            date
+                        )
+                    )
+                )
+            )
+        );
     }
 
-    _inMonth(month, transactions) {
-        return transactions.filter((transaction) => transaction.occurredAt().getMonth() === month);
+    _newestFirst(transactionGroups) {
+        return Array.from(transactionGroups).sort(
+            (t1, t2) => t2[0].occurredAt() - t1[0].occurredAt()
+        );
     }
 
-    _newestFirst(transactions) {
-        return Array.from(transactions).sort((t1, t2) => t2.occurredAt() - t1.occurredAt());
+    _inMonth(date, transactions) {
+        return transactions.filter(
+            (transaction) => isSameMonth(date, transaction.occurredAt())
+        );
     }
 
     _byDay(transactions) {
@@ -51,11 +64,15 @@ export default class TransactionHistory {
             }
             group.push(transaction);
         });
-        return Array.from(groups.values());
+        return Array.from(groups.values()).sort();
     }
 
-    _withRollover(transactions, amount, date) {
-        return [this._rolloverTransaction(amount, date), ...transactions];
+    _withRollover(transactions, date) {
+        if(this._rolloverAmount !== null) {
+            return [this._rolloverTransaction(this._rolloverAmount, date), ...transactions];
+        } else {
+            return transactions;
+        }
     }
 
     _rolloverTransaction(amount, date) {
@@ -63,6 +80,19 @@ export default class TransactionHistory {
             'rolloverId',
             amount,
             startOfMonth(date)
+        );
+    }
+
+    _transactionsByDay(transactionGroup) {
+        return new TransactionsOnDay(
+            transactionGroup[0].occurredAt(),
+            this._oldestFirst(transactionGroup)
+        );
+    }
+
+    _oldestFirst(transactions) {
+        return Array.from(transactions).sort(
+            (t1, t2) => t2.occurredAt() - t1.occurredAt()
         );
     }
 }
