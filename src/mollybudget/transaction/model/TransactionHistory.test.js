@@ -36,9 +36,9 @@ describe('inMonthByDay', () => {
         expect(transactionHistory.inMonthByDay(date)).toEqual([]);
     });
 
-    it('returns a transaction group specifying the rollover amount, if specified', () => {
+    it('returns a transaction group specifying the rollover amount, if a rollover function is specified', () => {
         const date = new Date('2018-05-05T11:24:12.000Z');
-        const transactionHistory = new TransactionHistory([], 123.12);
+        const transactionHistory = new TransactionHistory([], () => 123.12);
         
         const transactionsByDay = transactionHistory.inMonthByDay(date);
         expect(transactionsByDay).toHaveLength(1);
@@ -53,7 +53,7 @@ describe('inMonthByDay', () => {
     it('allows the rollover amount to be coupled with other transactions on the first of the month', () => {
         const may1 = new Date('2018-05-01T11:24:12.000Z');
         const transaction = new Transaction('id1', 10.00, may1, 'General');
-        const transactionHistory = new TransactionHistory([transaction], 111.10);
+        const transactionHistory = new TransactionHistory([transaction], () => 111.10);
         
         const transactionsByDay = transactionHistory.inMonthByDay(may1);
         expect(transactionsByDay).toHaveLength(1);
@@ -73,7 +73,7 @@ describe('inMonthByDay', () => {
         const may1 = new Date('2018-05-01T11:24:12.000Z');
         const may2 = new Date('2018-05-02T11:24:12.000Z');
         const transaction = new Transaction('id1', 10.00, may2, 'General');
-        const transactionHistory = new TransactionHistory([transaction], 111.10);
+        const transactionHistory = new TransactionHistory([transaction], () => 111.10);
         
         const transactionsByDay = transactionHistory.inMonthByDay(may1);
         expect(transactionsByDay).toHaveLength(2);

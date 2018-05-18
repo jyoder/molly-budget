@@ -7,13 +7,13 @@ export default class TransactionHistory {
     static createWithRollover(asOfDate, transactions, budget) {
         return new TransactionHistory(
             transactions,
-            budget.totalToDate(startOfMonth(asOfDate))
+            () => budget.totalToDate(startOfMonth(asOfDate))
         );
     }
 
-    constructor(transactions, rolloverAmount = null) {
+    constructor(transactions, rolloverAmountFunc = null) {
         this._transactions = transactions;
-        this._rolloverAmount = rolloverAmount
+        this._rolloverAmountFunc = rolloverAmountFunc
     }
 
     inMonthByDay(date) {
@@ -68,8 +68,8 @@ export default class TransactionHistory {
     }
 
     _withRollover(transactions, date) {
-        if(this._rolloverAmount !== null) {
-            return [this._rolloverTransaction(this._rolloverAmount, date), ...transactions];
+        if(this._rolloverAmountFunc !== null) {
+            return [this._rolloverTransaction(this._rolloverAmountFunc(), date), ...transactions];
         } else {
             return transactions;
         }
