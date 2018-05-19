@@ -18,7 +18,7 @@ export default class TransactionHistory {
 
     inMonthByDay(date) {
         return this._transactionGroups(this._transactions, date).map(
-            (group) => (new TransactionsOnDay(group[0].occurredAt(), group))
+            (group) => this._transactionsByDay(group)
         );
     }
 
@@ -64,12 +64,16 @@ export default class TransactionHistory {
             }
             group.push(transaction);
         });
-        return Array.from(groups.values()).sort();
+        return Array.from(groups.values());
     }
 
     _withRollover(transactions, date) {
         if(this._rolloverAmountFunc !== null) {
-            return [this._rolloverTransaction(this._rolloverAmountFunc(), date), ...transactions];
+            const rollover = this._rolloverTransaction(
+                this._rolloverAmountFunc(),
+                date
+            );
+            return [rollover, ...transactions];
         } else {
             return transactions;
         }
@@ -92,7 +96,7 @@ export default class TransactionHistory {
 
     _oldestFirst(transactions) {
         return Array.from(transactions).sort(
-            (t1, t2) => t2.occurredAt() - t1.occurredAt()
+            (t1, t2) => t1.occurredAt() - t2.occurredAt()
         );
     }
 }
