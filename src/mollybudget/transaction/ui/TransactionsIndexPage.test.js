@@ -95,18 +95,4 @@ describe('TransactionsIndexPage', () => {
         expect(cols.at(6).hasClass('TransactionsIndexPage-total--gain')).toBeTruthy();
         expect(cols.at(13).hasClass('TransactionsIndexPage-total--loss')).toBeTruthy();
     });
-
-    it('renders an informative message when there are no transactions', () => {
-        const transactionHistory = new TransactionHistory([]);
-        const transactionsIndexView = new TransactionsIndexView(
-            new Date(),
-            transactionHistory
-        );
-
-        const transactionsIndexPage = shallow(
-            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
-        />);
-
-        expect(transactionsIndexPage.find('p').text()).toBe("You haven't added any transactions.");
-    });
 });
