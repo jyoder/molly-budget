@@ -6,13 +6,13 @@ import { formatCurrency } from 'mollybudget/format/CurrencyFormat';
 
 
 export default class TransactionsIndexView {
-    constructor(month, transactionHistory) {
-        this._month = month;
+    constructor(date, transactionHistory) {
+        this._date = date;
         this._transactionHistory = transactionHistory;
     }
 
     transactionDayViews() {
-        return this._transactionHistory.inMonthByDay(this._month).map(
+        return this._transactionHistory.inMonthByDay(this._date).map(
             (transactionsOnDay) => new TransactionDayView(transactionsOnDay)
         );
     }

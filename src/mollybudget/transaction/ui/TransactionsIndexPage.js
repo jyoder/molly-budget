@@ -10,11 +10,7 @@ import 'mollybudget/common/ui/Page.css';
 
 class TransactionsIndexPage extends React.Component {
     render() {
-        if(this.props.transactionsIndexView.transactionDayViews().length > 0) {
-            return this._transactionsTable();
-        } else {
-            return this._noTransactionsMessage();
-        }
+        return this._transactionsTable();
     }
 
     _transactionsTable() {
@@ -27,14 +23,6 @@ class TransactionsIndexPage extends React.Component {
                 </Table>
             </section>
         );
-    }
-
-    _noTransactionsMessage() {
-        return(
-            <section className="Page">
-                <p className="lead">You haven't added any transactions.</p>
-            </section>
-        )
     }
 
     _transactionRowsByDay() {

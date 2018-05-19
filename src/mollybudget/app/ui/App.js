@@ -33,6 +33,7 @@ class App extends React.Component {
                 <AppRoutes
                     appStore={this.props.appStore}
                     budget={this._budget()}
+                    dateSnapshot={new Date()}
                     location={this.props.location}
                 />
                 </PageTransition>
@@ -41,7 +42,7 @@ class App extends React.Component {
     }
 
     _budget() {
-        return Budget.create(
+        return new Budget(
             this.props.appStore.dailyBudgetStore().dailyBudgets(),
             this.props.appStore.transactionStore().transactions()
         );

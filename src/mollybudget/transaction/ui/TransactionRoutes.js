@@ -5,14 +5,13 @@ import { Switch, Route } from 'react-router-dom';
 
 import TransactionsIndexPage from 'mollybudget/transaction/ui/TransactionsIndexPage';
 import TransactionAmountPage from 'mollybudget/transaction/ui/TransactionAmountPage';
-
 import TransactionsIndexView from 'mollybudget/transaction/ui/TransactionsIndexView';
 import TransactionHistory from 'mollybudget/transaction/model/TransactionHistory';
 
 import ValueStore from 'mollybudget/common/model/ValueStore';
 
 
-class TransactionRoutesPage extends React.Component {
+class TransactionRoutes extends React.Component {
     constructor(props) {
         super(props);
 
@@ -44,17 +43,21 @@ class TransactionRoutesPage extends React.Component {
 
     _transactionsIndexView() {
         return new TransactionsIndexView(
-            (new Date()).getMonth(),
-            new TransactionHistory(
-                this.props.transactionStore.transactions()
+            this.props.dateSnapshot,
+            TransactionHistory.createWithRollover(
+                this.props.dateSnapshot,
+                this.props.transactionStore.transactions(),
+                this.props.budget
             )
         );
     }
 }
 
-TransactionRoutesPage.propTypes = {
+TransactionRoutes.propTypes = {
     transactionStore: PropTypes.object.isRequired,
+    budget: PropTypes.object.isRequired,
+    dateSnapshot: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
 
-export default observer(TransactionRoutesPage);
+export default observer(TransactionRoutes);

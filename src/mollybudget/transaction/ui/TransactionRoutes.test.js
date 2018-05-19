@@ -10,9 +10,16 @@ import TransactionsIndexPage from 'mollybudget/transaction/ui/TransactionsIndexP
 describe('TransactionRoutes', () => {
     it('renders TransactionsIndexPage when the user navigates to /transactions', () => {
         const transactionStore = { transactions: jest.fn(() => []) };
+        const budget = { totalToDate: jest.fn(() => 100.00) };
         const wrapper = mount(
             <MemoryRouter initialEntries={['/transactions']}>
-                <TransactionRoutes transactionStore={transactionStore} history={{}} location={{}}/>
+                <TransactionRoutes
+                    transactionStore={transactionStore}
+                    budget={budget}
+                    dateSnapshot={new Date()}
+                    history={{}}
+                    location={{}}
+                />
             </MemoryRouter>
         );
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(0);
@@ -20,9 +27,16 @@ describe('TransactionRoutes', () => {
     });
 
     it('renders TransactionAmountPage when the user navigates to /transactions/new', () => {
+        const budget = { totalToDate: jest.fn(() => 100.00) };
         const wrapper = mount(
             <MemoryRouter initialEntries={['/transactions/new']}>
-                <TransactionRoutes transactionStore={{}} history={{}} location={{}}/>
+                <TransactionRoutes
+                    transactionStore={{}}
+                    budget={budget}
+                    dateSnapshot={new Date()}
+                    history={{}}
+                    location={{}}
+                />
             </MemoryRouter>
         );
         expect(wrapper.find(TransactionAmountPage)).toHaveLength(1);

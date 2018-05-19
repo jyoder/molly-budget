@@ -23,6 +23,10 @@ describe('toIcon', () => {
     });
 
     it('returns the question icon for an unknown category', () => {
+        expect(CategoryIconMapper.toIcon('Rollover')).toBe('angle-double-right');
+    });
+
+    it('returns the question icon for an unknown category', () => {
         expect(CategoryIconMapper.toIcon('Barf')).toBe('question');
     });
 });

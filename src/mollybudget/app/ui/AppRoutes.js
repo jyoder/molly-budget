@@ -16,6 +16,7 @@ class AppRoutes extends React.Component {
                     <BudgetSummaryPage
                         user={this.props.appStore.user()}
                         budget={this.props.budget}
+                        dateSnapshot={this.props.dateSnapshot}
                         history={history}
                         location={this.props.location}
                     />)}
@@ -24,6 +25,8 @@ class AppRoutes extends React.Component {
                 <Route path="/transactions" render={({ history }) => (
                     <TransactionRoutes
                         transactionStore={this.props.appStore.transactionStore()}
+                        budget={this.props.budget}
+                        dateSnapshot={this.props.dateSnapshot}
                         history={history}
                         location={this.props.location}
                     />)}
@@ -42,6 +45,7 @@ class AppRoutes extends React.Component {
 AppRoutes.propTypes = {
     appStore: PropTypes.object.isRequired,
     budget: PropTypes.object.isRequired,
+    dateSnapshot: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired
 };
 

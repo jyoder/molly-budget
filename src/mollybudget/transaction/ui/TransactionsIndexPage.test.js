@@ -16,13 +16,15 @@ describe('TransactionsIndexPage', () => {
         const transaction3 = new Transaction('id3', 40.00, new Date('2018-03-06T11:25:12.000Z'), 'General');
         const transactionHistory = new TransactionHistory([transaction1, transaction2, transaction3]);
         const transactionsIndexView = new TransactionsIndexView(
-            transaction1.occurredAt().getMonth(),
+            transaction1.occurredAt(),
             transactionHistory
         );
 
         const transactionsIndexPage = shallow(
-            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
-        />);
+            <TransactionsIndexPage
+                transactionsIndexView={transactionsIndexView}
+            />
+        );
         
         const cols = transactionsIndexPage.find('td');
         expect(cols).toHaveLength(17);
@@ -31,11 +33,11 @@ describe('TransactionsIndexPage', () => {
         
         expect(cols.at(1).children().props().name).toBe('dollar');
         expect(cols.at(2).text()).toBe('General');
-        expect(cols.at(3).text()).toBe('$40.00');
+        expect(cols.at(3).text()).toBe('$30.00');
 
         expect(cols.at(4).children().props().name).toBe('dollar');
         expect(cols.at(5).text()).toBe('General');
-        expect(cols.at(6).text()).toBe('$30.00');
+        expect(cols.at(6).text()).toBe('$40.00');
         
         expect(cols.at(8).text()).toBe('Total');
         expect(cols.at(9).text()).toBe('$70.00');
@@ -55,13 +57,15 @@ describe('TransactionsIndexPage', () => {
         const income = new Transaction('id2', 30.00, new Date('2018-03-06T11:24:12.000Z'), 'Income');
         const transactionHistory = new TransactionHistory([expense, income]);
         const transactionsIndexView = new TransactionsIndexView(
-            expense.occurredAt().getMonth(),
+            expense.occurredAt(),
             transactionHistory
         );
 
         const transactionsIndexPage = shallow(
-            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
-        />);
+            <TransactionsIndexPage
+                transactionsIndexView={transactionsIndexView}
+            />
+        );
         
         const cols = transactionsIndexPage.find('td');
     
@@ -77,30 +81,18 @@ describe('TransactionsIndexPage', () => {
         const income = new Transaction('id2', 30.00, new Date('2018-03-06T11:24:12.000Z'), 'Income');
         const transactionHistory = new TransactionHistory([expense, income]);
         const transactionsIndexView = new TransactionsIndexView(
-            expense.occurredAt().getMonth(),
+            expense.occurredAt(),
             transactionHistory
         );
 
         const transactionsIndexPage = shallow(
-            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
-        />);
+            <TransactionsIndexPage
+                transactionsIndexView={transactionsIndexView}
+            />
+        );
         
         const cols = transactionsIndexPage.find('td');
         expect(cols.at(6).hasClass('TransactionsIndexPage-total--gain')).toBeTruthy();
         expect(cols.at(13).hasClass('TransactionsIndexPage-total--loss')).toBeTruthy();
-    });
-
-    it('renders an informative message when there are no transactions', () => {
-        const transactionHistory = new TransactionHistory([]);
-        const transactionsIndexView = new TransactionsIndexView(
-            4,
-            transactionHistory
-        );
-
-        const transactionsIndexPage = shallow(
-            <TransactionsIndexPage transactionsIndexView={transactionsIndexView}
-        />);
-
-        expect(transactionsIndexPage.find('p').text()).toBe("You haven't added any transactions.");
     });
 });
