@@ -31,7 +31,7 @@ describe('getConfig', () => {
 function _developmentConfig() {
     return {
         apiKey: "AIzaSyCnUdXPav7xCIxR-pG7qlGfHwiCOAjnFmY",
-        authDomain: "molly-budget-development.firebaseapp.com",
+        authDomain: "app.development.mollybudget.com",
         databaseURL: "https://molly-budget-development.firebaseio.com",
         projectId: "molly-budget-development",
         storageBucket: "molly-budget-development.appspot.com",
@@ -42,7 +42,7 @@ function _developmentConfig() {
 function _testConfig() {
     return {
         apiKey: "AIzaSyCUu0Nh7x5-XP2KK2F2ehVFtm1F54lmzHM",
-        authDomain: "molly-budget-test.firebaseapp.com",
+        authDomain: "app.test.mollybudget.com",
         databaseURL: "https://molly-budget-test.firebaseio.com",
         projectId: "molly-budget-test",
         storageBucket: "molly-budget-test.appspot.com",
@@ -53,7 +53,7 @@ function _testConfig() {
 function _productionConfig() {
     return {
         apiKey: "AIzaSyCx_fy73W9aopr9CZZYthjMUY6U1MX4-MU",
-        authDomain: "molly-budget.firebaseapp.com",
+        authDomain: "app.mollybudget.com",
         databaseURL: "https://molly-budget.firebaseio.com",
         projectId: "molly-budget",
         storageBucket: "molly-budget.appspot.com",
