@@ -95,4 +95,47 @@ describe('TransactionsIndexPage', () => {
         expect(listItems.at(2).find('.TransactionsIndexPage-total').hasClass('TransactionsIndexPage-total--gain')).toBeTruthy();
         expect(listItems.at(5).find('.TransactionsIndexPage-total').hasClass('TransactionsIndexPage-total--loss')).toBeTruthy();
     });
+
+    it('allows transactions to be swiped, revealing a delete button', () => {
+        const expense = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+        const transactionHistory = new TransactionHistory([expense]);
+        const transactionsIndexView = new TransactionsIndexView(
+            expense.occurredAt(),
+            transactionHistory
+        );
+
+        const transactionsIndexPage = shallow(
+            <TransactionsIndexPage
+                transactionsIndexView={transactionsIndexView}
+            />
+        );
+        
+        const listItems = transactionsIndexPage.find('li');
+        expect(listItems).toHaveLength(3);
+        expect(listItems.at(0).find('Swipeout')).toHaveLength(0);
+        expect(listItems.at(1).find('Swipeout')).toHaveLength(1);
+        expect(listItems.at(2).find('Swipeout')).toHaveLength(0);
+    });
+
+    it('does not allow a rollover transaction to be swiped', () => {
+        const expense = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+        const budget = { totalToDate: jest.fn(() => 10.00) };
+        const transactionHistory = TransactionHistory.createWithRollover(expense.occurredAt(), [expense], budget);
+        const transactionsIndexView = new TransactionsIndexView(
+            expense.occurredAt(),
+            transactionHistory
+        );
+
+        const transactionsIndexPage = shallow(
+            <TransactionsIndexPage
+                transactionsIndexView={transactionsIndexView}
+            />
+        );
+        
+        const listItems = transactionsIndexPage.find('li');
+        expect(listItems).toHaveLength(6);
+        expect(listItems.at(3).find('Swipeout')).toHaveLength(0);
+        expect(listItems.at(4).find('Swipeout')).toHaveLength(0);
+        expect(listItems.at(5).find('Swipeout')).toHaveLength(0);
+    });
 });

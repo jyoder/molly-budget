@@ -3,6 +3,9 @@ import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 
+import Swipeout from 'rc-swipeout';
+import 'rc-swipeout/assets/index.css';
+
 import 'mollybudget/transaction/ui/TransactionsIndexPage.css';
 import 'mollybudget/common/ui/Page.css';
 
@@ -67,20 +70,55 @@ class TransactionsIndexPage extends React.Component {
 
     _transactionRow(transactionRowView) {
         return(
-            <li key={transactionRowView.key()} className="TransactionsIndexPage-transaction">
+            <li key={transactionRowView.key()}>
+                {this._transaction(transactionRowView)}
+            </li>
+        );
+    }
+
+    _transaction(transactionRowView) {
+        if(transactionRowView.editable()) {
+            return this._editableTransaction(transactionRowView);
+        } else {
+            return this._uneditableTransaction(transactionRowView);
+        }
+    }
+
+    _editableTransaction(transactionRowView) {
+        return this._withSwipeout(this._uneditableTransaction(transactionRowView));
+    }
+
+    _uneditableTransaction(transactionRowView) {
+        return(
+            <div className="TransactionsIndexPage-transaction">
                 <span className="TransactionsIndexPage-categoryIcon">
                     <FontAwesome name={transactionRowView.categoryIcon()} />
                 </span>
                 
                 <span className="TransactionsIndexPage-category">
-                     {transactionRowView.category()}
+                    {transactionRowView.category()}
                 </span>
                 
                 <span className={`TransactionsIndexPage-amount ${transactionRowView.amountClass()}`}>
                     {transactionRowView.amount()}
                 </span>
-            </li>
+            </div>
         );
+    }
+
+    _withSwipeout(element) {
+        return(
+            <Swipeout
+                right={[
+                    {
+                        text: 'delete',
+                        style: { backgroundColor: 'red', color: 'white' }
+                    }
+                ]}
+            >
+                {element}
+            </Swipeout>
+        )
     }
 }
 

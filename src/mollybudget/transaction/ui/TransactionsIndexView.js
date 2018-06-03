@@ -86,4 +86,8 @@ export class TransactionRowView {
     categoryIcon() {
         return CategoryIconMapper.toIcon(this._transaction.category());
     }
+
+    editable() {
+        return this._transaction.category() !== 'Rollover';
+    }
 }
