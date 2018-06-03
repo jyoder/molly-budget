@@ -9,7 +9,6 @@ import 'rc-swipeout/assets/index.css';
 import 'mollybudget/transaction/ui/TransactionsIndexPage.css';
 import 'mollybudget/common/ui/Page.css';
 
-
 class TransactionsIndexPage extends React.Component {
     render() {
         return(
@@ -44,26 +43,29 @@ class TransactionsIndexPage extends React.Component {
 
     _dateRow(transactionDayView) {
         return(
-            <li key={transactionDayView.dateKey()}
-                className="TransactionsIndexPage-transaction TransactionsIndexPage-date">
+            <li key={transactionDayView.dateKey()} className="TransactionsIndexPage-date">
+                <div className="TransactionsIndexPage-transaction">
                     {transactionDayView.date()}
+                </div>
             </li>
         );
     }
 
     _totalRow(transactionDayView) {
         return(
-            <li key={transactionDayView.totalKey()} className="TransactionsIndexPage-transaction">
-                <span className="TransactionsIndexPage-categoryIcon">
-                </span>
+            <li key={transactionDayView.totalKey()}>
+                <div className="TransactionsIndexPage-transaction">
+                    <span className="TransactionsIndexPage-categoryIcon">
+                    </span>
                 
-                <span className="TransactionsIndexPage-totalLabel">
-                    Total
-                </span>
+                    <span className="TransactionsIndexPage-totalLabel">
+                        Total
+                    </span>
                 
-                <span className={`TransactionsIndexPage-total ${transactionDayView.totalClass()}`}>
-                    {transactionDayView.total()}
-                </span>
+                    <span className={`TransactionsIndexPage-total ${transactionDayView.totalClass()}`}>
+                        {transactionDayView.total()}
+                    </span>
+                </div>
             </li>
         );
     }
