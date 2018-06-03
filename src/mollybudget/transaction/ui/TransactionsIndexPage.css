@@ -4,9 +4,23 @@
 .TransactionsIndexPage {
     margin: auto;
     max-width: 40em;
+    justify-content: center;
     
     display: flex;
     flex: 1;
+}
+
+.TransactionsIndexPage-transactionsList {
+    width: 100%;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.TransactionsIndexPage-transaction {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: gainsboro;
+    padding: 8px;
 }
 
 .TransactionsIndexPage-date {
@@ -15,11 +29,15 @@
 }
 
 .TransactionsIndexPage-totalLabel {
+    display: inline-block;
+    width: 44%;
     text-align: left;
     font-weight: bold;
 }
 
 .TransactionsIndexPage-total {
+    display: inline-block;
+    width: 50%;
     text-align: right;
     font-weight: bold;
 }
@@ -33,15 +51,20 @@
 }
 
 .TransactionsIndexPage-categoryIcon {
-    width: 1em;
-    text-align: center;
+    display: inline-block;
+    width: 6%;
+    text-align: left;
 }
 
 .TransactionsIndexPage-category {
+    display: inline-block;
+    width: 44%;
     text-align: left;
 }
 
 .TransactionsIndexPage-amount {
+    display: inline-block;
+    width: 50%;
     text-align: right;
 }
 

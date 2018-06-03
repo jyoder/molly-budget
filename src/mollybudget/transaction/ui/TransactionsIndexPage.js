@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
-import { Table } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 
 import 'mollybudget/transaction/ui/TransactionsIndexPage.css';
@@ -10,17 +9,11 @@ import 'mollybudget/common/ui/Page.css';
 
 class TransactionsIndexPage extends React.Component {
     render() {
-        return this._transactionsTable();
-    }
-
-    _transactionsTable() {
         return(
             <section className="TransactionsIndexPage">
-                <Table size="sm">
-                    <tbody>
-                        {this._transactionRowsByDay()}
-                    </tbody>
-                </Table>
+                <ul className="TransactionsIndexPage-transactionsList">
+                    {this._transactionRowsByDay()}
+                </ul>
             </section>
         );
     }
@@ -48,42 +41,45 @@ class TransactionsIndexPage extends React.Component {
 
     _dateRow(transactionDayView) {
         return(
-            <tr key={transactionDayView.dateKey()}>
-                <td className="TransactionsIndexPage-date" colSpan="3">
+            <li key={transactionDayView.dateKey()}
+                className="TransactionsIndexPage-transaction TransactionsIndexPage-date">
                     {transactionDayView.date()}
-                </td>
-            </tr>
+            </li>
         );
     }
 
     _totalRow(transactionDayView) {
         return(
-            <tr key={transactionDayView.totalKey()}>
-                <td className="TransactionsIndexPage-categoryIcon">
-                </td>
-                <td className="TransactionsIndexPage-totalLabel">
+            <li key={transactionDayView.totalKey()} className="TransactionsIndexPage-transaction">
+                <span className="TransactionsIndexPage-categoryIcon">
+                </span>
+                
+                <span className="TransactionsIndexPage-totalLabel">
                     Total
-                </td>
-                <td className={`TransactionsIndexPage-total ${transactionDayView.totalClass()}`}>
+                </span>
+                
+                <span className={`TransactionsIndexPage-total ${transactionDayView.totalClass()}`}>
                     {transactionDayView.total()}
-                </td>
-            </tr>
+                </span>
+            </li>
         );
     }
 
     _transactionRow(transactionRowView) {
         return(
-            <tr key={transactionRowView.key()}>
-                <td className="TransactionsIndexPage-categoryIcon">
+            <li key={transactionRowView.key()} className="TransactionsIndexPage-transaction">
+                <span className="TransactionsIndexPage-categoryIcon">
                     <FontAwesome name={transactionRowView.categoryIcon()} />
-                </td>
-                <td className="TransactionsIndexPage-category">
+                </span>
+                
+                <span className="TransactionsIndexPage-category">
                      {transactionRowView.category()}
-                </td>
-                <td className={`TransactionsIndexPage-amount ${transactionRowView.amountClass()}`}>
+                </span>
+                
+                <span className={`TransactionsIndexPage-amount ${transactionRowView.amountClass()}`}>
                     {transactionRowView.amount()}
-                </td>
-            </tr>
+                </span>
+            </li>
         );
     }
 }
