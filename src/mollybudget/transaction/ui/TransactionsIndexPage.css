@@ -1,5 +1,10 @@
 @import "~mollybudget/common/ui/Theme.css";
 
+:root {
+    --categoryIconWidth: 7%;
+    --amountWidth: 50%;
+    --categoryWidth: calc(100% - (var(--categoryIconWidth) + var(--amountWidth)));
+}
 
 .TransactionsIndexPage {
     margin: auto;
@@ -30,14 +35,14 @@
 
 .TransactionsIndexPage-totalLabel {
     display: inline-block;
-    width: 44%;
+    width: var(--categoryWidth);
     text-align: left;
     font-weight: bold;
 }
 
 .TransactionsIndexPage-total {
     display: inline-block;
-    width: 50%;
+    width: var(--amountWidth);
     text-align: right;
     font-weight: bold;
 }
@@ -52,19 +57,19 @@
 
 .TransactionsIndexPage-categoryIcon {
     display: inline-block;
-    width: 6%;
+    width: var(--categoryIconWidth);
     text-align: left;
 }
 
 .TransactionsIndexPage-category {
     display: inline-block;
-    width: 44%;
+    width: var(--categoryWidth);
     text-align: left;
 }
 
 .TransactionsIndexPage-amount {
     display: inline-block;
-    width: 50%;
+    width: var(--amountWidth);
     text-align: right;
 }
 
