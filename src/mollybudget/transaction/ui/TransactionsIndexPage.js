@@ -113,7 +113,7 @@ class TransactionsIndexPage extends React.Component {
             <Swipeout
                 right={[
                     {
-                        text: 'delete',
+                        text: 'Delete',
                         style: { backgroundColor: 'red', color: 'white' }
                     }
                 ]}
