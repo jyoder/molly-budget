@@ -1,12 +1,31 @@
 @import "~mollybudget/common/ui/Theme.css";
 
+:root {
+    --categoryIconWidth: 7%;
+    --amountWidth: 50%;
+    --categoryWidth: calc(100% - (var(--categoryIconWidth) + var(--amountWidth)));
+}
 
 .TransactionsIndexPage {
     margin: auto;
     max-width: 40em;
+    justify-content: center;
     
     display: flex;
     flex: 1;
+}
+
+.TransactionsIndexPage-transactionsList {
+    width: 100%;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.TransactionsIndexPage-transaction {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: gainsboro;
+    padding: 8px;
 }
 
 .TransactionsIndexPage-date {
@@ -15,11 +34,15 @@
 }
 
 .TransactionsIndexPage-totalLabel {
+    display: inline-block;
+    width: var(--categoryWidth);
     text-align: left;
     font-weight: bold;
 }
 
 .TransactionsIndexPage-total {
+    display: inline-block;
+    width: var(--amountWidth);
     text-align: right;
     font-weight: bold;
 }
@@ -33,15 +56,20 @@
 }
 
 .TransactionsIndexPage-categoryIcon {
-    width: 1em;
-    text-align: center;
+    display: inline-block;
+    width: var(--categoryIconWidth);
+    text-align: left;
 }
 
 .TransactionsIndexPage-category {
+    display: inline-block;
+    width: var(--categoryWidth);
     text-align: left;
 }
 
 .TransactionsIndexPage-amount {
+    display: inline-block;
+    width: var(--amountWidth);
     text-align: right;
 }
 

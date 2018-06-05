@@ -169,4 +169,18 @@ describe('TransactionRowView', () => {
             expect(rowView.categoryIcon()).toBe('dollar');
         });
     });
+
+    describe('editable', () => {
+        it('returns true if the transaction category is not "Rollover"', () => {
+            const transaction = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'General');
+            const rowView = new TransactionRowView(transaction);
+            expect(rowView.editable()).toBeTruthy();
+        });
+
+        it('returns false if the transaction category is "Rollover"', () => {
+            const transaction = new Transaction('id1', 20.00, new Date('2018-03-05T11:24:12.000Z'), 'Rollover');
+            const rowView = new TransactionRowView(transaction);
+            expect(rowView.editable()).toBeFalsy();
+        });
+    });
 });
